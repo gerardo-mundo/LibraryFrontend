@@ -1,0 +1,9 @@
+<div class="card flex justify-content-center align-items-center">
+    <ng-template [ngIf]="!checked">
+        <span class="pi pi-sun mr-2"></span>
+    </ng-template>
+    <p-inputSwitch [(ngModel)]="checked" (onChange)="changeTheme()"></p-inputSwitch>
+    <ng-template [ngIf]="checked">
+        <span class="pi pi-moon ml-2"></span>
+    </ng-template>
+</div>

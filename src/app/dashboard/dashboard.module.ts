@@ -8,7 +8,8 @@ import { ThesisPageComponent } from './pages/thesis-page/thesis-page.component';
 import { PublicationsPageComponent } from './pages/publications-page/publications-page.component';
 import { LoansPageComponent } from './pages/loans-page/loans-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-
+import { SharedModule } from '../shared/shared.module';
+import { PrimeNgModule } from '../primeNg/prime-ng.module';
 
 @NgModule({
   declarations: [
@@ -17,11 +18,8 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
     ThesisPageComponent,
     PublicationsPageComponent,
     LoansPageComponent,
-    RegisterPageComponent
+    RegisterPageComponent,
   ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule
-  ]
+  imports: [CommonModule, DashboardRoutingModule, SharedModule, PrimeNgModule],
 })
-export class DashboardModule { }
+export class DashboardModule {}
