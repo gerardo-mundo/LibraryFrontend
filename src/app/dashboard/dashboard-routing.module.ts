@@ -6,6 +6,23 @@ import { ThesisPageComponent } from './pages/thesis-page/thesis-page.component';
 import { PublicationsPageComponent } from './pages/publications-page/publications-page.component';
 import { LoansPageComponent } from './pages/loans-page/loans-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { AddBookPageComponent } from './pages/books-page/add-book-page.component';
+import { EditBookPageComponent } from './pages/books-page/edit-book-page.component';
+import { DeleteBookPageComponent } from './pages/books-page/delete-book-page.component';
+import { AddThesisPageComponent } from './pages/thesis-page/add-thesis-page.component';
+import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis-page.component';
+import { DeleteThesisPageComponent } from './pages/thesis-page/delete-thesis-page.component';
+import { AddPublicationPageComponent } from './pages/publications-page/add-publication-page.component';
+import { EditPublicationPageComponent } from './pages/publications-page/edit-publication-page.component';
+import { DeletePublicationPageComponent } from './pages/publications-page/delete-publication-page.component';
+import { NewLoanPageComponent } from './pages/loans-page/new-loan-page.component';
+import { DeleteLoanPageComponent } from './pages/loans-page/delete-loan-page.component';
+import { RegisteredStudentsPageComponent } from './pages/register-page/registered-students-page.component';
+import { RegisteredProfessorsPageComponent } from './pages/register-page/registered-professors-page.component';
+import { RegisteredAdministrativesPageComponent } from './pages/register-page/registered-administratives-page.component';
+import { NewAccountPageComponent } from './pages/accounts-page/new-account-page.component';
+import { RegisteredAccountsPageComponent } from './pages/accounts-page/registered-accounts-page.component';
+import { ChangePasswordPageComponent } from './pages/accounts-page/change-password-page.component';
 
 const routes: Routes = [
   {
@@ -13,10 +30,39 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       { path: 'books', component: BooksPageComponent },
+      { path: 'add-book', component: AddBookPageComponent },
+      { path: 'edit-book', component: EditBookPageComponent },
+      { path: 'delete-book', component: DeleteBookPageComponent },
       { path: 'thesis', component: ThesisPageComponent },
+      { path: 'add-thesis', component: AddThesisPageComponent },
+      { path: 'edit-thesis', component: EditThesisPageComponent },
+      { path: 'delete-thesis', component: DeleteThesisPageComponent },
       { path: 'publications', component: PublicationsPageComponent },
+      { path: 'add-publication', component: AddPublicationPageComponent },
+      { path: 'edit-publication', component: EditPublicationPageComponent },
+      { path: 'delete-publication', component: DeletePublicationPageComponent },
       { path: 'loans', component: LoansPageComponent },
-      { path: 'register', component: RegisterPageComponent },
+      { path: 'new-loan', component: NewLoanPageComponent },
+      { path: 'delete-loan', component: DeleteLoanPageComponent },
+      { path: 'register-user', component: RegisterPageComponent },
+      {
+        path: 'registered-students',
+        component: RegisteredStudentsPageComponent,
+      },
+      {
+        path: 'registered-professors',
+        component: RegisteredProfessorsPageComponent,
+      },
+      {
+        path: 'registered-administratives',
+        component: RegisteredAdministrativesPageComponent,
+      },
+      { path: 'new-account', component: NewAccountPageComponent },
+      {
+        path: 'registered-accounts',
+        component: RegisteredAccountsPageComponent,
+      },
+      { path: 'change-password', component: ChangePasswordPageComponent },
     ],
   },
 ];
