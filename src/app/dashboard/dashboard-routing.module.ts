@@ -23,6 +23,7 @@ import { RegisteredAdministrativesPageComponent } from './pages/register-page/re
 import { NewAccountPageComponent } from './pages/accounts-page/new-account-page.component';
 import { RegisteredAccountsPageComponent } from './pages/accounts-page/registered-accounts-page.component';
 import { ChangePasswordPageComponent } from './pages/accounts-page/change-password-page.component';
+import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 
 const routes: Routes = [
   {
@@ -63,6 +64,7 @@ const routes: Routes = [
         component: RegisteredAccountsPageComponent,
       },
       { path: 'change-password', component: ChangePasswordPageComponent },
+      { path: 'welcome', component: WelcomePageComponent },
     ],
   },
 ];

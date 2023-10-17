@@ -28,6 +28,7 @@ import { RegisteredProfessorsPageComponent } from './pages/register-page/registe
 import { NewAccountPageComponent } from './pages/accounts-page/new-account-page.component';
 import { RegisteredAccountsPageComponent } from './pages/accounts-page/registered-accounts-page.component';
 import { ChangePasswordPageComponent } from './pages/accounts-page/change-password-page.component';
+import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { ChangePasswordPageComponent } from './pages/accounts-page/change-passwo
     NewAccountPageComponent,
     RegisteredAccountsPageComponent,
     ChangePasswordPageComponent,
+    WelcomePageComponent,
   ],
   imports: [CommonModule, DashboardRoutingModule, SharedModule, PrimeNgModule],
 })
