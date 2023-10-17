@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
-import { BooksPageComponent } from './pages/books-page/books-page.component';
+import { BooksPageComponent } from './pages/books-page/book-list/books-page.component';
 import { ThesisPageComponent } from './pages/thesis-page/thesis-page.component';
 import { PublicationsPageComponent } from './pages/publications-page/publications-page.component';
 import { LoansPageComponent } from './pages/loans-page/loans-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
-import { AddBookPageComponent } from './pages/books-page/add-book-page.component';
-import { EditBookPageComponent } from './pages/books-page/edit-book-page.component';
-import { DeleteBookPageComponent } from './pages/books-page/delete-book-page.component';
+import { AddBookPageComponent } from './pages/books-page/add-book/add-book-page.component';
+import { EditBookPageComponent } from './pages/books-page/edit-book/edit-book-page.component';
+import { DeleteBookPageComponent } from './pages/books-page/delete-book/delete-book-page.component';
 import { AddThesisPageComponent } from './pages/thesis-page/add-thesis-page.component';
 import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis-page.component';
 import { DeleteThesisPageComponent } from './pages/thesis-page/delete-thesis-page.component';

@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { LayoutComponent } from './layout/layout.component';
-import { BooksPageComponent } from './pages/books-page/books-page.component';
+import { BooksPageComponent } from './pages/books-page/book-list/books-page.component';
 import { ThesisPageComponent } from './pages/thesis-page/thesis-page.component';
 import { PublicationsPageComponent } from './pages/publications-page/publications-page.component';
 import { LoansPageComponent } from './pages/loans-page/loans-page.component';
@@ -11,9 +11,9 @@ import { RegisterPageComponent } from './pages/register-page/register-page.compo
 import { SharedModule } from '../shared/shared.module';
 import { PrimeNgModule } from '../primeNg/prime-ng.module';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
-import { AddBookPageComponent } from './pages/books-page/add-book-page.component';
-import { EditBookPageComponent } from './pages/books-page/edit-book-page.component';
-import { DeleteBookPageComponent } from './pages/books-page/delete-book-page.component';
+import { AddBookPageComponent } from './pages/books-page/add-book/add-book-page.component';
+import { EditBookPageComponent } from './pages/books-page/edit-book/edit-book-page.component';
+import { DeleteBookPageComponent } from './pages/books-page/delete-book/delete-book-page.component';
 import { AddThesisPageComponent } from './pages/thesis-page/add-thesis-page.component';
 import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis-page.component';
 import { DeleteThesisPageComponent } from './pages/thesis-page/delete-thesis-page.component';
