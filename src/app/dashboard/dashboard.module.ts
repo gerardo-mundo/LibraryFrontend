@@ -29,6 +29,7 @@ import { NewAccountPageComponent } from './pages/accounts-page/new-account-page.
 import { RegisteredAccountsPageComponent } from './pages/accounts-page/registered-accounts-page.component';
 import { ChangePasswordPageComponent } from './pages/accounts-page/change-password-page.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,12 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
     ChangePasswordPageComponent,
     WelcomePageComponent,
   ],
-  imports: [CommonModule, DashboardRoutingModule, SharedModule, PrimeNgModule],
+  imports: [
+    CommonModule,
+    DashboardRoutingModule,
+    FormsModule,
+    SharedModule,
+    PrimeNgModule,
+  ],
 })
 export class DashboardModule {}
