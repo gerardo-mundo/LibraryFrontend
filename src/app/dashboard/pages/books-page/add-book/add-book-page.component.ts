@@ -5,4 +5,19 @@ import { Component } from '@angular/core';
   templateUrl: './add-book-page.component.html',
   styles: [],
 })
-export class AddBookPageComponent {}
+export class AddBookPageComponent {
+  /*
+  {
+    "title": "string",
+    "authorName": "string",
+    "authorSecondName": "string",
+    "lastName": "string",
+    "authorMotherName": "string",
+    "publisher": "string",
+    "adquisition": 0,
+    "year": 0,
+    "collection": "string",
+    "copies": 0
+  }
+*/
+}
