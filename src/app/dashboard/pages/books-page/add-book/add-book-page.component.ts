@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { errorsDisplayer, validatorFields } from 'src/app/helpers/validators';
 
 @Component({
   selector: 'app-add-book-page',
@@ -6,18 +8,35 @@ import { Component } from '@angular/core';
   styles: [],
 })
 export class AddBookPageComponent {
-  /*
-  {
-    "title": "string",
-    "authorName": "string",
-    "authorSecondName": "string",
-    "lastName": "string",
-    "authorMotherName": "string",
-    "publisher": "string",
-    "adquisition": 0,
-    "year": 0,
-    "collection": "string",
-    "copies": 0
+  public form: FormGroup = this.fb.group({
+    title: ['', [Validators.required]],
+    authorName: ['', [Validators.required]],
+    authorSecondName: [''],
+    lastName: ['', [Validators.required]],
+    authorMotherName: [''],
+    publisher: ['', [Validators.required]],
+    adquisition: [0, [Validators.required, Validators.minLength(4)]],
+    year: [0, [Validators.required, Validators.minLength(4)]],
+    collection: [''],
+    copies: [0, [Validators.required, Validators.min(1)]],
+  });
+
+  constructor(private fb: FormBuilder) {}
+
+  public onSave() {
+    if (this.form.invalid) {
+      this.form.markAllAsTouched();
+      return;
+    }
+
+    console.log(this.form.value);
   }
-*/
+
+  public isValidField(field: string): boolean | null {
+    return validatorFields(field, this.form);
+  }
+
+  public displayError(field: string): string | null {
+    return errorsDisplayer(field, this.form);
+  }
 }

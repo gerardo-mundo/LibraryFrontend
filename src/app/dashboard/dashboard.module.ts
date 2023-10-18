@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { LayoutComponent } from './layout/layout.component';
@@ -29,7 +30,6 @@ import { NewAccountPageComponent } from './pages/accounts-page/new-account-page.
 import { RegisteredAccountsPageComponent } from './pages/accounts-page/registered-accounts-page.component';
 import { ChangePasswordPageComponent } from './pages/accounts-page/change-password-page.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
-import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -61,8 +61,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     DashboardRoutingModule,
-    FormsModule,
     SharedModule,
     PrimeNgModule,
   ],
