@@ -16,7 +16,7 @@
                     id="authorName" />
                 <label htmlFor="authorName">Nombre del autor</label>
             </span>
-            <small class="ml-2 text-red-500">Este campo es necesario</small>
+            <small *ngIf="isValidField('authorName')" class="ml-2 text-red-500">{{displayError('authorName')}}</small>
         </div>
         <div class="w-full sm:w-auto">
             <span class="p-float-label mt-5">
@@ -30,7 +30,7 @@
                 <input formControlName="lastName" type="text" class="mx-2 w-full sm:w-auto" pInputText id="lastName" />
                 <label htmlFor="lastName">Apellido</label>
             </span>
-            <small class="ml-2 text-red-500">Este campo es necesario</small>
+            <small *ngIf="isValidField('lastName')" class="ml-2 text-red-500">{{displayError('lastName')}}</small>
         </div>
         <div class="w-full sm:w-auto">
             <span class="p-float-label mt-5">
@@ -45,7 +45,7 @@
                     id="publisher" />
                 <label htmlFor="publisher">Editorial</label>
             </span>
-            <small class="ml-2 text-red-500">Este campo es necesario</small>
+            <small *ngIf="isValidField('publisher')" class="ml-2 text-red-500">{{displayError('publisher')}}</small>
         </div>
         <div class="w-full sm:w-auto">
             <span class="p-float-label mt-5">
@@ -53,14 +53,14 @@
                     id="adquisition" />
                 <label htmlFor="adquisition">Adquisición</label>
             </span>
-            <small class="ml-2 text-red-500">Este campo es necesario</small>
+            <small *ngIf="isValidField('adquisition')" class="ml-2 text-red-500">{{displayError('adquisition')}}</small>
         </div>
         <div class="w-full sm:w-auto">
             <span class="p-float-label mt-5">
                 <input formControlName="year" type="text" class="mx-2 w-full sm:w-auto" pInputText id="year" />
                 <label htmlFor="year">Año</label>
             </span>
-            <small class="ml-2 text-red-500">Este campo es necesario</small>
+            <small *ngIf="isValidField('year')" class="ml-2 text-red-500">{{displayError('year')}}</small>
         </div>
         <div class="w-full sm:w-auto">
             <span class="p-float-label mt-5">
@@ -68,18 +68,15 @@
                     id="collection" />
                 <label htmlFor="collection">Colección</label>
             </span>
-            <small class="ml-2 text-red-500">Este campo es necesario</small>
+            <small *ngIf="isValidField('collection')" class="ml-2 text-red-500">{{displayError('collection')}}</small>
         </div>
         <div class="w-full sm:w-auto">
             <span class="p-float-label mt-5">
                 <input formControlName="copies" type="number" class="mx-2 w-full sm:w-auto" pInputText id="copies" />
                 <label htmlFor="copies">Copias</label>
             </span>
-            <small class="ml-2 text-red-500">Este campo es necesario</small>
+            <small *ngIf="isValidField('copies')" class="ml-2 text-red-500">{{displayError('copies')}}</small>
         </div>
     </div>
-    <div class="mt-4 w-full">
-        <button type="submit" label="Agregar" icon="pi pi-save" pButton pRipple class="sm:w-auto w-full">
-        </button>
-    </div>
+    <dashboard-add-button />
 </form>

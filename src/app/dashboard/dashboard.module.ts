@@ -30,6 +30,7 @@ import { NewAccountPageComponent } from './pages/accounts-page/new-account-page.
 import { RegisteredAccountsPageComponent } from './pages/accounts-page/registered-accounts-page.component';
 import { ChangePasswordPageComponent } from './pages/accounts-page/change-password-page.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
+import { AddButtonComponent } from './components/add-button/add-button.component';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
     RegisteredAccountsPageComponent,
     ChangePasswordPageComponent,
     WelcomePageComponent,
+    AddButtonComponent,
   ],
   imports: [
     CommonModule,
