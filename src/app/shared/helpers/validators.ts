@@ -1,4 +1,4 @@
-import { FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, ValidationErrors } from '@angular/forms';
 
 export const validatorFields = (
   field: string,
@@ -18,10 +18,24 @@ export const errorsDisplayer = (
   for (const key of Object.keys(errors)) {
     switch (key) {
       case 'required':
-        return 'Este campo es requerido';
+        return '* Este campo es requerido';
       case 'minlength':
-        return `La extensión mínima es de ${errors['minlength'].requiredLength}`;
+        return `* La extensión mínima es de ${errors['minlength'].requiredLength} caracteres`;
+      case 'cantBeZero':
+        return '* Debe ser mayor a cero';
     }
   }
+  return null;
+};
+
+export const cantBeZero = (control: FormControl): ValidationErrors | null => {
+  const value: number = control.value;
+
+  if (value <= 0) {
+    return {
+      cantBeZero: true,
+    };
+  }
+
   return null;
 };

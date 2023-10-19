@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { errorsDisplayer, validatorFields } from 'src/app/helpers/validators';
+
+import * as customValidators from 'src/app/shared/helpers/validators';
 
 @Component({
   selector: 'app-add-book-page',
@@ -18,7 +19,7 @@ export class AddBookPageComponent {
     adquisition: [0, [Validators.required, Validators.minLength(4)]],
     year: [0, [Validators.required, Validators.minLength(4)]],
     collection: [''],
-    copies: [0, [Validators.required, Validators.min(1)]],
+    copies: [0, [Validators.required, customValidators.cantBeZero]],
   });
 
   constructor(private fb: FormBuilder) {}
@@ -33,10 +34,10 @@ export class AddBookPageComponent {
   }
 
   public isValidField(field: string): boolean | null {
-    return validatorFields(field, this.form);
+    return customValidators.validatorFields(field, this.form);
   }
 
   public displayError(field: string): string | null {
-    return errorsDisplayer(field, this.form);
+    return customValidators.errorsDisplayer(field, this.form);
   }
 }
