@@ -20,7 +20,9 @@ export const errorsDisplayer = (
       case 'required':
         return '* Este campo es requerido';
       case 'minlength':
-        return `* La extensión mínima es de ${errors['minlength'].requiredLength} caracteres`;
+        return `* ${form.controls[field].value} no es una fecha válida`;
+      case 'maxlength':
+        return `* ${form.controls[field].value} no es una fecha válida`;
       case 'cantBeZero':
         return '* Debe ser mayor a cero';
     }

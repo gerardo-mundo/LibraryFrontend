@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Observable } from 'rxjs';
+import { Observable, catchError, throwError } from 'rxjs';
 
 import { environment } from 'src/app/environments/environment';
 import { IBook } from '../pages/books-page/interfaces/book.interface';
@@ -19,6 +19,18 @@ export class BooksService {
   public getBooks(): Observable<IBook[]> {
     return this.http.get<IBook[]>(
       `${this.baseUrl}/books?Page=${this.page}&RecordsPeerage=${this.recordsPeerPage}`
+    );
+  }
+
+  public postBook(book: IBook): Observable<IBook> {
+    if (book === null) {
+      throwError(() => new Error('Valores incorrectos'));
+    }
+
+    return this.http.post<IBook>(`${this.baseUrl}/books`, book).pipe(
+      catchError(err => {
+        return throwError(() => new Error(err));
+      })
     );
   }
 }

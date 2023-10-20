@@ -1,7 +1,7 @@
 <!-- eslint-disable @angular-eslint/template/elements-content -->
 <form autocomplete="off" [formGroup]="form" class="surface-section py-6 px-4  justify-content-center"
     (ngSubmit)="onSave()">
-    <p class="font-medium">Agrega un nuevo libro a la colección:</p>
+    <p class="font-medium text-primary">Agrega un nuevo libro a la colección:</p>
     <div class="formgrid grid justify-content-center sm:justify-content-start">
         <div class="w-full sm:w-auto">
             <span class="p-float-label mt-5">
@@ -57,7 +57,7 @@
         </div>
         <div class="w-full sm:w-auto">
             <span class="p-float-label mt-5">
-                <input formControlName="year" type="text" class="mx-2 w-full sm:w-auto" pInputText id="year" />
+                <input formControlName="year" type="year" class="mx-2 w-full sm:w-auto" pInputText id="year" />
                 <label htmlFor="year">Año</label>
             </span>
             <small *ngIf="isValidField('year')" class="ml-2 text-red-500">{{displayError('year')}}</small>
@@ -78,5 +78,6 @@
             <small *ngIf="isValidField('copies')" class="ml-2 text-red-500">{{displayError('copies')}}</small>
         </div>
     </div>
-    <dashboard-add-button />
+    <dashboard-add-button [isLoading]="loading" />
+    <p-toast position="top-center"></p-toast>
 </form>

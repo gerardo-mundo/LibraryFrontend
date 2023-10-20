@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
+import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { InputTextModule } from 'primeng/inputtext';
@@ -9,6 +10,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { MenubarModule } from 'primeng/menubar';
 import { PanelModule } from 'primeng/panel';
 import { TableModule } from 'primeng/table';
+import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 
 @NgModule({
@@ -16,6 +18,7 @@ import { ToolbarModule } from 'primeng/toolbar';
   exports: [
     ButtonModule,
     CardModule,
+    ConfirmDialogModule,
     FieldsetModule,
     InputNumberModule,
     InputTextModule,
@@ -23,6 +26,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     MenubarModule,
     PanelModule,
     TableModule,
+    ToastModule,
     ToolbarModule,
   ],
 })
