@@ -1,3 +1,4 @@
+import { HttpErrorResponse, HttpStatusCode } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
@@ -19,13 +20,20 @@ export class AddBookPageComponent {
     lastName: ['', [Validators.required]],
     authorMotherName: [''],
     publisher: ['', [Validators.required]],
-    adquisition: [0, [Validators.required, Validators.minLength(4)]],
+    adquisition: [
+      null,
+      [
+        Validators.required,
+        Validators.minLength(4),
+        customValidators.cantBeZero,
+      ],
+    ],
     year: [
-      0,
+      null,
       [Validators.required, Validators.minLength(4), Validators.maxLength(4)],
     ],
-    collection: [''],
-    copies: [0, [Validators.required, customValidators.cantBeZero]],
+    collection: ['', [Validators.required]],
+    copies: [null, [Validators.required, customValidators.cantBeZero]],
   });
 
   public loading: boolean = false;
@@ -51,18 +59,19 @@ export class AddBookPageComponent {
           summary: 'Éxito',
           detail: 'Libro agregado correctamente',
         });
+        this.loading = false;
+
         this.form.reset();
       },
-      error: err => {
-        console.log(err);
+      error: (resp: HttpErrorResponse) => {
         this.messageService.add({
           severity: 'error',
           summary: 'Ups',
-          detail: 'Hubo un error al agregar el libro',
+          detail: `${resp}`,
         });
+
         this.loading = false;
       },
-      complete: () => (this.loading = false),
     });
   }
 

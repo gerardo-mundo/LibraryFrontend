@@ -1,10 +1,11 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 import { Observable, catchError, throwError } from 'rxjs';
 
 import { environment } from 'src/app/environments/environment';
 import { IBook } from '../pages/books-page/interfaces/book.interface';
+import { handleErrors } from 'src/app/shared/helpers/handlers';
 
 @Injectable({
   providedIn: 'root',
@@ -17,19 +18,20 @@ export class BooksService {
   constructor(private http: HttpClient) {}
 
   public getBooks(): Observable<IBook[]> {
+    //TODO: conectarse al endpoint para traer el total de registros de la api, sin el paginador.
     return this.http.get<IBook[]>(
-      `${this.baseUrl}/books?Page=${this.page}&RecordsPeerage=${this.recordsPeerPage}`
+      `${this.baseUrl}/books?Page=${this.page}&RecordsPeerPage=${this.recordsPeerPage}`
     );
   }
 
   public postBook(book: IBook): Observable<IBook> {
     if (book === null) {
-      throwError(() => new Error('Valores incorrectos'));
+      return throwError(() => new Error('Valores incorrectos'));
     }
 
     return this.http.post<IBook>(`${this.baseUrl}/books`, book).pipe(
-      catchError(err => {
-        return throwError(() => new Error(err));
+      catchError((response: HttpErrorResponse) => {
+        return handleErrors(response);
       })
     );
   }
