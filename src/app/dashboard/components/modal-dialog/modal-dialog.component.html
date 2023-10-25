@@ -1,0 +1,56 @@
+<!-- eslint-disable @angular-eslint/template/elements-content -->
+<p-dialog [(visible)]="isVisible" [style]="{ width: '450px' }" header="Product Details" [modal]="true"
+    styleClass="p-fluid">
+    <ng-template pTemplate="content">
+
+        <div class="field">
+            <label for="title">Título</label>
+            <input type="text" pInputText id="title" required />
+        </div>
+        <div class="field">
+            <label for="authorName">Nombre del autor</label>
+            <input type="text" pInputText id="authorName" required />
+        </div>
+        <div class="field">
+            <label for="authorSecondName">Segundo nombre</label>
+            <input type="text" pInputText id="authorSecondName" required />
+        </div>
+        <div class="field">
+            <label for="lastName">Apellido</label>
+            <input type="text" pInputText id="lastName" required />
+        </div>
+        <div class="field">
+            <label for="authorMotherName">Apellido materno</label>
+            <input type="text" pInputText id="authorMotherName" required />
+        </div>
+        <div class="field">
+            <label for="publisher">Editorial</label>
+            <input type="text" pInputText id="publisher" required />
+        </div>
+        <div class="field">
+            <label for="adquisition">Adquisición</label>
+            <input type="number" pInputText id="adquisition" required />
+        </div>
+        <div class="field">
+            <label for="year">Año</label>
+            <input type="number" pInputText id="year" required />
+        </div>
+        <div class="field">
+            <label for="collection">Colección</label>
+            <input type="text" pInputText id="collection" required />
+        </div>
+        <div class="field">
+            <label for="copies">Copias</label>
+            <input type="number" pInputText id="copies" required />
+        </div>
+
+    </ng-template>
+
+    <ng-template pTemplate="footer">
+        <button pButton pRipple label="Cancelar" icon="pi pi-times" class="p-button-text"
+            (click)="hideDialog()"></button>
+        <button pButton pRipple label="Guardar" icon="pi pi-check" class="p-button-text" (click)="saveBook()"></button>
+    </ng-template>
+</p-dialog>
+
+<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
