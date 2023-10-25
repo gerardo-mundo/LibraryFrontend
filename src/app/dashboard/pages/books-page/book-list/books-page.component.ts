@@ -10,14 +10,10 @@ import { BooksService } from 'src/app/dashboard/services/books.service';
 })
 export class BooksPageComponent implements OnInit {
   ngOnInit(): void {
-    this.getBooksList();
+    this.booksService.getBooks().subscribe(data => (this.books = data));
   }
 
   public books: IBook[] = [];
 
   constructor(private booksService: BooksService) {}
-
-  public getBooksList() {
-    return this.booksService.getBooks().subscribe(bl => (this.books = bl));
-  }
 }

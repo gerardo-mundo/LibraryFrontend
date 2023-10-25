@@ -31,10 +31,11 @@ import { RegisteredAccountsPageComponent } from './pages/accounts-page/registere
 import { ChangePasswordPageComponent } from './pages/accounts-page/change-password-page.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
-import { MessageService } from 'primeng/api';
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.component';
 
 @NgModule({
-  providers: [MessageService],
+  providers: [ConfirmationService, MessageService],
   declarations: [
     LayoutComponent,
     BooksPageComponent,
@@ -62,6 +63,7 @@ import { MessageService } from 'primeng/api';
     ChangePasswordPageComponent,
     WelcomePageComponent,
     AddButtonComponent,
+    ModalDialogComponent,
   ],
   imports: [
     CommonModule,
