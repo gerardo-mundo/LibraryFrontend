@@ -8,7 +8,6 @@ import { LoansPageComponent } from './pages/loans-page/loans-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { AddBookPageComponent } from './pages/books-page/add-book/add-book-page.component';
 import { EditBookPageComponent } from './pages/books-page/edit-book/edit-book-page.component';
-import { DeleteBookPageComponent } from './pages/books-page/delete-book/delete-book-page.component';
 import { AddThesisPageComponent } from './pages/thesis-page/add-thesis-page.component';
 import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis-page.component';
 import { DeleteThesisPageComponent } from './pages/thesis-page/delete-thesis-page.component';
@@ -33,7 +32,6 @@ const routes: Routes = [
       { path: 'books', component: BooksPageComponent },
       { path: 'add-book', component: AddBookPageComponent },
       { path: 'edit-book', component: EditBookPageComponent },
-      { path: 'delete-book', component: DeleteBookPageComponent },
       { path: 'thesis', component: ThesisPageComponent },
       { path: 'add-thesis', component: AddThesisPageComponent },
       { path: 'edit-thesis', component: EditThesisPageComponent },

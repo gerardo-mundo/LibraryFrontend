@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Table } from 'primeng/table';
 
-import { BooksService } from 'src/app/dashboard/services/books.service';
 import { IBook } from '../interfaces/book.interface';
-import { HttpErrorResponse } from '@angular/common/http';
+import { BooksService } from 'src/app/dashboard/services/books.service';
+import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
 
 @Component({
   selector: 'app-edit-book-page',
@@ -14,27 +16,23 @@ import { HttpErrorResponse } from '@angular/common/http';
 export class EditBookPageComponent implements OnInit {
   ngOnInit(): void {
     this.booksService.getBooks().subscribe(data => (this.books = data));
+    this.utilitiesService.setVisibility(false);
   }
 
   public books: IBook[] = [];
-  //public isVisible: boolean = false;
-  public book: any;
+  public book!: IBook;
   public submitted: boolean = false;
 
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private booksService: BooksService
+    private booksService: BooksService,
+    private utilitiesService: UtilitiesService
   ) {}
 
-  openNew() {
-    this.book = {};
-    this.submitted = false;
-    //this.isVisible = false;
-  }
-
-  editBook() {
-    this.booksService.setVisibility(true);
+  editBook(book: IBook) {
+    this.utilitiesService.setVisibility(true);
+    this.book = book;
   }
 
   deleteBook(book: IBook) {
@@ -43,8 +41,6 @@ export class EditBookPageComponent implements OnInit {
       header: 'Confirmar acción',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.books = this.books.filter(val => val.id !== book.id);
-
         this.booksService.deleteBook(book.id!).subscribe({
           next: () => {
             this.messageService.add({
@@ -53,6 +49,7 @@ export class EditBookPageComponent implements OnInit {
               detail: 'Libro eliminado',
               life: 3000,
             });
+            this.books = this.books.filter(val => val.id !== book.id);
           },
           error: (resp: HttpErrorResponse) => {
             this.messageService.add({
@@ -67,15 +64,12 @@ export class EditBookPageComponent implements OnInit {
     });
   }
 
-  findIndexById(id: number): number {
-    let index = -1;
-    for (let i = 0; i < this.books.length; i++) {
-      if (this.books[i].id === id) {
-        index = i;
-        break;
-      }
-    }
+  public updateBooks(books: IBook[]): void {
+    this.books = books;
+  }
 
-    return index;
+  @ViewChild('dt') dt!: Table;
+  public applyFilterGlobal($event: any, stringVal: string) {
+    this.utilitiesService.filtering($event, stringVal, this.dt);
   }
 }

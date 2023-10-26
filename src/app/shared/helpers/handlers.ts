@@ -12,7 +12,9 @@ export const handleErrors = (
     case HttpStatusCode.NotFound:
       return throwError(() => 'Error 404: no se encuentra el recurso.');
     case HttpStatusCode.Forbidden:
-      return throwError(() => 'No tiene permisos para realizar la solicitud.');
+      return throwError(() => 'Error 403: Acceso restringido.');
+    case HttpStatusCode.Unauthorized:
+      return throwError(() => 'Error 401: No puede ejecutar esta acción.');
   }
   return throwError(() => 'Algo salio mal');
 };

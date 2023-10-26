@@ -1,18 +1,18 @@
 <!-- eslint-disable @angular-eslint/template/elements-content -->
 <div class="card">
-    <p class="font-medium text-primary">Actualiza el o los elementos:</p>
+    <p class="font-medium text-primary">Panel para actualizar datos o eliminar elementos</p>
     <p-toast></p-toast>
-    <p-table #dt [value]="books" [rows]="10" [paginator]="true"
-        [globalFilterFields]="['title', 'bookadquisition', 'year', 'collection']"
-        [tableStyle]="{ 'min-width': '75rem' }" [rowHover]="true" dataKey="id"
+    <p-table #dt [value]="books" [rows]="10" [paginator]="true" [globalFilterFields]="['title', 'collection']"
+        [showLoader]="true" [tableStyle]="{ 'min-width': '75rem' }" [rowHover]="true" dataKey="id"
         currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
         [showCurrentPageReport]="true">
         <ng-template pTemplate="caption">
             <div class="flex align-items-center justify-content-between">
-                <h5 class="m-0">Búsqueda:</h5>
+                <h5 class="m-0">Búsqueda por título de la obra o por colección</h5>
                 <span class="p-input-icon-left">
                     <i class="pi pi-search"></i>
-                    <input pInputText type="text" placeholder="Buscar..." />
+                    <input #textInput (input)="applyFilterGlobal($event, 'contains')" pInputText type="text"
+                        placeholder="Buscar..." />
                 </span>
             </div>
         </ng-template>
@@ -37,7 +37,7 @@
                 <td>{{ book.copies }}</td>
                 <td>
                     <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
-                        (click)="editBook()"></button>
+                        (click)="editBook(book)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
                         (click)="deleteBook(book)"></button>
                 </td>
@@ -50,5 +50,4 @@
     </p-table>
 </div>
 
-<!-- Otro componente -->
-<modal-dialog-dashboard />
+<modal-dialog-dashboard (updatedBooks)="updateBooks($event)" [book]="book" />

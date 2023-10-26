@@ -1,49 +1,58 @@
 <!-- eslint-disable @angular-eslint/template/elements-content -->
-<p-dialog [(visible)]="isVisible" [style]="{ width: '450px' }" header="Product Details" [modal]="true"
+<p-dialog [(visible)]="isVisible" [style]="{ width: '450px' }" header="Editar libro" [modal]="true"
     styleClass="p-fluid">
     <ng-template pTemplate="content">
-
-        <div class="field">
-            <label for="title">Título</label>
-            <input type="text" pInputText id="title" required />
-        </div>
-        <div class="field">
-            <label for="authorName">Nombre del autor</label>
-            <input type="text" pInputText id="authorName" required />
-        </div>
-        <div class="field">
-            <label for="authorSecondName">Segundo nombre</label>
-            <input type="text" pInputText id="authorSecondName" required />
-        </div>
-        <div class="field">
-            <label for="lastName">Apellido</label>
-            <input type="text" pInputText id="lastName" required />
-        </div>
-        <div class="field">
-            <label for="authorMotherName">Apellido materno</label>
-            <input type="text" pInputText id="authorMotherName" required />
-        </div>
-        <div class="field">
-            <label for="publisher">Editorial</label>
-            <input type="text" pInputText id="publisher" required />
-        </div>
-        <div class="field">
-            <label for="adquisition">Adquisición</label>
-            <input type="number" pInputText id="adquisition" required />
-        </div>
-        <div class="field">
-            <label for="year">Año</label>
-            <input type="number" pInputText id="year" required />
-        </div>
-        <div class="field">
-            <label for="collection">Colección</label>
-            <input type="text" pInputText id="collection" required />
-        </div>
-        <div class="field">
-            <label for="copies">Copias</label>
-            <input type="number" pInputText id="copies" required />
-        </div>
-
+        <form [formGroup]="form">
+            <div class="field">
+                <label for="title">Título</label>
+                <input formControlName="title" type="text" pInputText id="title" required />
+                <small *ngIf="isValidField('title')" class="ml-2 text-red-500">{{displayError('title')}}</small>
+            </div>
+            <div class="field">
+                <label for="authorName">Nombre del autor</label>
+                <input formControlName="authorName" type="text" pInputText id="authorName" required />
+                <small *ngIf="isValidField('authorName')" class="ml-2 text-red-500">{{displayError('authorName')}}
+                </small>
+            </div>
+            <div class="field">
+                <label for="authorSecondName">Segundo nombre</label>
+                <input formControlName="authorSecondName" type="text" pInputText id="authorSecondName" />
+            </div>
+            <div class="field">
+                <label for="lastName">Apellido</label>
+                <input formControlName="lastName" type="text" pInputText id="lastName" required />
+                <small *ngIf="isValidField('lastName')" class="ml-2 text-red-500">{{displayError('lastName')}}</small>
+            </div>
+            <div class="field">
+                <label for="authorMotherName">Apellido materno</label>
+                <input formControlName="authorMotherName" type="text" pInputText id="authorMotherName" />
+            </div>
+            <div class="field">
+                <label for="publisher">Editorial</label>
+                <input formControlName="publisher" type="text" pInputText id="publisher" required />
+                <small *ngIf="isValidField('publisher')" class="ml-2 text-red-500">{{displayError('publisher')}}</small>
+            </div>
+            <div class="field">
+                <label for="adquisition">Adquisición</label>
+                <input formControlName="adquisition" type="number" pInputText id="adquisition" required />
+                <small *ngIf="isValidField('adquisition')"
+                    class="ml-2 text-red-500">{{displayError('adquisition')}}</small>
+            </div>
+            <div class="field">
+                <label for="year">Año</label>
+                <input formControlName="year" type="year" pInputText id="year" required />
+                <small *ngIf="isValidField('year')" class="ml-2 text-red-500">{{displayError('year')}}</small>
+            </div>
+            <div class="field">
+                <label for="collection">Colección</label>
+                <input formControlName="collection" type="text" pInputText id="collection" />
+            </div>
+            <div class="field">
+                <label for="copies">Copias</label>
+                <input formControlName="copies" type="number" pInputText id="copies" required />
+                <small *ngIf="isValidField('copies')" class="ml-2 text-red-500">{{displayError('copies')}}</small>
+            </div>
+        </form>
     </ng-template>
 
     <ng-template pTemplate="footer">

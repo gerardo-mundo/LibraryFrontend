@@ -14,7 +14,6 @@ import { PrimeNgModule } from '../primeNg/prime-ng.module';
 import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { AddBookPageComponent } from './pages/books-page/add-book/add-book-page.component';
 import { EditBookPageComponent } from './pages/books-page/edit-book/edit-book-page.component';
-import { DeleteBookPageComponent } from './pages/books-page/delete-book/delete-book-page.component';
 import { AddThesisPageComponent } from './pages/thesis-page/add-thesis-page.component';
 import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis-page.component';
 import { DeleteThesisPageComponent } from './pages/thesis-page/delete-thesis-page.component';
@@ -33,9 +32,10 @@ import { WelcomePageComponent } from './pages/welcome-page/welcome-page.componen
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.component';
+import { UtilitiesService } from './services/utilities.service';
 
 @NgModule({
-  providers: [ConfirmationService, MessageService],
+  providers: [ConfirmationService, MessageService, UtilitiesService],
   declarations: [
     LayoutComponent,
     BooksPageComponent,
@@ -46,7 +46,6 @@ import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.com
     MenuBarComponent,
     AddBookPageComponent,
     EditBookPageComponent,
-    DeleteBookPageComponent,
     AddThesisPageComponent,
     EditThesisPageComponent,
     DeleteThesisPageComponent,
