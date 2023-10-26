@@ -1,0 +1,33 @@
+<p-table [value]="books" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10, 20]"
+    paginatorLocale="es-Es">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:10%">Título</th>
+            <th style="width:10%">Autor</th>
+            <th style="width:10%">Segundo nombre</th>
+            <th style="width:10%">Apellido</th>
+            <th style="width:10%">Apellido materno</th>
+            <th style="width:10%">Editorial</th>
+            <th style="width:10%">Adquisición</th>
+            <th style="width:10%">Año</th>
+            <th style="width:10%">Colección</th>
+            <th style="width:10%">Copias</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-book>
+        <tr>
+            <td>{{book.title}}</td>
+            <td>{{book.authorName}}</td>
+            <td>{{book.authorSecondName}}</td>
+            <td>{{book.lastName}}</td>
+            <td>{{book.authorMotherName}}</td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.adquisition}}</td>
+            <td>{{book.year}}</td>
+            <td>{{book.collection}}</td>
+            <td>{{book.copies}}</td>
+        </tr>
+    </ng-template>
+</p-table>

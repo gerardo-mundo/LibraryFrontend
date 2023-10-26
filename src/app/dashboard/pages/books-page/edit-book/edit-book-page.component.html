@@ -1,0 +1,53 @@
+<!-- eslint-disable @angular-eslint/template/elements-content -->
+<div class="card">
+    <p class="font-medium text-primary">Panel para actualizar datos o eliminar elementos</p>
+    <p-toast></p-toast>
+    <p-table #dt [value]="books" [rows]="10" [paginator]="true" [globalFilterFields]="['title', 'collection']"
+        [showLoader]="true" [tableStyle]="{ 'min-width': '75rem' }" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+        [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">Búsqueda por título de la obra o por colección</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input #textInput (input)="applyFilterGlobal($event, 'contains')" pInputText type="text"
+                        placeholder="Buscar..." />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="title" style="min-width:15rem">Título<p-sortIcon field="title"></p-sortIcon></th>
+                <th pSortableColumn="adquisition" style="min-width:15rem">Adquisición<p-sortIcon
+                        field="adquisition"></p-sortIcon></th>
+                <th pSortableColumn="year" style="min-width:15rem">Año<p-sortIcon field="year"></p-sortIcon></th>
+                <th pSortableColumn="collection" style="min-width:15rem">Colección<p-sortIcon
+                        field="collection"></p-sortIcon></th>
+                <th pSortableColumn="copies" style="min-width:15rem">Copias<p-sortIcon field="copies"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-book>
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.adquisition }}</td>
+                <td>{{ book.year }}</td>
+                <td>{{ book.collection }}</td>
+                <td>{{ book.copies }}</td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                        (click)="editBook(book)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                        (click)="deleteBook(book)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-center">Hay un total de {{ books ? books.length :
+                0 }} libros en la base de datos</div>
+        </ng-template>
+    </p-table>
+</div>
+
+<modal-dialog-dashboard (updatedBooks)="updateBooks($event)" [book]="book" />
