@@ -32,9 +32,15 @@ import { AddButtonComponent } from './components/add-button/add-button.component
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { ModalDialogComponent } from './components/modal-dialog/modal-dialog.component';
 import { UtilitiesService } from './services/utilities.service';
+import { ThesisService } from './services/thesis.service';
 
 @NgModule({
-  providers: [ConfirmationService, MessageService, UtilitiesService],
+  providers: [
+    ConfirmationService,
+    MessageService,
+    ThesisService,
+    UtilitiesService,
+  ],
   declarations: [
     LayoutComponent,
     BooksPageComponent,
