@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpErrorResponse,
+  HttpResponse,
+} from '@angular/common/http';
 
-import { Observable, catchError, throwError } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 import { environment } from 'src/app/environments/environment';
 import { IThesis } from '../interfaces/thesis.interface';
@@ -17,5 +21,11 @@ export class ThesisService {
     return this.http
       .get<IThesis[]>(`${this.baseUrl}/thesis`)
       .pipe(catchError((error: HttpErrorResponse) => handleErrors(error)));
+  }
+
+  public postThesis(thesis: IThesis): Observable<HttpResponse<IThesis>> {
+    return this.http
+      .post<HttpResponse<IThesis>>(`${this.baseUrl}/thesis`, thesis)
+      .pipe(catchError(error => handleErrors(error)));
   }
 }
