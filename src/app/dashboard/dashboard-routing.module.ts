@@ -2,15 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LayoutComponent } from './layout/layout.component';
 import { BooksPageComponent } from './pages/books-page/book-list/books-page.component';
-import { ThesisPageComponent } from './pages/thesis-page/thesis-page.component';
+import { ThesisPageComponent } from './pages/thesis-page/list-thesis/thesis-page.component';
 import { PublicationsPageComponent } from './pages/publications-page/publications-page.component';
 import { LoansPageComponent } from './pages/loans-page/loans-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { AddBookPageComponent } from './pages/books-page/add-book/add-book-page.component';
 import { EditBookPageComponent } from './pages/books-page/edit-book/edit-book-page.component';
-import { AddThesisPageComponent } from './pages/thesis-page/add-thesis-page.component';
-import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis-page.component';
-import { DeleteThesisPageComponent } from './pages/thesis-page/delete-thesis-page.component';
+import { AddThesisPageComponent } from './pages/thesis-page/add-thesis/add-thesis-page.component';
+import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis/edit-thesis-page.component';
 import { AddPublicationPageComponent } from './pages/publications-page/add-publication-page.component';
 import { EditPublicationPageComponent } from './pages/publications-page/edit-publication-page.component';
 import { DeletePublicationPageComponent } from './pages/publications-page/delete-publication-page.component';
@@ -35,7 +34,6 @@ const routes: Routes = [
       { path: 'thesis', component: ThesisPageComponent },
       { path: 'add-thesis', component: AddThesisPageComponent },
       { path: 'edit-thesis', component: EditThesisPageComponent },
-      { path: 'delete-thesis', component: DeleteThesisPageComponent },
       { path: 'publications', component: PublicationsPageComponent },
       { path: 'add-publication', component: AddPublicationPageComponent },
       { path: 'edit-publication', component: EditPublicationPageComponent },
