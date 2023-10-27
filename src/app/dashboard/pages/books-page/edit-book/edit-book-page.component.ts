@@ -4,7 +4,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
-import { IBook } from '../interfaces/book.interface';
+import { IBook } from '../../../interfaces/book.interface';
 import { BooksService } from 'src/app/dashboard/services/books.service';
 import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
 

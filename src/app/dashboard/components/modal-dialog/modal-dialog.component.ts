@@ -14,7 +14,7 @@ import { MessageService } from 'primeng/api';
 import { BooksService } from '../../services/books.service';
 import { UtilitiesService } from '../../services/utilities.service';
 import * as customValidators from '../../../shared/helpers/validators';
-import { IBook } from '../../pages/books-page/interfaces/book.interface';
+import { IBook } from '../../interfaces/book.interface';
 
 @Component({
   selector: 'modal-dialog-dashboard',

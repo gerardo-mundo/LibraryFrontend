@@ -4,7 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable, catchError, throwError } from 'rxjs';
 
 import { environment } from 'src/app/environments/environment';
-import { IBook } from '../pages/books-page/interfaces/book.interface';
+import { IBook } from '../interfaces/book.interface';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
 
 @Injectable({
