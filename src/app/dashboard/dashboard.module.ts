@@ -30,9 +30,10 @@ import { ChangePasswordPageComponent } from './pages/accounts-page/change-passwo
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
-import { ModalDialogComponent } from './pages/books-page/edit-book/modal-dialog.component.';
 import { UtilitiesService } from './services/utilities.service';
 import { ThesisService } from './services/thesis.service';
+import { ModalDialogComponent } from './pages/books-page/edit-book/modal-dialog.component.';
+import { ModalThesisComponent } from './pages/thesis-page/edit-thesis/modal-thesis.component.';
 
 @NgModule({
   providers: [
@@ -67,6 +68,7 @@ import { ThesisService } from './services/thesis.service';
     WelcomePageComponent,
     AddButtonComponent,
     ModalDialogComponent,
+    ModalThesisComponent,
   ],
   imports: [
     CommonModule,

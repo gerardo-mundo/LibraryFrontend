@@ -28,4 +28,19 @@ export class ThesisService {
       .post<HttpResponse<IThesis>>(`${this.baseUrl}/thesis`, thesis)
       .pipe(catchError(error => handleErrors(error)));
   }
+
+  public deleteThesis(id: number): Observable<HttpResponse<IThesis>> {
+    return this.http
+      .delete<HttpResponse<IThesis>>(`${this.baseUrl}/thesis/${id}`)
+      .pipe(catchError(error => handleErrors(error)));
+  }
+
+  public updateThesis(
+    id: number,
+    thesis: IThesis
+  ): Observable<HttpResponse<IThesis>> {
+    return this.http
+      .put<HttpResponse<IThesis>>(`${this.baseUrl}/thesis/${id}`, thesis)
+      .pipe(catchError(error => handleErrors(error)));
+  }
 }

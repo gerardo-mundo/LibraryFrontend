@@ -71,7 +71,6 @@ export class ModalDialogComponent implements OnInit {
 
   hideDialog() {
     this.isVisible = false;
-    this.submitted = false;
   }
 
   saveBook() {

@@ -1,1 +1,55 @@
-<p>edit-thesis-page works!</p>
+<!-- eslint-disable @angular-eslint/template/elements-content -->
+<div class="card">
+    <p class="font-medium text-primary">Panel para actualizar datos o eliminar elementos</p>
+    <p-toast></p-toast>
+    <p-table #dt [value]="thesisList" [rows]="10" [paginator]="true" [globalFilterFields]="['title', 'collection']"
+        [showLoader]="true" [tableStyle]="{ 'min-width': '75rem' }" [rowHover]="true" dataKey="id"
+        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+        [showCurrentPageReport]="true">
+        <ng-template pTemplate="caption">
+            <div class="flex align-items-center justify-content-between">
+                <h5 class="m-0">Búsqueda por título de la obra o por colección</h5>
+                <span class="p-input-icon-left">
+                    <i class="pi pi-search"></i>
+                    <input #textInput (input)="applyFilterGlobal($event, 'contains')" pInputText type="text"
+                        placeholder="Buscar..." />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th pSortableColumn="title" style="min-width:15rem">Título<p-sortIcon field="title"></p-sortIcon></th>
+                <th pSortableColumn="adquisition" style="min-width:15rem">Autor<p-sortIcon
+                        field="adquisition"></p-sortIcon></th>
+                <th pSortableColumn="year" style="min-width:15rem">Segundo autor<p-sortIcon field="year"></p-sortIcon>
+                </th>
+                <th pSortableColumn="collection" style="min-width:15rem">Asesor<p-sortIcon
+                        field="collection"></p-sortIcon></th>
+                <th pSortableColumn="copies" style="min-width:15rem">Año<p-sortIcon field="copies"></p-sortIcon></th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-thesis>
+            <tr>
+                <td>{{ thesis.title }}</td>
+                <td>{{ thesis.authorOne }}</td>
+                <td>{{ thesis.authorTwo }}</td>
+                <td>{{ thesis.assessor }}</td>
+                <td>{{ thesis.year }}</td>
+                <td>
+                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
+                        (click)="edit(thesis)"></button>
+                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                        (click)="delete(thesis)"></button>
+                </td>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="summary">
+            <div class="flex align-items-center justify-content-center">Hay un total de {{ thesisList ?
+                thesisList.length :
+                0 }} Tesis registradas</div>
+        </ng-template>
+    </p-table>
+</div>
+
+<modal-thesis-dashboard (updatedList)="updateThesis($event)" [thesis]="thesis" />
