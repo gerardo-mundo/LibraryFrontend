@@ -10,11 +10,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 
 import { MessageService } from 'primeng/api';
-
-import { BooksService } from '../../services/books.service';
-import { UtilitiesService } from '../../services/utilities.service';
-import * as customValidators from '../../../shared/helpers/validators';
-import { IBook } from '../../interfaces/book.interface';
+import { IBook } from 'src/app/dashboard/interfaces/book.interface';
+import * as customValidators from '../../../../shared/helpers/validators';
+import { BooksService } from 'src/app/dashboard/services/books.service';
+import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
 
 @Component({
   selector: 'modal-dialog-dashboard',

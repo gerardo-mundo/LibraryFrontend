@@ -16,5 +16,5 @@ export const handleErrors = (
     case HttpStatusCode.Unauthorized:
       return throwError(() => 'Error 401: No puede ejecutar esta acción.');
   }
-  return throwError(() => 'Algo salio mal');
+  return throwError(() => 'Algo salió mal');
 };
