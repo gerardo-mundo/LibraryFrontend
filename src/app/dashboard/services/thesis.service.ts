@@ -7,13 +7,13 @@ import {
 
 import { Observable, catchError } from 'rxjs';
 
-import { environment } from 'src/app/environments/environment';
+import { ENVIRONMENT } from 'src/app/environments/environment';
 import { IThesis } from '../interfaces/thesis.interface';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
 
 @Injectable()
 export class ThesisService {
-  private baseUrl = environment.baseUrl;
+  private baseUrl = ENVIRONMENT.BASE_URL;
 
   constructor(private http: HttpClient) {}
 

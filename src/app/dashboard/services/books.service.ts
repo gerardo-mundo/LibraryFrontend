@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 
 import { Observable, catchError, throwError } from 'rxjs';
 
-import { environment } from 'src/app/environments/environment';
+import { ENVIRONMENT } from 'src/app/environments/environment';
 import { IBook } from '../interfaces/book.interface';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
 
@@ -11,16 +11,13 @@ import { handleErrors } from 'src/app/shared/helpers/handlers';
   providedIn: 'root',
 })
 export class BooksService {
-  private baseUrl: string = environment.baseUrl;
-  public page: number = 1;
-  private recordsPeerPage: number = 20;
+  private baseUrl: string = ENVIRONMENT.BASE_URL;
 
   constructor(private http: HttpClient) {}
 
   public getBooks(): Observable<IBook[]> {
-    //TODO: conectarse al endpoint para traer el total de registros de la api, sin el paginador.
     return this.http.get<IBook[]>(
-      `${this.baseUrl}/books?Page=${this.page}&RecordsPeerPage=${this.recordsPeerPage}`
+      `${this.baseUrl}/books`
     );
   }
 
