@@ -1,3 +1,3 @@
 export const environment = {
-  baseUrl: 'https://librarybackend.azurewebsites.net/api',
+  baseUrl: 'https://localhost:7176/api',
 };
