@@ -6,7 +6,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { BooksPageComponent } from './pages/books-page/book-list/books-page.component';
 import { ThesisPageComponent } from './pages/thesis-page/list-thesis/thesis-page.component';
-import { PublicationsPageComponent } from './pages/publications-page/publications-page.component';
+import { PublicationsPageComponent } from './pages/publications-page/publication-list/publications-page.component';
 import { LoansPageComponent } from './pages/loans-page/loans-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { SharedModule } from '../shared/shared.module';
@@ -16,9 +16,8 @@ import { AddBookPageComponent } from './pages/books-page/add-book/add-book-page.
 import { EditBookPageComponent } from './pages/books-page/edit-book/edit-book-page.component';
 import { AddThesisPageComponent } from './pages/thesis-page/add-thesis/add-thesis-page.component';
 import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis/edit-thesis-page.component';
-import { AddPublicationPageComponent } from './pages/publications-page/add-publication-page.component';
-import { EditPublicationPageComponent } from './pages/publications-page/edit-publication-page.component';
-import { DeletePublicationPageComponent } from './pages/publications-page/delete-publication-page.component';
+import { AddPublicationPageComponent } from './pages/publications-page/add-publication/add-publication-page.component';
+import { EditPublicationPageComponent } from './pages/publications-page/edit-publication/edit-publication-page.component';
 import { NewLoanPageComponent } from './pages/loans-page/new-loan-page.component';
 import { DeleteLoanPageComponent } from './pages/loans-page/delete-loan-page.component';
 import { RegisteredStudentsPageComponent } from './pages/register-page/registered-students-page.component';
@@ -56,7 +55,6 @@ import { ModalThesisComponent } from './pages/thesis-page/edit-thesis/modal-thes
     EditThesisPageComponent,
     AddPublicationPageComponent,
     EditPublicationPageComponent,
-    DeletePublicationPageComponent,
     NewLoanPageComponent,
     DeleteLoanPageComponent,
     RegisteredStudentsPageComponent,

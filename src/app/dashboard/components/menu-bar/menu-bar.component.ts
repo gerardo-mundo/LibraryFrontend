@@ -73,11 +73,6 @@ export class MenuBarComponent implements OnInit {
             icon: PrimeIcons.FILE_EDIT,
             routerLink: 'edit-publication',
           },
-          {
-            label: 'Borrar',
-            icon: PrimeIcons.ERASER,
-            routerLink: 'delete-publication',
-          },
         ],
       },
       {
