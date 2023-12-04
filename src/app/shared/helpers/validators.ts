@@ -18,13 +18,13 @@ export const errorsDisplayer = (
   for (const key of Object.keys(errors)) {
     switch (key) {
       case 'required':
-        return '* Este campo es requerido';
+        return '*Este campo es requerido';
       case 'minlength':
-        return `* ${form.controls[field].value} no es una fecha válida`;
+        return `*${form.controls[field].value.length} no es una extensión mínima válida`;
       case 'maxlength':
-        return `* ${form.controls[field].value} no es una fecha válida`;
+        return `*${form.controls[field].value.length} es superior al límite de caracteres`;
       case 'cantBeZero':
-        return '* Debe ser mayor a cero';
+        return '*Debe ser mayor a cero';
     }
   }
   return null;
