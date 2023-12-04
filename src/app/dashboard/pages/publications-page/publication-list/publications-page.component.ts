@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { IPublication } from 'src/app/dashboard/interfaces/publication.interface';
 
 @Component({
   selector: 'app-publications-page',
@@ -6,6 +7,11 @@ import { Component } from '@angular/core';
   styles: [
   ]
 })
-export class PublicationsPageComponent {
+export class PublicationsPageComponent implements OnInit {
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
+
+  public publications: IPublication[] = [];
 
 }
