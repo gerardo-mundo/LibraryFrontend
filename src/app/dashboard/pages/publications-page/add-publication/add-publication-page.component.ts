@@ -1,9 +1,10 @@
 import { Component } from '@angular/core';
 
 import * as customValidators from './../../../../shared/helpers/validators';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { PublicationsService } from 'src/app/dashboard/services/publications.service';
+import { HttpErrorResponse } from '@angular/common/http';
 
 
 @Component({
@@ -29,7 +30,7 @@ public publicationTypes = [
 
 public value!:number;
 
-public form = this.fb.group({
+public form: FormGroup = this.fb.group({
   type: [null, [Validators.required]],
   title: ['', [Validators.required, Validators.maxLength(150)]],
   author: ['', [Validators.required, Validators.maxLength(120), Validators.minLength(5)]],
@@ -44,7 +45,36 @@ public form = this.fb.group({
 });
 
 public onSave() {
-console.log(this.form.value);
+  if(this.form.invalid || typeof this.form.value.type !== 'number') {
+    this.form.markAllAsTouched();
+    return;
+  }
+
+  this.loading = true;
+
+  this.publicationService.postPublication(this.form.value).subscribe(
+    {
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Éxito',
+          detail: 'Publicación agregada correctamente',
+        });
+        this.loading = false;
+
+        this.form.reset();
+      },
+      error: (resp: HttpErrorResponse) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Ups',
+          detail: `${resp}`,
+        });
+
+        this.loading = false;
+      },
+    }
+  )
 }
 
 public isValidField(field: string): boolean | null {

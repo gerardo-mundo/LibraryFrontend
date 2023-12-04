@@ -9,7 +9,7 @@ export interface IPublication {
     publisher:   string;
     isbn?:        string;
     issn?:        string;
-    year:        number;
+    year:         number;
     vol:         string;
 };
 
