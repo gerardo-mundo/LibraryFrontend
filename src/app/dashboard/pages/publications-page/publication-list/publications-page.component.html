@@ -5,29 +5,23 @@ paginatorLocale="es-Es">
 <ng-template pTemplate="header">
     <tr>
         <th style="width:10%">Título</th>
-        <th style="width:10%">Autor</th>
-        <th style="width:10%">Segundo nombre</th>
-        <th style="width:10%">Apellido</th>
-        <th style="width:10%">Apellido materno</th>
+        <th style="width:10%">Autor principal</th>
         <th style="width:10%">Editorial</th>
-        <th style="width:10%">Adquisición</th>
         <th style="width:10%">Año</th>
-        <th style="width:10%">Colección</th>
-        <th style="width:10%">Copias</th>
+        <th style="width:10%">ISBN</th>
+        <th style="width:10%">ISSN</th>
+        <th style="width:10%">Volúmen</th>
     </tr>
 </ng-template>
-<ng-template pTemplate="body" let-book>
+<ng-template pTemplate="body" let-publication>
     <tr>
-        <td>{{book.title}}</td>
-        <td>{{book.authorName}}</td>
-        <td>{{book.authorSecondName}}</td>
-        <td>{{book.lastName}}</td>
-        <td>{{book.authorMotherName}}</td>
-        <td>{{book.publisher}}</td>
-        <td>{{book.adquisition}}</td>
-        <td>{{book.year}}</td>
-        <td>{{book.collection}}</td>
-        <td>{{book.copies}}</td>
+        <td>{{publication.title}}</td>
+        <td>{{publication.author}}</td>
+        <td>{{publication.publisher}}</td>
+        <td>{{publication.year}}</td>
+        <td>{{publication.isbn}}</td>
+        <td>{{publication.issn}}</td>
+        <td>{{publication.vol}}</td>
     </tr>
 </ng-template>
 </p-table>

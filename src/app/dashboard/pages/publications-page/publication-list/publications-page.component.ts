@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IPublication } from 'src/app/dashboard/interfaces/publication.interface';
+import { PublicationsService } from 'src/app/dashboard/services/publications.service';
 
 @Component({
   selector: 'app-publications-page',
@@ -9,9 +10,15 @@ import { IPublication } from 'src/app/dashboard/interfaces/publication.interface
 })
 export class PublicationsPageComponent implements OnInit {
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+    this.getPublications();
   }
 
+  constructor(private publicationService: PublicationsService) {}
+
   public publications: IPublication[] = [];
+
+  public getPublications(): void {
+    this.publicationService.getPublications().subscribe(publicationsList => this.publications = publicationsList)
+  }
 
 }
