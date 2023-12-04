@@ -1,6 +1,6 @@
 export interface IPublication {
     id?:          number;
-    type:        PublcationTypes;
+    type:        number;
     title:       string;
     author:      string;
     authorTwo?:   string;
