@@ -33,27 +33,27 @@ export class PublicationsService {
     );
   }
 
-  // public updatePublication(id: number, Publication: IPublication): Observable<IPublication> {
-  //   if (id === undefined || Publication === null) {
-  //     return throwError(() => new Error('Valores incorrectos'));
-  //   }
+  public updatePublication(id: number, Publication: IPublication): Observable<IPublication> {
+    if (id === undefined || Publication === null) {
+      return throwError(() => new Error('Valores incorrectos'));
+    }
 
-  //   return this.http.put<IPublication>(`${this.baseUrl}/Publications/${id}`, Publication).pipe(
-  //     catchError((response: HttpErrorResponse) => {
-  //       return handleErrors(response);
-  //     })
-  //   );
-  // }
+    return this.http.put<IPublication>(`${this.baseUrl}/Publications/${id}`, Publication).pipe(
+      catchError((response: HttpErrorResponse) => {
+        return handleErrors(response);
+      })
+    );
+  }
 
-  // public deletePublication(id: number): Observable<Object> {
-  //   if (id === null) {
-  //     return throwError(() => new Error(`${id} no es un Id válido`));
-  //   }
+  public deletePublication(id: number): Observable<Object> {
+    if (id === null) {
+      return throwError(() => new Error(`${id} no es un Id válido`));
+    }
 
-  //   return this.http.delete(`${this.baseUrl}/publications/${id}`).pipe(
-  //     catchError((response: HttpErrorResponse) => {
-  //       return handleErrors(response);
-  //     })
-  //   );
-  // }
+    return this.http.delete(`${this.baseUrl}/publications/${id}`).pipe(
+      catchError((response: HttpErrorResponse) => {
+        return handleErrors(response);
+      })
+    );
+  }
 }

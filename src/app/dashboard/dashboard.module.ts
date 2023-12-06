@@ -33,6 +33,7 @@ import { UtilitiesService } from './services/utilities.service';
 import { ThesisService } from './services/thesis.service';
 import { ModalDialogComponent } from './pages/books-page/edit-book/modal-dialog.component.';
 import { ModalThesisComponent } from './pages/thesis-page/edit-thesis/modal-thesis.component.';
+import { ModalPublicationComponent } from './pages/publications-page/edit-publication/modal-publication.component';
 
 @NgModule({
   providers: [
@@ -67,6 +68,7 @@ import { ModalThesisComponent } from './pages/thesis-page/edit-thesis/modal-thes
     AddButtonComponent,
     ModalDialogComponent,
     ModalThesisComponent,
+    ModalPublicationComponent,
   ],
   imports: [
     CommonModule,
