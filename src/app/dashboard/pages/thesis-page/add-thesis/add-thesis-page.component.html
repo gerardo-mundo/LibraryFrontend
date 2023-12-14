@@ -1,0 +1,55 @@
+<form autocomplete="off" [formGroup]="form" class="surface-section py-6 px-4  justify-content-center"
+    (ngSubmit)="onSave()">
+    <p class="font-medium text-primary">Agrega una nueva tesis a la colección:</p>
+    <div class="formgrid grid justify-content-center sm:justify-content-start">
+        <div class="w-full sm:w-auto">
+            <span class="p-float-label mt-5">
+                <input required formControlName="title" type="text" class="mx-2 w-full sm:w-auto" pInputText
+                    id="title" />
+                <label htmlFor="title">Título de la tesis</label>
+            </span>
+            <small *ngIf="isValidField('title')" class="ml-2 text-red-500">{{displayError('title')}}</small>
+        </div>
+        <div class="w-full sm:w-auto">
+            <span class="p-float-label mt-5">
+                <input required formControlName="authorOne" type="text" class="mx-2 w-full sm:w-auto" pInputText
+                    id="authorOne" />
+                <label htmlFor="authorOne">Nombre del primer autor</label>
+            </span>
+            <small *ngIf="isValidField('authorOne')" class="ml-2 text-red-500">{{displayError('authorOne')}}</small>
+        </div>
+        <div class="w-full sm:w-auto">
+            <span class="p-float-label mt-5">
+                <input formControlName="authorTwo" type="text" class="mx-2 w-full sm:w-auto" pInputText
+                    id="authorTwo" />
+                <label htmlFor="authorTwo">Nombre del segundo autor</label>
+            </span>
+
+        </div>
+        <div class="w-full sm:w-auto">
+            <span class="p-float-label mt-5">
+                <input formControlName="authorThree" type="text" class="mx-2 w-full sm:w-auto" pInputText
+                    id="authorThree" />
+                <label htmlFor="authorThree">Nombre del tercer autor</label>
+            </span>
+
+        </div>
+        <div class="w-full sm:w-auto">
+            <span class="p-float-label mt-5">
+                <input required formControlName="assessor" type="text" class="mx-2 w-full sm:w-auto" pInputText
+                    id="assessor" />
+                <label htmlFor="assessor">Nombre del asesor</label>
+            </span>
+            <small *ngIf="isValidField('assessor')" class="ml-2 text-red-500">{{displayError('assessor')}}</small>
+        </div>
+        <div class="w-full sm:w-auto">
+            <span class="p-float-label mt-5">
+                <input required formControlName="year" type="year" class="mx-2 w-full sm:w-auto" pInputText id="year" />
+                <label htmlFor="year">Año</label>
+            </span>
+            <small *ngIf="isValidField('year')" class="ml-2 text-red-500">{{displayError('year')}}</small>
+        </div>
+    </div>
+    <dashboard-add-button [isLoading]="loading" />
+    <p-toast position="top-center"></p-toast>
+</form>

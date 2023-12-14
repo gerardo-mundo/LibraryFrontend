@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { IBook } from '../interfaces/book.interface';
+import { IBook } from '../../../interfaces/book.interface';
 import { Observable } from 'rxjs';
 import { BooksService } from 'src/app/dashboard/services/books.service';
 

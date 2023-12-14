@@ -1,55 +1,57 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
 
-import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
-import { IBook } from 'src/app/dashboard/interfaces/book.interface';
-import { BooksService } from 'src/app/dashboard/services/books.service';
+import { IPublication } from 'src/app/dashboard/interfaces/publication.interface';
+import { PublicationsService } from 'src/app/dashboard/services/publications.service';
 import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
 
 @Component({
-  selector: 'app-edit-book-page',
-  templateUrl: './edit-book-page.component.html',
-  styles: [],
+  selector: 'edit-publication-page',
+  templateUrl: './edit-publication-page.component.html',
+  styles: [
+  ]
 })
-export class EditBookPageComponent implements OnInit {
+export class EditPublicationPageComponent {
   ngOnInit(): void {
-    this.booksService.getBooks().subscribe(data => (this.books = data));
+    this.publicationService.getPublications().subscribe(data => (this.publicationList = data));
     this.utilitiesService.setVisibility(false);
   }
 
-  public books: IBook[] = [];
-  public book!: IBook;
-  public submitted: boolean = false;
+  public publicationList: IPublication[] = [];
+  public publication!: IPublication;
 
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private booksService: BooksService,
+    private publicationService: PublicationsService,
     private utilitiesService: UtilitiesService
   ) {}
 
-  editBook(book: IBook) {
+  edit(publication: IPublication) {
     this.utilitiesService.setVisibility(true);
-    this.book = book;
+    this.publication = publication;
   }
 
-  deleteBook(book: IBook) {
+  delete(publication: IPublication) {
     this.confirmationService.confirm({
-      message: '¿Estás seguro de eliminar: ' + book.title + '?',
+      message: '¿Estás seguro de eliminar: ' + publication.title + '?',
       header: 'Confirmar acción',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.booksService.deleteBook(book.id!).subscribe({
+        this.publicationService.deletePublication(publication.id!).subscribe({
           next: () => {
             this.messageService.add({
               severity: 'success',
               summary: 'Éxito',
-              detail: 'Libro eliminado',
+              detail: 'Publicación eliminada',
               life: 3000,
             });
-            this.books = this.books.filter(val => val.id !== book.id);
+            this.publicationList = this.publicationList.filter(
+              val => val.id !== publication.id
+            );
           },
           error: (resp: HttpErrorResponse) => {
             this.messageService.add({
@@ -64,8 +66,8 @@ export class EditBookPageComponent implements OnInit {
     });
   }
 
-  public updateBooks(books: IBook[]): void {
-    this.books = books;
+  public updatePublication(publication: IPublication[]): void {
+    this.publicationList = publication;
   }
 
   @ViewChild('dt') dt!: Table;

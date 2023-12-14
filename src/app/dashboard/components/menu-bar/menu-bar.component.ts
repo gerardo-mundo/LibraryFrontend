@@ -52,11 +52,6 @@ export class MenuBarComponent implements OnInit {
             icon: PrimeIcons.FILE_EDIT,
             routerLink: 'edit-thesis',
           },
-          {
-            label: 'Borrar',
-            icon: PrimeIcons.ERASER,
-            routerLink: 'delete-thesis',
-          },
         ],
       },
       {
@@ -77,11 +72,6 @@ export class MenuBarComponent implements OnInit {
             label: 'Editar',
             icon: PrimeIcons.FILE_EDIT,
             routerLink: 'edit-publication',
-          },
-          {
-            label: 'Borrar',
-            icon: PrimeIcons.ERASER,
-            routerLink: 'delete-publication',
           },
         ],
       },

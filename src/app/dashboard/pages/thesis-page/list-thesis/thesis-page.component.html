@@ -1,0 +1,25 @@
+<p-table [value]="thesis" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10, 20]"
+    paginatorLocale="es-Es">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:10%">Título</th>
+            <th style="width:10%">Autor uno</th>
+            <th style="width:10%">Autor dos</th>
+            <th style="width:10%">Autor tres</th>
+            <th style="width:10%">Asesor</th>
+            <th style="width:10%">Año</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-thesis>
+        <tr>
+            <td>{{thesis.title}}</td>
+            <td>{{thesis.authorOne}}</td>
+            <td>{{thesis.authorTwo}}</td>
+            <td>{{thesis.authorThree}}</td>
+            <td>{{thesis.assessor}}</td>
+            <td>{{thesis.year}}</td>
+        </tr>
+    </ng-template>
+</p-table>

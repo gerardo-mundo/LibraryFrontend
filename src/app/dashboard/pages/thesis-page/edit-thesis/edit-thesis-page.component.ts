@@ -1,47 +1,45 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, ViewChild } from '@angular/core';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
 
-import { IBook } from 'src/app/dashboard/interfaces/book.interface';
-import { BooksService } from 'src/app/dashboard/services/books.service';
+import { IThesis } from 'src/app/dashboard/interfaces/thesis.interface';
+import { ThesisService } from 'src/app/dashboard/services/thesis.service';
 import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
 
 @Component({
-  selector: 'app-edit-book-page',
-  templateUrl: './edit-book-page.component.html',
-  styles: [],
+  selector: 'app-edit-thesis-page',
+  templateUrl: 'edit-thesis-page.component.html',
 })
-export class EditBookPageComponent implements OnInit {
+export class EditThesisPageComponent {
   ngOnInit(): void {
-    this.booksService.getBooks().subscribe(data => (this.books = data));
+    this.thesisService.getThesis().subscribe(data => (this.thesisList = data));
     this.utilitiesService.setVisibility(false);
   }
 
-  public books: IBook[] = [];
-  public book!: IBook;
-  public submitted: boolean = false;
+  public thesisList: IThesis[] = [];
+  public thesis!: IThesis;
 
   constructor(
     private confirmationService: ConfirmationService,
     private messageService: MessageService,
-    private booksService: BooksService,
+    private thesisService: ThesisService,
     private utilitiesService: UtilitiesService
   ) {}
 
-  editBook(book: IBook) {
+  edit(thesis: IThesis) {
     this.utilitiesService.setVisibility(true);
-    this.book = book;
+    this.thesis = thesis;
   }
 
-  deleteBook(book: IBook) {
+  delete(thesis: IThesis) {
     this.confirmationService.confirm({
-      message: '¿Estás seguro de eliminar: ' + book.title + '?',
+      message: '¿Estás seguro de eliminar: ' + thesis.title + '?',
       header: 'Confirmar acción',
       icon: 'pi pi-exclamation-triangle',
       accept: () => {
-        this.booksService.deleteBook(book.id!).subscribe({
+        this.thesisService.deleteThesis(thesis.id!).subscribe({
           next: () => {
             this.messageService.add({
               severity: 'success',
@@ -49,7 +47,9 @@ export class EditBookPageComponent implements OnInit {
               detail: 'Libro eliminado',
               life: 3000,
             });
-            this.books = this.books.filter(val => val.id !== book.id);
+            this.thesisList = this.thesisList.filter(
+              val => val.id !== thesis.id
+            );
           },
           error: (resp: HttpErrorResponse) => {
             this.messageService.add({
@@ -64,8 +64,8 @@ export class EditBookPageComponent implements OnInit {
     });
   }
 
-  public updateBooks(books: IBook[]): void {
-    this.books = books;
+  public updateThesis(thesis: IThesis[]): void {
+    this.thesisList = thesis;
   }
 
   @ViewChild('dt') dt!: Table;
