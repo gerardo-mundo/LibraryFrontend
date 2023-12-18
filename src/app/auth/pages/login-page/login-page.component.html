@@ -6,19 +6,36 @@
         <div class="text-900 text-primary text-3xl font-medium mb-3">Iniciar sesión</div>
     </div>
 
-    <div>
-        <label for="email1" class="block text-900 font-medium mb-2">Correo</label>
-        <input id="email1" type="text" placeholder="Email address" pInputText class="w-full mb-3">
-
-        <label for="password1" class="block text-900 font-medium mb-2">Contraseña</label>
-        <input id="password1" type="password" placeholder="Password" pInputText class="w-full mb-3">
-
-        <div class="flex align-items-center justify-content-between mb-6">
-            <div class="flex align-items-center">
-                <p-checkbox id="rememberme" [binary]="true" styleClass="mr-2"></p-checkbox>
-                <label for="rememberme1">Recordar mis datos</label>
+    <form [formGroup]="loginForm" (submit)="onLogin()">
+        <div>
+            <label for="email" class="block text-900 font-medium mb-2">Correo</label>
+            <input formControlName="email" id="email" type="text" placeholder="nombre@correo.com" pInputText class="w-full mb-3">
+    
+            <label for="password" class="block text-900 font-medium mb-2">Contraseña</label>
+            <input formControlName="password" id="password" type="password" placeholder="Tu contraseña" pInputText class="w-full mb-3">
+    
+            <div class="flex align-items-center justify-content-between mb-6">
+                <div class="flex align-items-center">
+                    <p-checkbox id="rememberme" [binary]="true" styleClass="mr-2"></p-checkbox>
+                    <label class="text-primary" for="rememberme">Recordar mis datos</label>
+                </div>
             </div>
+            <button
+                type="submit"
+                pButton
+                pRipple
+                class="w-full justify-content-center"
+                [disabled]="loginForm.invalid"
+            >
+                <ng-container *ngIf="isLoading; else noLoading">
+                    <i class="pi pi-spin pi-spinner" style="font-size: 1.4rem"></i>
+                </ng-container>
+                <ng-template #noLoading>
+                    <span class="mr-2 font-medium">Iniciar sesión</span>
+                    <i class="pi pi-user"></i>
+                </ng-template>
+            </button>
         </div>
-        <button pButton pRipple label="Enviar" icon="pi pi-user" class="w-full"></button>
-    </div>
+    </form>
+    <p-toast position="top-center"></p-toast>
 </div>

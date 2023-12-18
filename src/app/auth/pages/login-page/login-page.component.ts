@@ -1,4 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, Injectable } from '@angular/core';
+import { LoginService } from '../../services/login.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MessageService } from 'primeng/api';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login-page',
@@ -8,4 +13,43 @@ import { Component } from '@angular/core';
 })
 export class LoginPageComponent {
 
+  constructor(private loginService: LoginService, 
+              private fb: FormBuilder,
+              private messageService: MessageService, 
+              private router: Router) {}
+
+  public isLoading: boolean = false;
+
+  public loginForm: FormGroup = this.fb.group({
+    email: ['', [Validators.required, Validators.email]],
+    password: ['', [Validators.required, Validators.pattern("^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\\d!@#$%^&*()-_+=]{7,}$")]]
+    // errors: "pattern" e "email"
+  })
+
+  public onLogin() {
+    if(this.loginForm.invalid) {
+      this.loginForm.markAllAsTouched();
+      return;
+    }
+
+    this.isLoading = true;
+    
+    this.loginService.login(this.loginForm.value).subscribe({
+      next: (success) => {
+        this.isLoading = false;
+        if(success) this.router.navigateByUrl("/dashboard/welcome");
+        this.loginForm.reset();
+      },
+      error: (error: HttpErrorResponse) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Ups',
+          detail: `${error}`,
+        });
+
+        this.isLoading = false;
+      },
+    });
+
+  }
 }

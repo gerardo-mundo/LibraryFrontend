@@ -6,6 +6,7 @@ export interface IUserCredentials {
 export interface IAuthenticationResponse {
     token: string;
     expiration: string;
+    errorMessage: string | null;
 }
 
 export enum AuthenticationStatus {
