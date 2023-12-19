@@ -38,6 +38,7 @@ export class LoginPageComponent {
     this.loginService.login(this.loginForm.value).subscribe({
       next: (success) => {
         this.isLoading = false;
+        this.loginService.isAuthenticated = AuthenticationStatus.checking;
         if(success) {
           this.loginService.isAuthenticated = AuthenticationStatus.authenticated;
           this.router.navigateByUrl("/dashboard/welcome");
@@ -49,7 +50,7 @@ export class LoginPageComponent {
           summary: 'Ups',
           detail: `${error}`,
         });
-
+        this.loginService.isAuthenticated = AuthenticationStatus.notAuthenticated;
         this.isLoading = false;
       },
     });

@@ -13,7 +13,8 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   private readonly BASE_URL = ENVIRONMENT.BASE_URL;
-  public isAuthenticated = AuthenticationStatus.checking;
+  public isAuthenticated = AuthenticationStatus.notAuthenticated;
+  public token = JSON.parse(localStorage.getItem('token') ?? '{}');
 
   public login(body: IUserCredentials ): Observable<boolean> {
     return this.http.post<boolean>(`${this.BASE_URL}/accounts/login`, body)
