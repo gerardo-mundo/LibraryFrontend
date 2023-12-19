@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ENVIRONMENT } from 'src/app/environments/environment';
-import { IUserCredentials } from '../interfaces/login.interface';
+import { AuthenticationStatus, IUserCredentials } from '../interfaces/login.interface';
 import { Observable, catchError, map, tap } from 'rxjs';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
 
@@ -13,6 +13,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   private readonly BASE_URL = ENVIRONMENT.BASE_URL;
+  public isAuthenticated = AuthenticationStatus.checking;
 
   public login(body: IUserCredentials ): Observable<boolean> {
     return this.http.post<boolean>(`${this.BASE_URL}/accounts/login`, body)

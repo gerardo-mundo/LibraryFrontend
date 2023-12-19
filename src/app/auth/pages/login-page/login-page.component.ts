@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { AuthenticationStatus } from '../../interfaces/login.interface';
 
 @Component({
   selector: 'app-login-page',
@@ -37,8 +38,10 @@ export class LoginPageComponent {
     this.loginService.login(this.loginForm.value).subscribe({
       next: (success) => {
         this.isLoading = false;
-        if(success) this.router.navigateByUrl("/dashboard/welcome");
-        this.loginForm.reset();
+        if(success) {
+          this.loginService.isAuthenticated = AuthenticationStatus.authenticated;
+          this.router.navigateByUrl("/dashboard/welcome");
+        }       
       },
       error: (error: HttpErrorResponse) => {
         this.messageService.add({
