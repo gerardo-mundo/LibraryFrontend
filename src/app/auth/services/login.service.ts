@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ENVIRONMENT } from 'src/app/environments/environment';
 import { AuthenticationStatus, IUserCredentials } from '../interfaces/login.interface';
 import { Observable, catchError, map, tap } from 'rxjs';
@@ -10,7 +11,7 @@ import { handleErrors } from 'src/app/shared/helpers/handlers';
 })
 export class LoginService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private route: Router) { }
 
   private readonly BASE_URL = ENVIRONMENT.BASE_URL;
   public isAuthenticated = AuthenticationStatus.notAuthenticated;
