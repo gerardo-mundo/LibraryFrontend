@@ -13,11 +13,11 @@ import { AuthenticationStatus, IUserCredentials } from '../interfaces/login.inte
 })
 export class LoginService {
 
-  constructor(private http: HttpClient, private route: Router) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   private readonly BASE_URL = ENVIRONMENT.BASE_URL;
   public isAuthenticated = AuthenticationStatus.notAuthenticated;
-  public token = JSON.parse(localStorage.getItem('token') ?? '{}');
+  public token = JSON.parse(localStorage.getItem('token') ?? 'null');
 
   public login(body: IUserCredentials ): Observable<boolean> {
     return this.http.post<boolean>(`${this.BASE_URL}/accounts/login`, body)
@@ -26,5 +26,11 @@ export class LoginService {
       map(() => true),    
       catchError((response: HttpErrorResponse) =>  handleErrors(response)),
     )
+  }
+
+  public logout() {
+    localStorage.removeItem('token')
+
+    this.router.navigateByUrl('/auth/login')
   }
 }
