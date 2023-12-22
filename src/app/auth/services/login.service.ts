@@ -1,10 +1,12 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { ENVIRONMENT } from 'src/app/environments/environment';
-import { AuthenticationStatus, IUserCredentials } from '../interfaces/login.interface';
+
 import { Observable, catchError, map, tap } from 'rxjs';
+
+import { ENVIRONMENT } from 'src/app/environments/environment';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
+import { AuthenticationStatus, IUserCredentials } from '../interfaces/login.interface';
 
 @Injectable({
   providedIn: 'root'
