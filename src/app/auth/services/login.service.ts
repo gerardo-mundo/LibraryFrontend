@@ -2,22 +2,26 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 
-import { Observable, catchError, map, tap } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, map, tap } from 'rxjs';
 
 import { ENVIRONMENT } from 'src/app/environments/environment';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
-import { AuthenticationStatus, IUserCredentials } from '../interfaces/login.interface';
+import { AuthenticationStatus, IAuthenticationResponse, IUserCredentials } from '../interfaces/login.interface';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private http: HttpClient, private router: Router) { }
+  constructor(private http: HttpClient, private router: Router) {
+    
+  }
 
   private readonly BASE_URL = ENVIRONMENT.BASE_URL;
-  public isAuthenticated = AuthenticationStatus.notAuthenticated;
-  public token = JSON.parse(localStorage.getItem('token') ?? 'null');
+  public token?: IAuthenticationResponse = JSON.parse(localStorage.getItem('token') ?? 'null');
+  public isAuthenticated = new BehaviorSubject(this.token ? 
+                          AuthenticationStatus.authenticated : 
+                          AuthenticationStatus.notAuthenticated);
 
   public login(body: IUserCredentials ): Observable<boolean> {
     return this.http.post<boolean>(`${this.BASE_URL}/accounts/login`, body)
@@ -30,7 +34,7 @@ export class LoginService {
 
   public logout() {
     localStorage.removeItem('token')
-
+    this.isAuthenticated.next(AuthenticationStatus.notAuthenticated);
     this.router.navigateByUrl('/auth/login')
   }
 }
