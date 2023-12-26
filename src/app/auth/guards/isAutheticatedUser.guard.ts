@@ -1,4 +1,3 @@
-// isAuthenticated.guard.ts
 import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
 
@@ -8,18 +7,17 @@ import { LoginService } from '../services/login.service';
 @Injectable({
   providedIn: 'root',
 })
-export class IsAuthenticatedGuard implements CanActivate {
+export class IsAuthenticatedUserGuard implements CanActivate {
   constructor(private loginService: LoginService, private router: Router) {}
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const isAuthenticated = this.loginService.isAuthenticated.getValue();
     
     if (isAuthenticated === AuthenticationStatus.authenticated) {
-      return true;
+        this.router.navigateByUrl('/dashboard/welcome');
+        return false;
     }
 
-    this.router.navigateByUrl('/auth/login');
-    return false;
+    return true;
   }
 }
-
