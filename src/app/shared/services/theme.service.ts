@@ -4,8 +4,9 @@ import { Inject, Injectable } from '@angular/core';
 @Injectable({
   providedIn: 'root',
 })
-export class ThemeService {
-  public themeSelection = false;
+export class ThemeService{
+  public themeSelection!: boolean;
+
 
   constructor(@Inject(DOCUMENT) private document: Document) {
     const theme = localStorage.getItem('theme');
