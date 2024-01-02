@@ -13,11 +13,9 @@ export class ThemingButtonComponent implements OnInit {
 
   ngOnInit(): void {
   this.checked = this.themeService.themeSelection;
-  console.log(`Al iniciar: ${this.checked}`);
   }
 
   changeTheme(): void {
-    console.log('changeTheme', this.checked);
     this.themeService.switchTheme(this.checked);
   }
 }
