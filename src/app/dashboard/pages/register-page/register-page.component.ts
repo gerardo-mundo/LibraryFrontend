@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpErrorResponse } from '@angular/common/http';
 
 import { SelectButtonOptionClickEvent } from 'primeng/selectbutton';
+import { MessageService } from 'primeng/api';
 
 import * as CustomValidators from 'src/app/shared/helpers/validators';
+import { UsersService } from '../../services/users.service';
 
 @Component({
   selector: 'app-register-page',
@@ -13,7 +16,9 @@ import * as CustomValidators from 'src/app/shared/helpers/validators';
 })
 export class RegisterPageComponent {
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, 
+              private usersService: UsersService,
+              private messageService: MessageService) {}
 
   public registerForm: FormGroup = this.fb.group({
     type: [null, Validators.required],
@@ -46,7 +51,32 @@ export class RegisterPageComponent {
       this.registerForm.markAllAsTouched();
       return;
     }
-    console.log(this.registerForm.value);
+
+    this.loading = true;
+
+    this.usersService.postUser(this.registerForm.value).subscribe(
+      {
+        next: () => {
+          this.messageService.add({
+            severity: 'success',
+            summary: 'Éxito',
+            detail: 'Publicación agregada correctamente',
+          });
+          this.loading = false;
+  
+          this.registerForm.reset();
+        }, 
+        error: (resp: HttpErrorResponse) => {
+          this.messageService.add({
+            severity: 'error',
+            summary: 'Ups',
+            detail: `${resp}`,
+          });
+  
+          this.loading = false;
+        }
+      }
+    )
     
   }
 

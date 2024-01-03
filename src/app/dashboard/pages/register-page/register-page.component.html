@@ -74,6 +74,6 @@
             <small *ngIf="isValidField('address')" class="ml-2 text-red-500">{{displayError('address')}}</small>
         </div>
     </div>
-    <dashboard-add-button (click)="onSave()" [isLoading]="loading" />
+    <dashboard-add-button [isLoading]="loading" />
     <p-toast position="top-center"></p-toast>
 </form>
