@@ -43,7 +43,19 @@ export class RegisterPageComponent {
   public selectedOption(event: SelectButtonOptionClickEvent) {
     this.lastOptionSelected = event;
     this.isStudent = this.lastOptionSelected?.option?.value === 1;
-    this.isEmployee = this.lastOptionSelected?.option?.value === 2 || this.lastOptionSelected?.option?.value === 3;    
+    this.isEmployee = this.lastOptionSelected?.option?.value === 2 || this.lastOptionSelected?.option?.value === 3;
+    
+    if (this.isStudent) {
+      this.registerForm.get('enrollmentNum')?.setValidators(
+        [Validators.required, Validators.maxLength(8), Validators.minLength(8)]);
+    } else {null}
+
+    if (this.isEmployee) {
+      this.registerForm.get('employeeKey')?.setValidators(
+        [Validators.required, Validators.maxLength(10), Validators.minLength(8)]);
+    } else {null}
+
+    this.registerForm.updateValueAndValidity();
   };
 
   public onSave() {
