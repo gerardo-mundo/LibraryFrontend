@@ -65,7 +65,7 @@
             </div>
             <small *ngIf="isValidField('employeeKey')" class="ml-2 text-red-500">{{displayError('employeeKey')}}</small>
         </div>
-        <div class="w-full sm:w-auto">
+        <div *ngIf="isStudent" class="w-full sm:w-auto">
             <div class="p-float-label mt-5">
                 <input formControlName="address" type="text" class="mx-2 w-full sm:w-auto" pInputText
                     id="address" />
