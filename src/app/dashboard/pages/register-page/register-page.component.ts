@@ -72,7 +72,7 @@ export class RegisterPageComponent {
           this.messageService.add({
             severity: 'success',
             summary: 'Éxito',
-            detail: 'Publicación agregada correctamente',
+            detail: 'Usuario registrado',
           });
           this.loading = false;
   
