@@ -1,0 +1,24 @@
+<p class="text-primary ml-2 mt-4">Lista de administrativos registrados:</p>
+<p-table [value]="administratives" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10, 20]"
+    paginatorLocale="es-Es">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:20%">Nombre</th>
+            <th style="width:20%">Segundo nombre</th>
+            <th style="width:20%">Apellido</th>
+            <th style="width:20%">Apellido materno</th>
+            <th style="width:20%">Num. de empleado</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-administratives>
+        <tr>
+            <td>{{administratives.name}}</td>
+            <td>{{administratives.secondName}}</td>
+            <td>{{administratives.lastName}}</td>
+            <td>{{administratives.motherName}}</td>
+            <td>{{administratives.employeeKey}}</td>
+        </tr>
+    </ng-template>
+</p-table>
