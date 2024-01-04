@@ -22,7 +22,7 @@ import { NewLoanPageComponent } from './pages/loans-page/new-loan-page.component
 import { DeleteLoanPageComponent } from './pages/loans-page/delete-loan-page.component';
 import { RegisteredStudentsPageComponent } from './pages/register-page/registered-students/registered-students-page.component';
 import { RegisteredAdministrativesPageComponent } from './pages/register-page/registered-administratives-page.component';
-import { RegisteredProfessorsPageComponent } from './pages/register-page/registered-professors-page.component';
+import { RegisteredProfessorsPageComponent } from './pages/register-page/registered-professors/registered-professors-page.component';
 import { NewAccountPageComponent } from './pages/accounts-page/new-account-page.component';
 import { RegisteredAccountsPageComponent } from './pages/accounts-page/registered-accounts-page.component';
 import { ChangePasswordPageComponent } from './pages/accounts-page/change-password-page.component';
