@@ -12,12 +12,12 @@ export class RegisteredProfessorsPageComponent {
   constructor(private usersService: UsersService) {}
   
   ngOnInit(): void {
-    this.getStudentsList();
+    this.getProfessorsList();
   }
 
   public professors!: IUser[];
 
-  public getStudentsList() {
+  public getProfessorsList() {
     this.usersService.getProfessors().subscribe(profs => this.professors = profs);
   }
 }
