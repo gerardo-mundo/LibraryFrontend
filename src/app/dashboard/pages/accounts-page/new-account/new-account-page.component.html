@@ -1,0 +1,42 @@
+<p class="text-primary mt-4 ml-2">Registra una nueva cuenta en el sistema</p>
+    <form [formGroup]="registerForm" class="flex flex-column align-items-center surface-section py-6 px-4">
+        <div class="w-full sm:w-6">
+            <div class="p-float-label mt-5">
+                <input formControlName="email" type="text" class="w-full" pInputText id="email" />
+                <label htmlFor="email">Correo</label>
+            </div>
+            <!-- <small *ngIf="isValidField('email')" class="ml-2 text-red-500">{{displayError('email')}}</small> -->
+        </div>
+        <div class="w-full sm:w-6">
+            <div class="p-float-label mt-5">
+                <input formControlName="password" type="text" class="w-full" pInputText id="password" />
+                <label htmlFor="password">Contraseña</label>
+            </div>
+            <!-- <small *ngIf="isValidField('password')" class="ml-2 text-red-500">{{displayError('password')}}</small> -->
+        </div>
+        <div class="w-full sm:w-6">
+            <div class="p-float-label mt-5">
+                <input formControlName="name" type="text" class="w-full" pInputText id="name" />
+                <label htmlFor="name">Nombres</label>
+            </div>
+            <!-- <small *ngIf="isValidField('name')" class="ml-2 text-red-500">{{displayError('name')}}</small> -->
+        </div>
+        <div class="w-full sm:w-6">
+            <div class="p-float-label mt-5">
+                <input formControlName="lastName" type="text" class="w-full" pInputText id="lastName" />
+                <label htmlFor="lastName">Apellidos</label>
+            </div>
+            <!-- <small *ngIf="isValidField('lastName')" class="ml-2 text-red-500">{{displayError('lastName')}}</small> -->
+        </div>
+        <div class="w-full sm:w-6">
+            <div class="p-float-label mt-5">
+                <input formControlName="employeeKey" type="text" class="w-full" pInputText id="employeeKey" />
+                <label htmlFor="employeeKey">Clave de empleado</label>
+            </div>
+            <!-- <small *ngIf="isValidField('employeeKey')" class="ml-2 text-red-500">{{displayError('employeeKey')}}</small> -->
+        </div>
+        <div class="flex w-full flex-column sm:w-6">
+            <dashboard-add-button [label]="'Guardar'" [invalid]="registerForm.invalid" />
+        </div>
+    </form>
+
