@@ -3,13 +3,12 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'dashboard-add-button',
   template: `
-    <div class="mt-4 w-full">
       <button
         type="submit"
         pButton
         pRipple
         [disabled]="invalid"
-        class="sm:w-2 w-full justify-content-center"
+        class="sm:w-auto w-full justify-content-center mt-4"
       >
         <ng-container *ngIf="isLoading; else noLoading">
           <i class="pi pi-spin pi-spinner" style="font-size: 1.4rem"></i>
@@ -19,7 +18,6 @@ import { Component, Input } from '@angular/core';
           <i class="pi pi-save"></i>
         </ng-template>
       </button>
-    </div>
   `,
   styles: [],
 })
