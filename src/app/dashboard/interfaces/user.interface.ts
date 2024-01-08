@@ -8,3 +8,11 @@ export interface IUser {
     employeeKey: string | null;
     address: string | null;
 }
+
+export interface IAccount {
+    email: string;
+    password: string;
+    name: string;
+    lastName: string;
+    employeeKey: string;
+}
