@@ -1,0 +1,23 @@
+<p class="text-primary ml-2 mt-4">Lista de cuentas de administradores y auxiliares registrados:</p>
+<p-table [value]="accounts" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+    [tableStyle]="{ 'min-width': '50rem' }"
+    currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10, 20]"
+    paginatorLocale="es-Es">
+    <ng-template pTemplate="header">
+        <tr>
+            <th style="width:25%">Nombre(s)</th>
+            <th style="width:25%">Apellidos</th>
+            <th style="width:25%">Email</th>
+            <th style="width:25%">Num. de empleado</th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-administratives>
+        <tr>
+            <td>{{administratives.name}}</td>
+            <td>{{administratives.lastName}}</td>
+            <td>{{administratives.email}}</td>
+            <td>{{administratives.employeeKey}}</td>
+        </tr>
+    </ng-template>
+</p-table>
+<p-toast position="top-center"></p-toast>

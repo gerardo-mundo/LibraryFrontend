@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ENVIRONMENT } from 'src/app/environments/environment';
-import { IAccount } from '../interfaces/user.interface';
+import { IAccount, IEmployeeData } from '../interfaces/user.interface';
 import { Observable, catchError } from 'rxjs';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
 import { IAuthenticationResponse } from 'src/app/auth/interfaces/login.interface';
@@ -23,4 +23,9 @@ export class AccountsService {
     );
   };
   
+  public getAccountsList(): Observable<IEmployeeData[]> {
+    return this.http.get<IEmployeeData[]>(`${this.BASE_URL}/accounts/get-accounts`).pipe(
+      catchError((response: HttpErrorResponse ) => handleErrors(response))
+    );
+  };
 }

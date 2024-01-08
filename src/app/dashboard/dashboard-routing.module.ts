@@ -18,7 +18,7 @@ import { RegisteredStudentsPageComponent } from './pages/register-page/registere
 import { RegisteredProfessorsPageComponent } from './pages/register-page/registered-professors/registered-professors-page.component';
 import { RegisteredAdministrativesPageComponent } from './pages/register-page/registered-administratives/registered-administratives-page.component';
 import { NewAccountPageComponent } from './pages/accounts-page/new-account/new-account-page.component';
-import { RegisteredAccountsPageComponent } from './pages/accounts-page/registered-accounts-page.component';
+import { RegisteredAccountsPageComponent } from './pages/accounts-page/registered-accounts/registered-accounts-page.component';
 import { ChangePasswordPageComponent } from './pages/accounts-page/change-password-page.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 

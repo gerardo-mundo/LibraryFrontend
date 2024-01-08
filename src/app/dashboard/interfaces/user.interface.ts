@@ -16,3 +16,10 @@ export interface IAccount {
     lastName: string;
     employeeKey: string;
 }
+
+export interface IEmployeeData {
+    email: string;
+    name: string;
+    lastName: string;
+    employeeKey: string;
+}
