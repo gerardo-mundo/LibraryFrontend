@@ -25,7 +25,7 @@ import { RegisteredAdministrativesPageComponent } from './pages/register-page/re
 import { RegisteredProfessorsPageComponent } from './pages/register-page/registered-professors/registered-professors-page.component';
 import { NewAccountPageComponent } from './pages/accounts-page/new-account/new-account-page.component';
 import { RegisteredAccountsPageComponent } from './pages/accounts-page/registered-accounts/registered-accounts-page.component';
-import { ChangePasswordPageComponent } from './pages/accounts-page/change-password-page.component';
+import { ChangePasswordPageComponent } from './pages/accounts-page/change-password/change-password-page.component';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 import { AddButtonComponent } from './components/add-button/add-button.component';
 import { ConfirmationService, MessageService } from 'primeng/api';
