@@ -28,4 +28,11 @@ export class AccountsService {
       catchError((response: HttpErrorResponse ) => handleErrors(response))
     );
   };
+
+  public updatePassword(newPassword: string) {
+    this.http.post(`${this.BASE_URL}/accounts/update-password`, newPassword).pipe(
+      catchError((response: HttpErrorResponse) => handleErrors(response))
+    );
+  };
+  
 }
