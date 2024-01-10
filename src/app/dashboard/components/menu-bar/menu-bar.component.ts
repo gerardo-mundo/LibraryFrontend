@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MenuItem, PrimeIcons } from 'primeng/api';
-import { LoginService } from 'src/app/auth/services/login.service';
+import { AuthenticationService } from 'src/app/auth/services/Authentication.service';
 
 @Component({
   selector: 'dashboard-menu-bar',
@@ -149,12 +149,12 @@ export class MenuBarComponent implements OnInit {
             label: 'Cerrar sesión',
             icon: PrimeIcons.SIGN_OUT,
             routerLink: '/auth/login',
-            command: () => this.loginService.logout(),
+            command: () => this.authService.logout(),
           },
         ],
       },
     ];
   }
 
-  constructor(private loginService: LoginService) {}
+  constructor(private authService: AuthenticationService) {}
 }

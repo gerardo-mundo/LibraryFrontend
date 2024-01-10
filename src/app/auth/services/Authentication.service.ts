@@ -11,7 +11,7 @@ import { AuthenticationStatus, IAuthenticationResponse, IUserCredentials } from 
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class AuthenticationService {
 
   constructor(private http: HttpClient, private router: Router) {
     

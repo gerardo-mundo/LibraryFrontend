@@ -1,5 +1,5 @@
 import { Component, Injectable } from '@angular/core';
-import { LoginService } from '../../services/login.service';
+import { AuthenticationService } from '../../services/Authentication.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { HttpErrorResponse } from '@angular/common/http';
@@ -14,10 +14,10 @@ import { AuthenticationStatus } from '../../interfaces/login.interface';
 })
 export class LoginPageComponent {
 
-  constructor(private loginService: LoginService, 
+  constructor(private authService: AuthenticationService, 
               private fb: FormBuilder,
               private messageService: MessageService, 
-              private router: Router) {console.log(loginService.isAuthenticated.getValue());
+              private router: Router) {console.log(authService.isAuthenticated.getValue());
               }
 
   public isLoading: boolean = false;
@@ -36,11 +36,11 @@ export class LoginPageComponent {
 
     this.isLoading = true;
     
-    this.loginService.login(this.loginForm.value).subscribe({
+    this.authService.login(this.loginForm.value).subscribe({
       next: (success) => {
         this.isLoading = false;
         if(success) {
-          this.loginService.isAuthenticated.next(AuthenticationStatus.authenticated);
+          this.authService.isAuthenticated.next(AuthenticationStatus.authenticated);
           this.router.navigateByUrl("/dashboard/welcome");
         }       
       },
@@ -50,7 +50,7 @@ export class LoginPageComponent {
           summary: 'Ups',
           detail: `${error}`,
         });
-        this.loginService.isAuthenticated.next(AuthenticationStatus.notAuthenticated);
+        this.authService.isAuthenticated.next(AuthenticationStatus.notAuthenticated);
         this.isLoading = false;
       },
     });
