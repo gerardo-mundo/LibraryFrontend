@@ -9,6 +9,9 @@ import { AuthenticationService } from 'src/app/auth/services/Authentication.serv
 })
 export class MenuBarComponent implements OnInit {
   items: MenuItem[] | undefined;
+  public account = 'correo@gmail.com';
+  public userIcon = PrimeIcons.USER;
+  public employeeKey = 'KFC12345'
 
   ngOnInit(): void {
     this.items = [

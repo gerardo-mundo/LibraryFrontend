@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 
+import { AvatarModule } from 'primeng/avatar';
 import { ButtonModule } from 'primeng/button';
 import { CardModule } from 'primeng/card';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -20,6 +21,7 @@ import { ToolbarModule } from 'primeng/toolbar';
 @NgModule({
   imports: [],
   exports: [
+    AvatarModule,
     ButtonModule,
     CardModule,
     ConfirmDialogModule,
