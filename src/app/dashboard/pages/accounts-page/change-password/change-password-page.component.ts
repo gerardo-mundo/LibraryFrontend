@@ -26,10 +26,10 @@ export class ChangePasswordPageComponent {
 
 
   public onChangePassword() {
-    const firstPassword = this.passwordForm.controls['firstPassword'].value;
-    const repeatedPassword = this.passwordForm.controls['password'].value;
-
-    if (firstPassword !== repeatedPassword) {
+    const { firstPassword, password } = this.passwordForm.value;
+    const body = { password };
+  
+    if (firstPassword !== password) {
         this.messageService.add({
           severity: 'error',
           summary: 'Error',
@@ -37,8 +37,30 @@ export class ChangePasswordPageComponent {
         })
         this.passwordForm.markAllAsTouched();
         return;
-    }
-    console.log(repeatedPassword);
+    };
+    
+    this.loading = true;
+
+    this.accountsService.updatePassword(body).subscribe({
+      next: () => {
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Éxito',
+          detail: 'Contraseña actualizada'
+        });
+
+        this.loading = false;
+      },
+      error: (err) => {
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Ups',
+          detail: `${err}`
+        });
+
+        this.loading = false;
+      },
+    })
   };
 
   public isValidField(value: string) {
