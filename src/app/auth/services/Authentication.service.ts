@@ -18,8 +18,8 @@ export class AuthenticationService {
   }
 
   private readonly BASE_URL = ENVIRONMENT.BASE_URL;
-  public token?: IAuthenticationResponse = JSON.parse(localStorage.getItem('token') ?? 'null');
-  public isAuthenticated = new BehaviorSubject(this.token ? 
+  public token: IAuthenticationResponse | null = JSON.parse(localStorage.getItem('token') ?? 'null');
+  public isAuthenticated = new BehaviorSubject<AuthenticationStatus>(this.token ? 
                           AuthenticationStatus.authenticated : 
                           AuthenticationStatus.notAuthenticated);
 
@@ -33,6 +33,7 @@ export class AuthenticationService {
   }
 
   public logout() {
+    this.token = null;
     localStorage.removeItem('token')
     this.isAuthenticated.next(AuthenticationStatus.notAuthenticated);
     this.router.navigateByUrl('/auth/login')
