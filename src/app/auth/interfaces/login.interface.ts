@@ -14,3 +14,8 @@ export enum AuthenticationStatus {
     authenticated = 'authenticated',
     notAuthenticated = 'not-authenticated'
 }
+export interface UserDataToken {
+    email: string; 
+    employeeKey: string; 
+    exp: number
+}
