@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
-import { catchError } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
-import { ILoan } from '../interfaces/loan.interface';
+import { IBorrowedBook, ILoan } from '../interfaces/loan.interface';
 import { ENVIRONMENT } from 'src/app/environments/environment';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
 
@@ -19,6 +19,13 @@ export class LoansService {
     return this.http.post(`${this.BASE_URL}/loans`, data).pipe(
       catchError((response: HttpErrorResponse) => handleErrors(response))
     );
+  };
+
+  public getBorrowedBooks(): Observable<IBorrowedBook[]> {
+    return this.http.get<IBorrowedBook[]>(`${this.BASE_URL}/loans/get-borrowed-books`)
+    .pipe(
+      catchError((response: HttpErrorResponse) => handleErrors(response))
+    )
   };
 
 }
