@@ -4,7 +4,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { BooksPageComponent } from './pages/books-page/book-list/books-page.component';
 import { ThesisPageComponent } from './pages/thesis-page/list-thesis/thesis-page.component';
 import { PublicationsPageComponent } from './pages/publications-page/publication-list/publications-page.component';
-import { LoansPageComponent } from './pages/loans-page/loans-page.component';
+import { LoansPageComponent } from './pages/loans-page/edit-loans/loans-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { AddBookPageComponent } from './pages/books-page/add-book/add-book-page.component';
 import { EditBookPageComponent } from './pages/books-page/edit-book/edit-book-page.component';
