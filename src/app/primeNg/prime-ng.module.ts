@@ -16,6 +16,7 @@ import { PanelModule } from 'primeng/panel';
 import { PasswordModule } from 'primeng/password';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TableModule } from 'primeng/table';
+import { TagModule } from 'primeng/tag';
 import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 
@@ -38,6 +39,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     PasswordModule,
     SelectButtonModule,
     TableModule,
+    TagModule,
     ToastModule,
     ToolbarModule,
   ],

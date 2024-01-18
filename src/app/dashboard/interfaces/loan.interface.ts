@@ -8,6 +8,7 @@ export interface ILoanWithBooks {
     loanDate:       string;
     devolutionDate: string;
     accountId:      string;
+    userName:       string;
     userId:         number;
     borrowedBooks:  IBorrowedBook[];
 }

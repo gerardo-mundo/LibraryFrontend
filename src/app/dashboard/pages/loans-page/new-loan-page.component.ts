@@ -79,7 +79,7 @@ export class NewLoanPageComponent implements OnInit {
   public onNewLoan() {
     const {selectedUser, selectedBooks} = this.loanForm.value;
     const userId = selectedUser[0].id
-    const borrowedBooks = selectedBooks.map((book: IBook) => book.id);
+    const borrowedBooks = selectedBooks.map((book: IBook) => book.adquisition);
     const data = {
       userId,
       borrowedBooks

@@ -3,7 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable, catchError } from 'rxjs';
 
-import { IBorrowedBook, ILoan } from '../interfaces/loan.interface';
+import { ILoan, ILoanWithBooks } from '../interfaces/loan.interface';
 import { ENVIRONMENT } from 'src/app/environments/environment';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
 
@@ -21,8 +21,8 @@ export class LoansService {
     );
   };
 
-  public getBorrowedBooks(): Observable<IBorrowedBook[]> {
-    return this.http.get<IBorrowedBook[]>(`${this.BASE_URL}/loans/get-borrowed-books`)
+  public getBorrowedBooks(): Observable<ILoanWithBooks[]> {
+    return this.http.get<ILoanWithBooks[]>(`${this.BASE_URL}/loans/get-borrowed-books`)
     .pipe(
       catchError((response: HttpErrorResponse) => handleErrors(response))
     )
