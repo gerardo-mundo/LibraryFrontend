@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { ZeroDatePipe } from './pipes/zeroDate.pipe';
+
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { LayoutComponent } from './layout/layout.component';
 import { BooksPageComponent } from './pages/books-page/book-list/books-page.component';
@@ -69,6 +71,8 @@ import { ModalPublicationComponent } from './pages/publications-page/edit-public
     ModalDialogComponent,
     ModalThesisComponent,
     ModalPublicationComponent,
+    //Pipes
+    ZeroDatePipe
   ],
   imports: [
     CommonModule,

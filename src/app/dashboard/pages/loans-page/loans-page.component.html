@@ -33,7 +33,7 @@
                 <td>{{ loan.userId }}</td>
                 <td>{{ loan.userName }}</td>
                 <td>{{ loan.loanDate | date }}</td>
-                <td>{{ loan.devolutionDate | date: 'short' }}</td>
+                <td>{{ loan.devolutionDate | ZeroDate }}</td>
                 <td>
                     <p-tag [value]="loan.returned === true ? 'Devuelto' : 'Sin devolver'" [severity]="getSeverity(loan.returned)"></p-tag>
                 </td>
