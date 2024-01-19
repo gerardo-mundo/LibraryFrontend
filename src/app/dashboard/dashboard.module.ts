@@ -36,6 +36,7 @@ import { ThesisService } from './services/thesis.service';
 import { ModalDialogComponent } from './pages/books-page/edit-book/modal-dialog.component.';
 import { ModalThesisComponent } from './pages/thesis-page/edit-thesis/modal-thesis.component.';
 import { ModalPublicationComponent } from './pages/publications-page/edit-publication/modal-publication.component';
+import { ModalLoanComponent } from './pages/loans-page/edit-loans/modal-loan.component';
 
 @NgModule({
   providers: [
@@ -72,7 +73,8 @@ import { ModalPublicationComponent } from './pages/publications-page/edit-public
     ModalThesisComponent,
     ModalPublicationComponent,
     //Pipes
-    ZeroDatePipe
+    ZeroDatePipe,
+    ModalLoanComponent
   ],
   imports: [
     CommonModule,
