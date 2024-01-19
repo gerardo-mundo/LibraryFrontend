@@ -47,4 +47,17 @@ export class LoansPageComponent implements OnInit {
   public applyFilterGlobal($event: any, stringVal: string) {
     this.utilitiesService.filtering($event, stringVal, this.dt);
   };
+
+  data = [
+    {
+      "path": "/DevolutionDate",
+      "op": "replace",
+      "value": "2023-09-15"
+    },
+    {
+      "path": "/Returned",
+      "op": "replace",
+      "value": true
+    }
+  ]
 }
