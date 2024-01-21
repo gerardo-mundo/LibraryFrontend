@@ -38,9 +38,9 @@
                     <p-tag [value]="loan.returned === true ? 'Devuelto' : 'Sin devolver'" [severity]="getSeverity(loan.returned)"></p-tag>
                 </td>
                 <td>
-                    <button [disabled]="loan?.returned" pButton pRipple icon="pi pi-check-square" class="p-button-rounded p-button-success mr-2"
+                    <button pTooltip="Finalizar préstamo" [disabled]="loan?.returned" pButton pRipple icon="pi pi-check-square" class="p-button-rounded p-button-success mr-2"
                         (click)="onUpdateLoan(loan?.id)"></button>
-                    <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
+                    <button pTooltip="Eliminar registro" pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
                         (click)="onDeleteLoan(loan?.id)"></button>
                 </td>
             </tr>
