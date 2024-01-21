@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpResponse, JsonpClientBackend } from '@angular/common/http';
 
 import { Observable, catchError, throwError } from 'rxjs';
 
@@ -31,13 +31,18 @@ export class LoansService {
   public updateLoan(id: number): Observable<HttpResponse<null>> {
     if(!id) throwError(() => new Error('Se necesita un ID'));
 
-    const date = new Date();
+    const currentDate = new Date(); 
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1; 
+    const day = currentDate.getDate(); 
 
-    const data = [
+    const formatedDate = `${year}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`;
+
+    const patchDocument = [
       {
         path: "/DevolutionDate",
         op: "replace",
-        value: date.toString()
+        value: formatedDate
       },
       {
         path: "/Returned",
@@ -45,8 +50,8 @@ export class LoansService {
         value: true
       }
     ];
-
-    return this.http.patch<HttpResponse<null>>(`${this.BASE_URL}/loans/${id}`, data).pipe(
+    
+    return this.http.patch<HttpResponse<null>>(`${this.BASE_URL}/loans/${id}`, patchDocument).pipe(
       catchError((response: HttpErrorResponse) => handleErrors(response))
     );
   };

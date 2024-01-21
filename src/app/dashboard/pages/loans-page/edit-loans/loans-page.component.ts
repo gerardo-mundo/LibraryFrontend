@@ -4,6 +4,7 @@ import { UtilitiesService } from '../../../services/utilities.service';
 import { LoansService } from '../../../services/loans.service';
 import { ILoanWithBooks } from '../../../interfaces/loan.interface';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-loans-page',
@@ -25,13 +26,63 @@ export class LoansPageComponent implements OnInit {
   public loans: ILoanWithBooks[] = [];
   public loan!: ILoanWithBooks;
 
-  public editLoan(loan: ILoanWithBooks) {
-    this.utilitiesService.setVisibility(true);
-    this.loan = loan;
+  public onUpdateLoan(id: number) {
+    this.confirmationService.confirm({
+      message: '¿Estás deguro de finalizar el préstamo?',
+      header: 'Confirmar acción',
+      icon: 'pi pi-check-circle',
+      accept: () => {
+        this.loansService.updateLoan(id).subscribe({
+          next: () => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Éxito',
+              detail: 'Se actualizó la información',
+              life: 3000,
+            });
+            this.loansService.getBorrowedBooks().subscribe(
+              (loans: ILoanWithBooks[]) => this.loans = loans
+            );
+          },
+          error: (resp: HttpErrorResponse) => {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: `${resp}`,
+              life: 3000,
+            });
+          },
+        });
+      },
+    });
   };
 
-  public deleteLoan() {
-
+  public onDeleteLoan(id: number) {
+    this.confirmationService.confirm({
+      message: '¿Estás deguro de eliminar este registro?',
+      header: 'Confirmar acción',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.loansService.deleteLoan(id).subscribe({
+          next: () => {
+            this.messageService.add({
+              severity: 'success',
+              summary: 'Éxito',
+              detail: 'Se eliminó el registro',
+              life: 3000,
+            });
+          },
+          error: (resp: HttpErrorResponse) => {
+            this.messageService.add({
+              severity: 'error',
+              summary: 'Error',
+              detail: `${resp}`,
+              life: 3000,
+            });
+          },
+        });
+      },
+    });
   };
 
   public getSeverity(status: boolean): string {
@@ -47,17 +98,4 @@ export class LoansPageComponent implements OnInit {
   public applyFilterGlobal($event: any, stringVal: string) {
     this.utilitiesService.filtering($event, stringVal, this.dt);
   };
-
-  data = [
-    {
-      "path": "/DevolutionDate",
-      "op": "replace",
-      "value": "2023-09-15"
-    },
-    {
-      "path": "/Returned",
-      "op": "replace",
-      "value": true
-    }
-  ]
 }

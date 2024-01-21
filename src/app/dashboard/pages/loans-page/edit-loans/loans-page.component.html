@@ -21,7 +21,7 @@
                 <th pSortableColumn="user" style="min-width:15rem">ID de usuario<p-sortIcon field="user"></p-sortIcon></th>
                 <th pSortableColumn="account" style="min-width:15rem">Autorizó<p-sortIcon
                         field="account"></p-sortIcon></th>
-                <th pSortableColumn="loanDate" style="min-width:15rem">Fecha de préstamos<p-sortIcon field="loanDate"></p-sortIcon></th>
+                <th pSortableColumn="loanDate" style="min-width:15rem">Fecha y hora de préstamos<p-sortIcon field="loanDate"></p-sortIcon></th>
                 <th pSortableColumn="devolutionDate" style="min-width:15rem">Fecha devolución<p-sortIcon
                         field="devolutionDate"></p-sortIcon></th>
                 <th pSortableColumn="returned" style="min-width:15rem">Estatus<p-sortIcon field="returned"></p-sortIcon></th>
@@ -32,16 +32,16 @@
             <tr>
                 <td>{{ loan.userId }}</td>
                 <td>{{ loan.userName }}</td>
-                <td>{{ loan.loanDate | date }}</td>
+                <td>{{ loan.loanDate | date:'short' }}</td>
                 <td>{{ loan.devolutionDate | ZeroDate }}</td>
                 <td>
                     <p-tag [value]="loan.returned === true ? 'Devuelto' : 'Sin devolver'" [severity]="getSeverity(loan.returned)"></p-tag>
                 </td>
                 <td>
-                    <button pButton pRipple icon="pi pi-pencil" class="p-button-rounded p-button-success mr-2"
-                        (click)="editLoan(loan)"></button>
+                    <button [disabled]="loan?.returned" pButton pRipple icon="pi pi-check-square" class="p-button-rounded p-button-success mr-2"
+                        (click)="onUpdateLoan(loan?.id)"></button>
                     <button pButton pRipple icon="pi pi-trash" class="p-button-rounded p-button-danger"
-                        (click)="deleteLoan()"></button>
+                        (click)="onDeleteLoan(loan?.id)"></button>
                 </td>
             </tr>
         </ng-template>
@@ -51,3 +51,5 @@
         </ng-template>
     </p-table>
 </div>
+<p-confirmDialog [rejectButtonStyleClass]="'p-button-outlined'" [acceptLabel]="'Aceptar'" [rejectLabel]="'Cancelar'" [style]="{ width: '450px' }"></p-confirmDialog>
+<p-toast></p-toast>
