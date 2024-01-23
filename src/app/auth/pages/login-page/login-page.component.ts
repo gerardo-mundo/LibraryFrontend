@@ -17,8 +17,7 @@ export class LoginPageComponent {
   constructor(private authService: AuthenticationService, 
               private fb: FormBuilder,
               private messageService: MessageService, 
-              private router: Router) {console.log(authService.isAuthenticated.getValue());
-              }
+              private router: Router) {}
 
   public isLoading: boolean = false;
 
