@@ -47,4 +47,9 @@ export class UsersService {
     )
   }
 
+  public getAllUsers (): Observable<IUser[]> {
+    return this.http.get<IUser[]>(`${this.BASE_URL}/users/users`).pipe(
+      catchError((response: HttpErrorResponse) => handleErrors(response))
+    );
+  } 
 }
