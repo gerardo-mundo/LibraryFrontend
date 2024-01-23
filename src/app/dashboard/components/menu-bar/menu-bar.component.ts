@@ -11,8 +11,17 @@ import { AuthenticationService } from 'src/app/auth/services/Authentication.serv
 export class MenuBarComponent implements OnInit {
   items: MenuItem[] | undefined;
   public userAccount: UserDataToken = this.authService.getUserDataToken();
+  private firstLetter!:string;
+  private firstLetterLN!:string;
+  public fullName!: string;
+  public initials!: string;
 
   ngOnInit(): void {
+    this.firstLetter = this.userAccount?.name.charAt(0);
+    this.firstLetterLN = this.userAccount?.lastName.charAt(0);
+    this.initials = this.firstLetter + this.firstLetterLN;
+    this.fullName = this.userAccount.name + ' ' + this.userAccount.lastName;
+    
     this.items = [
       {
         label: 'Libros',
@@ -159,4 +168,21 @@ export class MenuBarComponent implements OnInit {
   }
 
   constructor(private authService: AuthenticationService) {}
+
+  public stringToColor(string: string): string {
+    let hash = 0;
+    let i;
+
+    for (i = 0; i < string.length; i += 1) {
+      hash = string.charCodeAt(i) + ((hash << 5) - hash);
+    }
+  
+    let color = '#';
+  
+    for (i = 0; i < 3; i += 1) {
+      const value = (hash >> (i * 8)) & 0xff;
+      color += `00${value.toString(16)}`.slice(-2);
+    }  
+    return color;
+  };
 }

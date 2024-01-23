@@ -2,7 +2,7 @@
     <p-menubar [model]="items">
         <ng-template pTemplate="end">
             <div class="flex align-items-center gap-3">
-                <p-avatar label="GP" [style]="{ 'background-color': '#9c27b0', color: '#ffffff' }"></p-avatar>
+                <p-avatar [label]="initials" [style]="{ 'background-color': stringToColor(fullName), color: '#ffffff' }"></p-avatar>
                 <P class="text-primary font-medium mr-2">{{userAccount.email}}</P>
                 <shared-theming-button></shared-theming-button>
             </div>
