@@ -1,4 +1,4 @@
-import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ENVIRONMENT } from 'src/app/environments/environment';
 import { IAccount, IEmployeeData } from '../interfaces/user.interface';
@@ -41,6 +41,22 @@ export class AccountsService {
   public updatePassword(newPassword: passwordConfirmed): Observable<ApiResponse<void>|void> {
     return this.http.patch<ApiResponse<void>>(`${this.BASE_URL}/accounts/update-password`, newPassword, this.headers)
     .pipe(
+      catchError((response: HttpErrorResponse) => handleErrors(response))
+    );
+  };
+
+  public makeAdminAccount(email:string): Observable<HttpResponse<null>> {
+    const data = {email};
+    
+    return this.http.post<HttpResponse<null>>(`${this.BASE_URL}/accounts/make-admin`, data).pipe(
+      catchError((response: HttpErrorResponse) => handleErrors(response))
+    );
+  };
+
+  public removeAdminAccount(email:string): Observable<HttpResponse<null>> {
+    const data = {email};
+
+    return this.http.post<HttpResponse<null>>(`${this.BASE_URL}/accounts/remove-admin`, data).pipe(
       catchError((response: HttpErrorResponse) => handleErrors(response))
     );
   };
