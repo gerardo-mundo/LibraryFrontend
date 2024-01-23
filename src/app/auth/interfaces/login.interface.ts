@@ -16,6 +16,8 @@ export enum AuthenticationStatus {
 }
 export interface UserDataToken {
     email: string; 
+    name: string; 
+    lastName: string; 
     employeeKey: string; 
     exp: number
 }
