@@ -1,7 +1,23 @@
-<div class="card">
-    <p-menubar [model]="items">
+<!-- eslint-disable @angular-eslint/template/elements-content -->
+<div class="card px-10">
+    <p-menubar class="" [model]="items">
         <ng-template pTemplate="end">
-            <shared-theming-button></shared-theming-button>
+            <div class="flex align-items-center">
+                <p-avatar size="large" [label]="initials" [style]="{ 'background-color': stringToColor(fullName), color: '#ffffff' }"></p-avatar>
+                <p-button 
+                icon="pi pi-cog" 
+                (click)="menu.toggle($event)" 
+                iconPos="right"
+                pTooltip="Opciones de cuenta"
+                severity="info"
+                [fitContent]="true"
+                [label]="userAccount.email"
+                styleClass="p-button-text"
+                >
+                </p-button>
+                <p-menu #menu [model]="accountOptions" [popup]="true"></p-menu>
+                <shared-theming-button></shared-theming-button>
+            </div>
         </ng-template>
     </p-menubar>
 </div>

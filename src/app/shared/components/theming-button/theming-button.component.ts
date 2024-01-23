@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
@@ -6,10 +6,14 @@ import { ThemeService } from '../../services/theme.service';
   templateUrl: './theming-button.component.html',
   styles: [],
 })
-export class ThemingButtonComponent {
-  public checked = this.themeService.themeSelection;
+export class ThemingButtonComponent implements OnInit {
+  public checked!: boolean;
 
   constructor(private themeService: ThemeService) {}
+
+  ngOnInit(): void {
+  this.checked = this.themeService.themeSelection;
+  }
 
   changeTheme(): void {
     this.themeService.switchTheme(this.checked);

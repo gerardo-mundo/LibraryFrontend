@@ -25,6 +25,10 @@ export const errorsDisplayer = (
         return `*${form.controls[field].value.length} es superior al límite de caracteres`;
       case 'cantBeZero':
         return '*Debe ser mayor a cero';
+        case 'email':
+        return `*${form.controls[field].value} no es un email válido`;
+      case 'pattern':
+        return '*La contraseña debe tener un número, un caracter especial y una mayúscula';
     }
   }
   return null;
