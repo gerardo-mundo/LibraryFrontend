@@ -10,6 +10,7 @@ import { AuthenticationService } from 'src/app/auth/services/Authentication.serv
 })
 export class MenuBarComponent implements OnInit {
   items: MenuItem[] | undefined;
+  accountOptions: MenuItem[] | undefined;
   public userAccount: UserDataToken = this.authService.getUserDataToken();
   private firstLetter!:string;
   private firstLetterLN!:string;
@@ -21,6 +22,25 @@ export class MenuBarComponent implements OnInit {
     this.firstLetterLN = this.userAccount?.lastName.charAt(0);
     this.initials = this.firstLetter + this.firstLetterLN;
     this.fullName = this.userAccount.name + ' ' + this.userAccount.lastName;
+
+    this.accountOptions = [
+      {
+        label: 'Opciones',
+        items: [
+          {
+            label: 'Cambiar contraseña',
+            icon: PrimeIcons.USER_EDIT,
+            routerLink: 'change-password',
+          },
+          {
+            label: 'Cerrar sesión',
+            icon: PrimeIcons.SIGN_OUT,
+            routerLink: '/auth/login',
+            command: () => this.authService.logout(),
+          },
+        ]
+      }
+    ]
 
     this.items = [
       {
@@ -135,6 +155,7 @@ export class MenuBarComponent implements OnInit {
       {
         label: 'Cuentas',
         icon: PrimeIcons.USER,
+        visible: this.userAccount?.isAdmin === 'true',
         items: [
           {
             label: 'Registrar nueva cuenta',
@@ -145,17 +166,6 @@ export class MenuBarComponent implements OnInit {
             label: 'Cuentas registrados',
             icon: PrimeIcons.DATABASE,
             routerLink: 'registered-accounts',
-          },
-          {
-            label: 'Cambiar contraseña',
-            icon: PrimeIcons.USER_EDIT,
-            routerLink: 'change-password',
-          },
-          {
-            label: 'Cerrar sesión',
-            icon: PrimeIcons.SIGN_OUT,
-            routerLink: '/auth/login',
-            command: () => this.authService.logout(),
           },
         ],
       },

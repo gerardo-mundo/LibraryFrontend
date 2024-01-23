@@ -13,6 +13,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
 import { MenubarModule } from 'primeng/menubar';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { PanelModule } from 'primeng/panel';
+import { MenuModule } from 'primeng/menu';
 import { PasswordModule } from 'primeng/password';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TableModule } from 'primeng/table';
@@ -36,6 +37,7 @@ import { ToolbarModule } from 'primeng/toolbar';
     MenubarModule,
     MultiSelectModule,
     PanelModule,
+    MenuModule,
     PasswordModule,
     SelectButtonModule,
     TableModule,
