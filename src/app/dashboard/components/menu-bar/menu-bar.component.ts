@@ -21,7 +21,7 @@ export class MenuBarComponent implements OnInit {
     this.firstLetterLN = this.userAccount?.lastName.charAt(0);
     this.initials = this.firstLetter + this.firstLetterLN;
     this.fullName = this.userAccount.name + ' ' + this.userAccount.lastName;
-    
+
     this.items = [
       {
         label: 'Libros',
@@ -100,11 +100,6 @@ export class MenuBarComponent implements OnInit {
             label: 'Ver registros',
             icon: PrimeIcons.EYE,
             routerLink: 'loans',
-          },
-          {
-            label: 'Borrar',
-            icon: PrimeIcons.ERASER,
-            routerLink: 'delete-loan',
           },
         ],
       },
