@@ -50,6 +50,6 @@
             <small *ngIf="isValidField('year')" class="ml-2 text-red-500">{{displayError('year')}}</small>
         </div>
     </div>
-    <dashboard-add-button [isLoading]="loading" />
+    <dashboard-add-button [invalid]="form.invalid" [isLoading]="loading" [isLoading]="loading" />
     <p-toast position="top-center"></p-toast>
 </form>

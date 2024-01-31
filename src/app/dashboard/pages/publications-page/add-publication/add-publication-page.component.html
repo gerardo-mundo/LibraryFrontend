@@ -94,6 +94,6 @@
             <small *ngIf="isValidField('vol')" class="ml-2 text-red-500">{{displayError('vol')}}</small>
         </div>
     </div>
-    <dashboard-add-button [isLoading]="loading" />
+    <dashboard-add-button [invalid]="form.invalid" [isLoading]="loading" [isLoading]="loading" />
     <p-toast position="top-center"></p-toast>
 </form>
