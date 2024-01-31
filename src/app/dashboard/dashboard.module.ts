@@ -21,7 +21,6 @@ import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis/edit-th
 import { AddPublicationPageComponent } from './pages/publications-page/add-publication/add-publication-page.component';
 import { EditPublicationPageComponent } from './pages/publications-page/edit-publication/edit-publication-page.component';
 import { NewLoanPageComponent } from './pages/loans-page/new-loan-page.component';
-import { DeleteLoanPageComponent } from './pages/loans-page/delete-loan-page.component';
 import { RegisteredStudentsPageComponent } from './pages/register-page/registered-students/registered-students-page.component';
 import { RegisteredAdministrativesPageComponent } from './pages/register-page/registered-administratives/registered-administratives-page.component';
 import { RegisteredProfessorsPageComponent } from './pages/register-page/registered-professors/registered-professors-page.component';
@@ -59,7 +58,6 @@ import { ModalPublicationComponent } from './pages/publications-page/edit-public
     AddPublicationPageComponent,
     EditPublicationPageComponent,
     NewLoanPageComponent,
-    DeleteLoanPageComponent,
     RegisteredStudentsPageComponent,
     RegisteredAdministrativesPageComponent,
     RegisteredProfessorsPageComponent,

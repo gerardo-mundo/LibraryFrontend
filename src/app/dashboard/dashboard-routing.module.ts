@@ -13,7 +13,6 @@ import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis/edit-th
 import { AddPublicationPageComponent } from './pages/publications-page/add-publication/add-publication-page.component';
 import { EditPublicationPageComponent } from './pages/publications-page/edit-publication/edit-publication-page.component';
 import { NewLoanPageComponent } from './pages/loans-page/new-loan-page.component';
-import { DeleteLoanPageComponent } from './pages/loans-page/delete-loan-page.component';
 import { RegisteredStudentsPageComponent } from './pages/register-page/registered-students/registered-students-page.component';
 import { RegisteredProfessorsPageComponent } from './pages/register-page/registered-professors/registered-professors-page.component';
 import { RegisteredAdministrativesPageComponent } from './pages/register-page/registered-administratives/registered-administratives-page.component';
@@ -38,7 +37,6 @@ const routes: Routes = [
       { path: 'edit-publication', component: EditPublicationPageComponent },
       { path: 'loans', component: LoansPageComponent },
       { path: 'new-loan', component: NewLoanPageComponent },
-      { path: 'delete-loan', component: DeleteLoanPageComponent },
       { path: 'register-user', component: RegisterPageComponent },
       {
         path: 'registered-students',
