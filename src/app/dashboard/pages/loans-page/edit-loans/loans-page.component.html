@@ -1,6 +1,6 @@
 <!-- eslint-disable @angular-eslint/template/elements-content -->
-<div class="card">
-    <p class="font-medium text-primary">Panel para actualizar datos o eliminar elementos</p>
+<div class="card surface-section py-6 px-4">
+    <p class="font-medium text-primary">Panel para actualizar o eliminar préstamos:</p>
     <p-toast></p-toast>
     <p-table #dt [value]="loans" [rows]="10" [paginator]="true" [globalFilterFields]="['userName']"
         [showLoader]="true" [tableStyle]="{ 'min-width': '75rem' }" [rowHover]="true" dataKey="id"
