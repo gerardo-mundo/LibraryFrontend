@@ -2,8 +2,8 @@
     <ng-template [ngIf]="!checked">
         <span style="font-size: 1.3rem" class="pi pi-sun mr-2"></span>
     </ng-template>
-    <ng-template [ngIf]="checked">
-        <span style="font-size: 1rem" class="pi pi-moon mr-2"></span>
-    </ng-template>
     <p-inputSwitch [(ngModel)]="checked" (onChange)="changeTheme()"></p-inputSwitch>
+    <ng-template [ngIf]="checked">
+        <span style="font-size: 1rem" class="pi pi-moon ml-2"></span>
+    </ng-template>
 </div>
