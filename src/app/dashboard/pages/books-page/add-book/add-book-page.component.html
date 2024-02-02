@@ -1,83 +1,94 @@
 <!-- eslint-disable @angular-eslint/template/elements-content -->
-<form autocomplete="off" [formGroup]="form" class="flex flex-column align-items-center surface-section py-6 px-4"
-    (ngSubmit)="onSave()">
-    <p class="font-medium text-primary">Agrega un nuevo libro a la colección:</p>
-    <div class="w-full sm:w-6">
-        <span class="p-float-label mt-5">
-            <input formControlName="title" type="text" class="w-full" pInputText id="title" />
-            <label htmlFor="title">Título del libro</label>
-        </span>
-        <small *ngIf="isValidField('title')" class="ml-2 text-red-500">{{displayError('title')}}</small>
-    </div>
-    <div class="w-full sm:w-6">
-        <span class="p-float-label mt-5">
-            <input formControlName="authorName" type="text" class="w-full" pInputText
-                id="authorName" />
-            <label htmlFor="authorName">Nombre del autor</label>
-        </span>
-        <small *ngIf="isValidField('authorName')" class="ml-2 text-red-500">{{displayError('authorName')}}</small>
-    </div>
-    <div class="w-full sm:w-6">
-        <span class="p-float-label mt-5">
-            <input formControlName="authorSecondName" type="text" class="w-full" pInputText
-                id="authorSecondName" />
-            <label htmlFor="authorSecondName">Segundo nombre</label>
-        </span>
-    </div>
-    <div class="w-full sm:w-6">
-        <span class="p-float-label mt-5">
-            <input formControlName="lastName" type="text" class="w-full" pInputText id="lastName" />
-            <label htmlFor="lastName">Apellido</label>
-        </span>
-        <small *ngIf="isValidField('lastName')" class="ml-2 text-red-500">{{displayError('lastName')}}</small>
-    </div>
-    <div class="w-full sm:w-6">
-        <span class="p-float-label mt-5">
-            <input formControlName="authorMotherName" type="text" class="w-full" pInputText
-                id="authorMotherName" />
-            <label htmlFor="authorMotherName">Apellido materno</label>
-        </span>
-    </div>
-    <div class="w-full sm:w-6">
-        <span class="p-float-label mt-5">
-            <input formControlName="publisher" type="text" class="w-full" pInputText
-                id="publisher" />
-            <label htmlFor="publisher">Editorial</label>
-        </span>
-        <small *ngIf="isValidField('publisher')" class="ml-2 text-red-500">{{displayError('publisher')}}</small>
-    </div>
-    <div class="w-full sm:w-6">
-        <span class="p-float-label mt-5">
-            <input formControlName="adquisition" type="number" class="w-full" pInputText
-                id="adquisition" />
-            <label htmlFor="adquisition">Adquisición</label>
-        </span>
-        <small *ngIf="isValidField('adquisition')" class="ml-2 text-red-500">{{displayError('adquisition')}}</small>
-    </div>
-    <div class="w-full sm:w-6">
-        <span class="p-float-label mt-5">
-            <input formControlName="year" type="year" class="w-full" pInputText id="year" />
-            <label htmlFor="year">Año</label>
-        </span>
-        <small *ngIf="isValidField('year')" class="ml-2 text-red-500">{{displayError('year')}}</small>
-    </div>
-    <div class="w-full sm:w-6">
-        <span class="p-float-label mt-5">
-            <input formControlName="collection" type="text" class="w-full" pInputText
-                id="collection" />
-            <label htmlFor="collection">Colección</label>
-        </span>
-        <small *ngIf="isValidField('collection')" class="ml-2 text-red-500">{{displayError('collection')}}</small>
-    </div>
-    <div class="w-full sm:w-6">
-        <span class="p-float-label mt-5">
-            <input formControlName="copies" type="number" class="w-full" pInputText id="copies" />
-            <label htmlFor="copies">Copias</label>
-        </span>
-        <small *ngIf="isValidField('copies')" class="ml-2 text-red-500">{{displayError('copies')}}</small>
-    </div>
-    <div class="flex w-full flex-column sm:w-6">
-        <dashboard-add-button [isLoading]="loading" [invalid]="form.invalid" />
-    </div>
-<p-toast position="top-center"></p-toast>
-</form>
+<div class="card surface-section p-6">
+    <form autocomplete="off" [formGroup]="form" (ngSubmit)="onSave()">
+        <p class="font-medium text-primary">Agrega un nuevo libro a la colección:</p>
+        <div class="formgrid grid">
+            <div class="field col-12 sm:col-6">
+                <div class="p-float-label mt-5">
+                    <input formControlName="title" type="text" class="w-full" pInputText id="title" />
+                    <label htmlFor="title">Título del libro</label>
+                </div>
+                <small *ngIf="isValidField('title')" class="ml-2 text-red-500">{{displayError('title')}}</small>
+            </div>
+            <div class="field col-12 sm:col-6">
+                <div class="p-float-label mt-5">
+                    <input formControlName="authorName" type="text" class="w-full" pInputText
+                        id="authorName" />
+                    <label htmlFor="authorName">Nombre del autor</label>
+                </div>
+                <small *ngIf="isValidField('authorName')" class="ml-2 text-red-500">{{displayError('authorName')}}</small>
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col-12 sm:col-6">
+                <div class="p-float-label mt-5">
+                    <input formControlName="authorSecondName" type="text" class="w-full" pInputText
+                        id="authorSecondName" />
+                    <label htmlFor="authorSecondName">Segundo nombre</label>
+                </div>
+            </div>
+            <div class="field col-12 sm:col-6">
+                <div class="p-float-label mt-5">
+                    <input formControlName="lastName" type="text" class="w-full" pInputText id="lastName" />
+                    <label htmlFor="lastName">Apellido</label>
+                </div>
+                <small *ngIf="isValidField('lastName')" class="ml-2 text-red-500">{{displayError('lastName')}}</small>
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col-12 sm:col-6">
+                <div class="p-float-label mt-5">
+                    <input formControlName="authorMotherName" type="text" class="w-full" pInputText
+                        id="authorMotherName" />
+                    <label htmlFor="authorMotherName">Apellido materno</label>
+                </div>
+            </div>
+            <div class="field col-12 sm:col-6">
+                <div class="p-float-label mt-5">
+                    <input formControlName="publisher" type="text" class="w-full" pInputText
+                        id="publisher" />
+                    <label htmlFor="publisher">Editorial</label>
+                </div>
+                <small *ngIf="isValidField('publisher')" class="ml-2 text-red-500">{{displayError('publisher')}}</small>
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col-12 sm:col-6">
+                <div class="p-float-label mt-5">
+                    <input formControlName="adquisition" type="number" class="w-full" pInputText
+                        id="adquisition" />
+                    <label htmlFor="adquisition">Adquisición</label>
+                </div>
+                <small *ngIf="isValidField('adquisition')" class="ml-2 text-red-500">{{displayError('adquisition')}}</small>
+            </div>
+            <div class="field col-12 sm:col-6">
+                <div class="p-float-label mt-5">
+                    <input formControlName="year" type="year" class="w-full" pInputText id="year" />
+                    <label htmlFor="year">Año</label>
+                </div>
+                <small *ngIf="isValidField('year')" class="ml-2 text-red-500">{{displayError('year')}}</small>
+            </div>
+        </div>
+        <div class="formgrid grid">
+            <div class="field col-12 sm:col-6">
+                <div class="p-float-label mt-5">
+                    <input formControlName="collection" type="text" class="w-full" pInputText
+                        id="collection" />
+                    <label htmlFor="collection">Colección</label>
+                </div>
+                <small *ngIf="isValidField('collection')" class="ml-2 text-red-500">{{displayError('collection')}}</small>
+            </div>
+            <div class="field col-12 sm:col-6">
+                <div class="p-float-label mt-5">
+                    <input formControlName="copies" type="number" class="w-full" pInputText id="copies" />
+                    <label htmlFor="copies">Copias</label>
+                </div>
+                <small *ngIf="isValidField('copies')" class="ml-2 text-red-500">{{displayError('copies')}}</small>
+            </div>
+        </div>
+        <div class="flex w-full flex-column sm:w-6">
+            <dashboard-add-button [isLoading]="loading" [invalid]="form.invalid" />
+        </div>
+    <p-toast position="top-center"></p-toast>
+    </form>
+</div>
