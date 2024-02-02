@@ -5,14 +5,14 @@ import { BooksPageComponent } from './pages/books-page/book-list/books-page.comp
 import { ThesisPageComponent } from './pages/thesis-page/list-thesis/thesis-page.component';
 import { PublicationsPageComponent } from './pages/publications-page/publication-list/publications-page.component';
 import { LoansPageComponent } from './pages/loans-page/edit-loans/loans-page.component';
-import { RegisterPageComponent } from './pages/register-page/register-page.component';
+import { RegisterPageComponent } from './pages/register-page/register-page/register-page.component';
 import { AddBookPageComponent } from './pages/books-page/add-book/add-book-page.component';
 import { EditBookPageComponent } from './pages/books-page/edit-book/edit-book-page.component';
 import { AddThesisPageComponent } from './pages/thesis-page/add-thesis/add-thesis-page.component';
 import { EditThesisPageComponent } from './pages/thesis-page/edit-thesis/edit-thesis-page.component';
 import { AddPublicationPageComponent } from './pages/publications-page/add-publication/add-publication-page.component';
 import { EditPublicationPageComponent } from './pages/publications-page/edit-publication/edit-publication-page.component';
-import { NewLoanPageComponent } from './pages/loans-page/new-loan-page.component';
+import { NewLoanPageComponent } from './pages/loans-page/new-loan/new-loan-page.component';
 import { RegisteredStudentsPageComponent } from './pages/register-page/registered-students/registered-students-page.component';
 import { RegisteredProfessorsPageComponent } from './pages/register-page/registered-professors/registered-professors-page.component';
 import { RegisteredAdministrativesPageComponent } from './pages/register-page/registered-administratives/registered-administratives-page.component';

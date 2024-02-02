@@ -6,7 +6,7 @@ import { SelectButtonOptionClickEvent } from 'primeng/selectbutton';
 import { MessageService } from 'primeng/api';
 
 import * as CustomValidators from 'src/app/shared/helpers/validators';
-import { UsersService } from '../../services/users.service';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
   selector: 'app-register-page',
