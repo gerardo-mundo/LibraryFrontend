@@ -17,7 +17,7 @@ export class AuthenticationService {
   constructor(private http: HttpClient, private router: Router) {}
 
   private readonly BASE_URL = ENVIRONMENT.BASE_URL;
-  private token: IAuthenticationResponse | null = JSON.parse(localStorage.getItem('token') ?? 'null');
+  private token: IAuthenticationResponse | null = JSON.parse(sessionStorage.getItem('token') ?? 'null');
 
   public isAuthenticated = new BehaviorSubject<AuthenticationStatus>(this.token ? 
                           AuthenticationStatus.authenticated : 
@@ -27,8 +27,8 @@ export class AuthenticationService {
     return this.http.post<IAuthenticationResponse>(`${this.BASE_URL}/accounts/login`, body)
     .pipe(
       tap(response => {
-        localStorage.setItem("token", JSON.stringify(response));
-        this.token = JSON.parse(localStorage.getItem('token')!);
+        sessionStorage.setItem("token", JSON.stringify(response));
+        this.token = JSON.parse(sessionStorage.getItem('token')!);
       }),
       map(() => true),    
       catchError((response: HttpErrorResponse) =>  handleErrors(response)),
@@ -37,7 +37,7 @@ export class AuthenticationService {
 
   public logout() {
     this.token = null;
-    localStorage.removeItem('token');
+    sessionStorage.removeItem('token');
     this.isAuthenticated.next(AuthenticationStatus.notAuthenticated);
     this.router.navigateByUrl('/auth/login');
   }

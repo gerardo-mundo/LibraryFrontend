@@ -1,10 +1,12 @@
-import { Component, Injectable } from '@angular/core';
+import { Component, Injectable, OnInit } from '@angular/core';
 import { AuthenticationService } from '../../services/Authentication.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MessageService } from 'primeng/api';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { AuthenticationStatus } from '../../interfaces/login.interface';
+import { CheckboxChangeEvent } from 'primeng/checkbox';
+import { decrypt, encrypt } from '../../utils/encrypt';
 
 @Component({
   selector: 'app-login-page',
@@ -12,19 +14,30 @@ import { AuthenticationStatus } from '../../interfaces/login.interface';
   styles: [
   ]
 })
-export class LoginPageComponent {
+export class LoginPageComponent implements OnInit {
 
   constructor(private authService: AuthenticationService, 
               private fb: FormBuilder,
               private messageService: MessageService, 
-              private router: Router) {console.log(authService.isAuthenticated.getValue());
-              }
+              private router: Router) {}
+  
+  ngOnInit(): void {
+    const decryptedData = JSON.parse(localStorage.getItem('creds') ?? 'null');
+
+    const creds = {
+      email: decryptedData?.email,
+      password: decrypt(decryptedData?.password)
+    };
+    
+    this.loginForm.patchValue(creds);
+  };
 
   public isLoading: boolean = false;
 
   public loginForm: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.pattern("^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\\d!@#$%^&*()-_+=]{7,}$")]]
+    password: ['', [Validators.required, Validators.pattern("^(?=.*[A-Z])(?=.*\\d)(?=.*[!@#$%^&*()-_+=])[A-Za-z\\d!@#$%^&*()-_+=]{7,}$")]],
+    isChecked: localStorage.getItem('creds') ? true : false,
     // errors: "pattern" e "email"
   })
 
@@ -55,5 +68,24 @@ export class LoginPageComponent {
       },
     });
 
-  }
+  };
+
+  public onChekBoxChange(event: CheckboxChangeEvent) {      
+    const isChecked = this.loginForm.get('isChecked')?.value;
+    
+    if(this.loginForm.valid && event.checked) {        
+        const { email, password } = this.loginForm.value;
+
+        const encryptedPass = encrypt(password);
+        
+        const creds = {
+          email, 
+          password: encryptedPass
+        };
+
+        localStorage.setItem('creds', JSON.stringify(creds));
+      };
+    
+      if(isChecked === false) localStorage.removeItem('creds');    
+  };
 }
