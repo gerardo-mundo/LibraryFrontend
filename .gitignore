@@ -41,4 +41,5 @@ Thumbs.db
 
 # linterns and indenters
 .eslintrc.json
+.eslintignore
 .prettierrc.json
