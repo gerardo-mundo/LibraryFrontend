@@ -52,14 +52,5 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "prettier": "^3.0.3",
     "typescript": "~5.1.3"
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "tabWidth": 4,
-    "semi": true,
-    "singleQuote": true,
-    "printWidth": 80,
-    "bracketSpacing": true,
-    "bracketSameLine": false
   }
 }
