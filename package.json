@@ -8,7 +8,7 @@
 		"watch": "ng build --watch --configuration development",
 		"test": "ng test",
 		"lint": "ng lint",
-		"lint:fix": "eslint 'src/**/*.{ts,html}' --fix",
+		"lint:fix": "eslint src/**/*.{ts,html} --fix",
 		"format": "prettier --write \"./src/**/*.{ts,json,html}\"",
 		"lint-and-format": "npm run lint && npm run format",
 		"fix-and-format": "npm run lint:fix && npm run format"
