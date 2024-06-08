@@ -12,60 +12,71 @@ import { MenuBarComponent } from './components/menu-bar/menu-bar.component';
 import { SharedModule } from '../shared/shared.module';
 import { ThesisService } from './services/thesis.service';
 import { UtilitiesService } from './services/utilities.service';
-import { ZeroDatePipe } from './pipes/zeroDate.pipe';   
+import { ZeroDatePipe } from './pipes/zeroDate.pipe';
 
-import { NewAccountPageComponent, ChangePasswordPageComponent, RegisteredAccountsPageComponent } from './pages/accounts-page';
-import { BooksPageComponent, AddBookPageComponent, EditBookPageComponent, ModalDialogComponent } from './pages/books-page';
+import {
+	NewAccountPageComponent,
+	ChangePasswordPageComponent,
+	RegisteredAccountsPageComponent,
+} from './pages/accounts-page';
+import {
+	BooksPageComponent,
+	AddBookPageComponent,
+	EditBookPageComponent,
+	ModalDialogComponent,
+} from './pages/books-page';
 import { LoansPageComponent, NewLoanPageComponent } from './pages/loans-page';
-import { AddPublicationPageComponent, EditPublicationPageComponent, ModalPublicationComponent, 
-  PublicationsPageComponent } from './pages/publications-page';
-import { RegisterPageComponent, RegisteredAdministrativesPageComponent, RegisteredProfessorsPageComponent,
-RegisteredStudentsPageComponent } from './pages/register-page';
-import { AddThesisPageComponent, EditThesisPageComponent, ModalThesisComponent, ThesisPageComponent } from './pages/thesis-page';
+import {
+	AddPublicationPageComponent,
+	EditPublicationPageComponent,
+	ModalPublicationComponent,
+	PublicationsPageComponent,
+} from './pages/publications-page';
+import {
+	RegisterPageComponent,
+	RegisteredAdministrativesPageComponent,
+	RegisteredProfessorsPageComponent,
+	RegisteredStudentsPageComponent,
+} from './pages/register-page';
+import {
+	AddThesisPageComponent,
+	EditThesisPageComponent,
+	ModalThesisComponent,
+	ThesisPageComponent,
+} from './pages/thesis-page';
 import { WelcomePageComponent } from './pages/welcome-page/welcome-page.component';
 
 @NgModule({
-  providers: [
-    ConfirmationService,
-    MessageService,
-    ThesisService,
-    UtilitiesService,
-  ],
-  declarations: [
-    LayoutComponent,
-    BooksPageComponent,
-    ThesisPageComponent,
-    PublicationsPageComponent,
-    LoansPageComponent,
-    RegisterPageComponent,
-    MenuBarComponent,
-    AddBookPageComponent,
-    EditBookPageComponent,
-    AddThesisPageComponent,
-    EditThesisPageComponent,
-    AddPublicationPageComponent,
-    EditPublicationPageComponent,
-    NewLoanPageComponent,
-    RegisteredStudentsPageComponent,
-    RegisteredAdministrativesPageComponent,
-    RegisteredProfessorsPageComponent,
-    NewAccountPageComponent,
-    RegisteredAccountsPageComponent,
-    ChangePasswordPageComponent,
-    WelcomePageComponent,
-    AddButtonComponent,
-    ModalDialogComponent,
-    ModalThesisComponent,
-    ModalPublicationComponent,
-    //Pipes
-    ZeroDatePipe,
-  ],
-  imports: [
-    CommonModule,
-    ReactiveFormsModule,
-    DashboardRoutingModule,
-    SharedModule,
-    PrimeNgModule,
-  ],
+	providers: [ConfirmationService, MessageService, ThesisService, UtilitiesService],
+	declarations: [
+		LayoutComponent,
+		BooksPageComponent,
+		ThesisPageComponent,
+		PublicationsPageComponent,
+		LoansPageComponent,
+		RegisterPageComponent,
+		MenuBarComponent,
+		AddBookPageComponent,
+		EditBookPageComponent,
+		AddThesisPageComponent,
+		EditThesisPageComponent,
+		AddPublicationPageComponent,
+		EditPublicationPageComponent,
+		NewLoanPageComponent,
+		RegisteredStudentsPageComponent,
+		RegisteredAdministrativesPageComponent,
+		RegisteredProfessorsPageComponent,
+		NewAccountPageComponent,
+		RegisteredAccountsPageComponent,
+		ChangePasswordPageComponent,
+		WelcomePageComponent,
+		AddButtonComponent,
+		ModalDialogComponent,
+		ModalThesisComponent,
+		ModalPublicationComponent,
+		//Pipes
+		ZeroDatePipe,
+	],
+	imports: [CommonModule, ReactiveFormsModule, DashboardRoutingModule, SharedModule, PrimeNgModule],
 })
 export class DashboardModule {}

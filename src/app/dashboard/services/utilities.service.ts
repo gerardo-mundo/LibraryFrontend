@@ -4,16 +4,16 @@ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()
 export class UtilitiesService {
-  private isVisibleSubject = new BehaviorSubject<boolean>(false);
-  public isVisible$: Observable<boolean> = this.isVisibleSubject.asObservable();
+	private isVisibleSubject = new BehaviorSubject<boolean>(false);
+	public isVisible$: Observable<boolean> = this.isVisibleSubject.asObservable();
 
-  constructor() {}
+	constructor() {}
 
-  public setVisibility(isVisible: boolean) {
-    this.isVisibleSubject.next(isVisible);
-  }
+	public setVisibility(isVisible: boolean) {
+		this.isVisibleSubject.next(isVisible);
+	}
 
-  public filtering($event: any, stringVal: string, dt: Table) {
-    dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
-  }
+	public filtering($event: any, stringVal: string, dt: Table) {
+		dt!.filterGlobal(($event.target as HTMLInputElement).value, stringVal);
+	}
 }

@@ -6,20 +6,22 @@ import { AuthenticationStatus } from '../interfaces/login.interface';
 import { AuthenticationService } from '../services/Authentication.service';
 
 @Injectable({
-  providedIn: 'root',
+	providedIn: 'root',
 })
 export class IsAuthenticatedGuard implements CanActivate {
-  constructor(private loginService: AuthenticationService, private router: Router) {}
+	constructor(
+		private loginService: AuthenticationService,
+		private router: Router
+	) {}
 
-  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
-    const isAuthenticated = this.loginService.isAuthenticated.getValue();
-    
-    if (isAuthenticated === AuthenticationStatus.authenticated) {
-      return true;
-    }
+	canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
+		const isAuthenticated = this.loginService.isAuthenticated.getValue();
 
-    this.router.navigateByUrl('/auth/login');
-    return false;
-  }
+		if (isAuthenticated === AuthenticationStatus.authenticated) {
+			return true;
+		}
+
+		this.router.navigateByUrl('/auth/login');
+		return false;
+	}
 }
-

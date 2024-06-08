@@ -7,8 +7,8 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { PrimeNgModule } from '../primeNg/prime-ng.module';
 import { ThemingButtonComponent } from './components/theming-button/theming-button.component';
 @NgModule({
-  declarations: [NotFoundPageComponent, ThemingButtonComponent],
-  imports: [CommonModule, PrimeNgModule, FormsModule],
-  exports: [NotFoundPageComponent, ThemingButtonComponent],
+	declarations: [NotFoundPageComponent, ThemingButtonComponent],
+	imports: [CommonModule, PrimeNgModule, FormsModule],
+	exports: [NotFoundPageComponent, ThemingButtonComponent],
 })
 export class SharedModule {}
