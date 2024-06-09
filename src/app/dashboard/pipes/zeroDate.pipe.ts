@@ -4,7 +4,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 	name: 'ZeroDate',
 })
 export class ZeroDatePipe implements PipeTransform {
-	transform(value: string, ...args: any[]): string {
+	transform(value: string, ..._args: any[]): string {
 		if (value === '0001-01-01T00:00:00') {
 			return 'S/F';
 		}
