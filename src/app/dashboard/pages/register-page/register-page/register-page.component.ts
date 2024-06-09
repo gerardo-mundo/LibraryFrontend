@@ -1,12 +1,13 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { HttpErrorResponse } from '@angular/common/http';
 
-import { SelectButtonOptionClickEvent } from 'primeng/selectbutton';
 import { MessageService } from 'primeng/api';
+import { SelectButtonOptionClickEvent } from 'primeng/selectbutton';
+
+import { UsersService } from '../../../services/users.service';
 
 import * as CustomValidators from 'src/app/shared/helpers/validators';
-import { UsersService } from '../../../services/users.service';
 
 @Component({
 	selector: 'app-register-page',

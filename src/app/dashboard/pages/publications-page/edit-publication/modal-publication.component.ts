@@ -1,16 +1,17 @@
-import { Component, EventEmitter, Input, Output, SimpleChanges } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
 
+import * as customValidators from '../../../../shared/helpers/validators';
+
 import { IPublication } from 'src/app/dashboard/interfaces/publication.interface';
 import { PublicationsService } from 'src/app/dashboard/services/publications.service';
 import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
-import * as customValidators from '../../../../shared/helpers/validators';
 
 @Component({
-	selector: 'modal-publication-dashboard',
+	selector: 'dashboard-modal-publication',
 	template: `
 		<p-dialog
 			[(visible)]="isVisible"
@@ -98,7 +99,7 @@ import * as customValidators from '../../../../shared/helpers/validators';
 		<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
 	`,
 })
-export class ModalPublicationComponent {
+export class ModalPublicationComponent implements OnInit, OnChanges {
 	ngOnInit() {
 		this.utilitiesService.isVisible$.subscribe((isVisible) => {
 			this.isVisible = isVisible;

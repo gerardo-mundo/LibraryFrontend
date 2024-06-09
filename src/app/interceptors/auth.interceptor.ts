@@ -1,6 +1,7 @@
 import type { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
+
 import { IAuthenticationResponse } from '../auth/interfaces/login.interface';
 
 export class AuthInterceptor implements HttpInterceptor {

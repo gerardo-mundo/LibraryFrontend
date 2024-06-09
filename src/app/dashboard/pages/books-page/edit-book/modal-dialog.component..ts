@@ -1,18 +1,20 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
-import { IBook } from 'src/app/dashboard/interfaces/book.interface';
+
 import * as customValidators from '../../../../shared/helpers/validators';
+
+import { IBook } from 'src/app/dashboard/interfaces/book.interface';
 import { BooksService } from 'src/app/dashboard/services/books.service';
 import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
 
 @Component({
-	selector: 'modal-dialog-dashboard',
+	selector: 'dashboard-modal-dialog',
 	templateUrl: 'modal-dialog.component.html',
 })
-export class ModalDialogComponent implements OnInit {
+export class ModalDialogComponent implements OnInit, OnChanges {
 	ngOnInit() {
 		this.utilitiesService.isVisible$.subscribe((isVisible) => {
 			this.isVisible = isVisible;

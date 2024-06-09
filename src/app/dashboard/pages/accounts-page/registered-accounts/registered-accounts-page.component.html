@@ -1,47 +1,66 @@
 <!-- eslint-disable @angular-eslint/template/elements-content -->
 <div class="card surface-section py-6 px-4">
-    <p class="text-primary ml-2 mt-4">Lista de cuentas de administradores y auxiliares registrados:</p>
-    <p-table [value]="accounts" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
-        [tableStyle]="{ 'min-width': '50rem' }"
-        currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas" [rowsPerPageOptions]="[10, 20]"
-        paginatorLocale="es-Es">
-        <ng-template pTemplate="header">
-            <tr>
-                <th style="width:20%">Nombre(s)</th>
-                <th style="width:20%">Apellidos</th>
-                <th style="width:20%">Email</th>
-                <th style="width:20%">Num. de empleado</th>
-                <th style="width:20%">Volver administrador</th>
-            </tr>
-        </ng-template>
-        <ng-template pTemplate="body" let-account>
-            <tr>
-                <td>{{account.name}}</td>
-                <td>{{account.lastName}}</td>
-                <td>{{account.email}}</td>
-                <td>{{account.employeeKey}}</td>
-                <td>
-                    <div class="flex gap-2">
-                        <button type="button" [disabled]="!userAccount.isAdmin || userAccount.email === account.email" pButton pRipple (click)="onMakeAdmin(account?.email)">
-                            <ng-container *ngIf="isLoading; else noLoading">
-                                <i class="pi pi-spin pi-spinner" style="font-size: 1.4rem"></i>
-                              </ng-container>
-                              <ng-template #noLoading>
-                                <span class="font-medium">Aceptar</span>
-                              </ng-template>
-                        </button>
-                        <button class="p-button-danger" type="button" [disabled]="!userAccount.isAdmin" pButton pRipple (click)="onRemoveAdmin(account?.email)">
-                            <ng-container *ngIf="isLoading; else noLoading2">
-                                <i class="pi pi-spin pi-spinner" style="font-size: 1.4rem"></i>
-                              </ng-container>
-                              <ng-template #noLoading2>
-                                <span class="font-medium">Remover</span>
-                              </ng-template>
-                        </button>
-                    </div>
-                </td>
-            </tr>
-        </ng-template>
-    </p-table>
-    <p-toast position="top-center"></p-toast>
+	<p class="text-primary ml-2 mt-4">Lista de cuentas de administradores y auxiliares registrados:</p>
+	<p-table
+		[value]="accounts"
+		[paginator]="true"
+		[rows]="5"
+		[showCurrentPageReport]="true"
+		[tableStyle]="{ 'min-width': '50rem' }"
+		currentPageReportTemplate="Mostrando {first} a {last} de {totalRecords} entradas"
+		[rowsPerPageOptions]="[10, 20]"
+		paginatorLocale="es-Es"
+	>
+		<ng-template pTemplate="header">
+			<tr>
+				<th style="width: 20%">Nombre(s)</th>
+				<th style="width: 20%">Apellidos</th>
+				<th style="width: 20%">Email</th>
+				<th style="width: 20%">Num. de empleado</th>
+				<th style="width: 20%">Volver administrador</th>
+			</tr>
+		</ng-template>
+		<ng-template pTemplate="body" let-account>
+			<tr>
+				<td>{{ account.name }}</td>
+				<td>{{ account.lastName }}</td>
+				<td>{{ account.email }}</td>
+				<td>{{ account.employeeKey }}</td>
+				<td>
+					<div class="flex gap-2">
+						<button
+							type="button"
+							[disabled]="!userAccount.isAdmin || userAccount.email === account.email"
+							pButton
+							pRipple
+							(click)="onMakeAdmin(account?.email)"
+						>
+							<ng-container *ngIf="isLoading; else noLoading">
+								<i class="pi pi-spin pi-spinner" style="font-size: 1.4rem"></i>
+							</ng-container>
+							<ng-template #noLoading>
+								<span class="font-medium">Aceptar</span>
+							</ng-template>
+						</button>
+						<button
+							class="p-button-danger"
+							type="button"
+							[disabled]="!userAccount.isAdmin"
+							pButton
+							pRipple
+							(click)="onRemoveAdmin(account?.email)"
+						>
+							<ng-container *ngIf="isLoading; else noLoading2">
+								<i class="pi pi-spin pi-spinner" style="font-size: 1.4rem"></i>
+							</ng-container>
+							<ng-template #noLoading2>
+								<span class="font-medium">Remover</span>
+							</ng-template>
+						</button>
+					</div>
+				</td>
+			</tr>
+		</ng-template>
+	</p-table>
+	<p-toast position="top-center"></p-toast>
 </div>

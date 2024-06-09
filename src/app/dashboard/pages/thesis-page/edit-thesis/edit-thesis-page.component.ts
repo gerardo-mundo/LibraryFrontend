@@ -1,5 +1,5 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Table } from 'primeng/table';
@@ -9,10 +9,10 @@ import { ThesisService } from 'src/app/dashboard/services/thesis.service';
 import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
 
 @Component({
-	selector: 'app-edit-thesis-page',
+	selector: 'dashboard-edit-thesis-page',
 	templateUrl: 'edit-thesis-page.component.html',
 })
-export class EditThesisPageComponent {
+export class EditThesisPageComponent implements OnInit {
 	ngOnInit(): void {
 		this.thesisService.getThesis().subscribe((data) => (this.thesisList = data));
 		this.utilitiesService.setVisibility(false);

@@ -1,18 +1,19 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { BehaviorSubject, Observable, catchError, map, tap } from 'rxjs';
 import { jwtDecode } from 'jwt-decode';
+import { BehaviorSubject, Observable, catchError, map, tap } from 'rxjs';
 
-import { ENVIRONMENT } from 'src/app/environments/environment';
-import { handleErrors } from 'src/app/shared/helpers/handlers';
 import {
 	AuthenticationStatus,
 	IAuthenticationResponse,
 	IUserCredentials,
 	UserDataToken,
 } from '../interfaces/login.interface';
+
+import { ENVIRONMENT } from 'src/app/environments/environment';
+import { handleErrors } from 'src/app/shared/helpers/handlers';
 
 @Injectable({
 	providedIn: 'root',

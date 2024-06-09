@@ -4,8 +4,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
 
-import { ThesisService } from 'src/app/dashboard/services/thesis.service';
 import * as customValidators from './../../../../shared/helpers/validators';
+
+import { ThesisService } from 'src/app/dashboard/services/thesis.service';
 
 @Component({
 	selector: 'app-add-thesis-page',

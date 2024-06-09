@@ -1,19 +1,19 @@
-import { Component, ViewChild } from '@angular/core';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
-import { Table } from 'primeng/table';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { Table } from 'primeng/table';
 
 import { IPublication } from 'src/app/dashboard/interfaces/publication.interface';
 import { PublicationsService } from 'src/app/dashboard/services/publications.service';
 import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
 
 @Component({
-	selector: 'edit-publication-page',
+	selector: 'dashboard-edit-publication-page',
 	templateUrl: './edit-publication-page.component.html',
 	styles: [],
 })
-export class EditPublicationPageComponent {
+export class EditPublicationPageComponent implements OnInit {
 	ngOnInit(): void {
 		this.publicationService.getPublications().subscribe((data) => (this.publicationList = data));
 		this.utilitiesService.setVisibility(false);

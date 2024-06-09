@@ -1,10 +1,12 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
+import { MessageService } from 'primeng/api';
 
 import * as customValidators from './../../../../shared/helpers/validators';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
+
 import { PublicationsService } from 'src/app/dashboard/services/publications.service';
-import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
 	selector: 'app-add-publication-page',

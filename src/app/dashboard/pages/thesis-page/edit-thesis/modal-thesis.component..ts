@@ -1,16 +1,17 @@
-import { Component, EventEmitter, Input, OnInit, Output, SimpleChanges } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
 
 import * as customValidators from '../../../../shared/helpers/validators';
-import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
+
 import { IThesis } from 'src/app/dashboard/interfaces/thesis.interface';
 import { ThesisService } from 'src/app/dashboard/services/thesis.service';
+import { UtilitiesService } from 'src/app/dashboard/services/utilities.service';
 
 @Component({
-	selector: 'modal-thesis-dashboard',
+	selector: 'dashboard-modal-thesis',
 	template: `
 		<p-dialog
 			[(visible)]="isVisible"
@@ -67,7 +68,7 @@ import { ThesisService } from 'src/app/dashboard/services/thesis.service';
 		<p-confirmDialog [style]="{ width: '450px' }"></p-confirmDialog>
 	`,
 })
-export class ModalThesisComponent implements OnInit {
+export class ModalThesisComponent implements OnInit, OnChanges {
 	ngOnInit() {
 		this.utilitiesService.isVisible$.subscribe((isVisible) => {
 			this.isVisible = isVisible;

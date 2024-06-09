@@ -1,54 +1,62 @@
 <!-- eslint-disable @angular-eslint/template/elements-content -->
 
 <div class="surface-card p-4 shadow-6 border-round w-full flex flex-column">
-    <div class="text-center mb-5">
-        <div class="text-primary text-3xl font-medium mb-3">Iniciar sesión</div>
-        <i class="pi pi-at" style="font-size: 2.5rem; color: #6366F1;"></i>
-    </div>
-    <form autocomplete="off" [formGroup]="loginForm" (submit)="onLogin()">
-            <label for="email" class="block text-900 font-medium mb-2">Correo:</label>
-            <input 
-            formControlName="email" 
-            id="email" 
-            type="text" 
-            placeholder="nombre@correo.com" 
-            pInputText class="w-full mb-5"
-            [ngClass]="{'ng-invalid ng-dirty': 
-            loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty 
-            || loginForm.get('email')?.touched)}"
-            >
-    
-            <label for="password" class="block text-900 font-medium mb-2">Contraseña:</label>
-            <p-password
-            formControlName="password"  
-            [toggleMask]="true" 
-            [style]="{'width':'100%'}"
-            styleClass="mb-3"
-            [feedback]="false"
-            [ngClass]="{'ng-invalid ng-dirty': 
-            loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty 
-            || loginForm.get('password')?.touched)}"
-            >
-            </p-password>
-    
-            <div class="flex align-items-center justify-content-between mb-6">
-                <div class="flex align-items-center">
-                    <p-checkbox formControlName="isChecked" (onChange)="onChekBoxChange($event)" id="rememberme" [binary]="true" styleClass="mr-2"></p-checkbox>
-                    <label class="text-primary" for="rememberme">Recordar mis datos</label>
-                </div>
-            </div>
-            <button
-                type="submit"
-                pButton
-                pRipple 
-                class="w-full justify-content-center"
-                styleClass="p-button-raised"
-                icon="pi pi-user"
-                label="Iniciar sesión"
-                [disabled]="loginForm.invalid"
-                [loading]="isLoading"
-            >
-            </button>
-    </form>
-    <p-toast position="top-center"></p-toast>
+	<div class="text-center mb-5">
+		<div class="text-primary text-3xl font-medium mb-3">Iniciar sesión</div>
+		<i class="pi pi-at" style="font-size: 2.5rem; color: #6366f1"></i>
+	</div>
+	<form autocomplete="off" [formGroup]="loginForm" (submit)="onLogin()">
+		<label for="email" class="block text-900 font-medium mb-2">Correo:</label>
+		<input
+			formControlName="email"
+			id="email"
+			type="text"
+			placeholder="nombre@correo.com"
+			pInputText
+			class="w-full mb-5"
+			[ngClass]="{
+				'ng-invalid ng-dirty':
+					loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+			}"
+		/>
+
+		<label for="password" class="block text-900 font-medium mb-2">Contraseña:</label>
+		<p-password
+			formControlName="password"
+			[toggleMask]="true"
+			[style]="{ width: '100%' }"
+			styleClass="mb-3"
+			[feedback]="false"
+			[ngClass]="{
+				'ng-invalid ng-dirty':
+					loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
+			}"
+		>
+		</p-password>
+
+		<div class="flex align-items-center justify-content-between mb-6">
+			<div class="flex align-items-center">
+				<p-checkbox
+					formControlName="isChecked"
+					(onChange)="onChekBoxChange($event)"
+					id="rememberme"
+					[binary]="true"
+					styleClass="mr-2"
+				></p-checkbox>
+				<label class="text-primary" for="rememberme">Recordar mis datos</label>
+			</div>
+		</div>
+		<button
+			type="submit"
+			pButton
+			pRipple
+			class="w-full justify-content-center"
+			styleClass="p-button-raised"
+			icon="pi pi-user"
+			label="Iniciar sesión"
+			[disabled]="loginForm.invalid"
+			[loading]="isLoading"
+		></button>
+	</form>
+	<p-toast position="top-center"></p-toast>
 </div>

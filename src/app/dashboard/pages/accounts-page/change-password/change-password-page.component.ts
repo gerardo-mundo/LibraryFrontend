@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
-import { AccountsService } from 'src/app/dashboard/services/accounts.service';
 
+import { MessageService } from 'primeng/api';
+
+import { AccountsService } from 'src/app/dashboard/services/accounts.service';
 import * as CustomValidators from 'src/app/shared/helpers/validators';
 
 @Component({

@@ -1,10 +1,11 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
 
 import { Observable, catchError } from 'rxjs';
 
-import { ENVIRONMENT } from 'src/app/environments/environment';
 import { IThesis } from '../interfaces/thesis.interface';
+
+import { ENVIRONMENT } from 'src/app/environments/environment';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
 
 @Injectable()

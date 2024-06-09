@@ -1,4 +1,5 @@
 import * as cryptoJS from 'crypto-js';
+
 import { ENVIRONMENT } from 'src/app/environments/environment';
 
 export const encrypt = (value: string): string => cryptoJS.AES.encrypt(value, ENVIRONMENT.ENCRYPTATION_KEY).toString();

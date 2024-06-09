@@ -1,10 +1,13 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ENVIRONMENT } from 'src/app/environments/environment';
-import { IAccount, IEmployeeData } from '../interfaces/user.interface';
+
 import { Observable, catchError, of } from 'rxjs';
-import { handleErrors } from 'src/app/shared/helpers/handlers';
+
+import { IAccount, IEmployeeData } from '../interfaces/user.interface';
+
 import { IAuthenticationResponse } from 'src/app/auth/interfaces/login.interface';
+import { ENVIRONMENT } from 'src/app/environments/environment';
+import { handleErrors } from 'src/app/shared/helpers/handlers';
 import { ApiResponse } from 'src/app/shared/interfaces/httpResponse.interface';
 
 interface passwordConfirmed {

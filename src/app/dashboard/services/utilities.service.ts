@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
+
 import { Table } from 'primeng/table';
+
 import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable()

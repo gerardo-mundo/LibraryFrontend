@@ -1,13 +1,14 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+
 import { IUser } from 'src/app/dashboard/interfaces/user.interface';
 import { UsersService } from 'src/app/dashboard/services/users.service';
 
 @Component({
-	selector: 'app-registered-professors-page',
+	selector: 'dashboard-registered-professors-page',
 	templateUrl: './registered-professors-page.component.html',
 	styles: [],
 })
-export class RegisteredProfessorsPageComponent {
+export class RegisteredProfessorsPageComponent implements OnInit {
 	constructor(private usersService: UsersService) {}
 
 	ngOnInit(): void {

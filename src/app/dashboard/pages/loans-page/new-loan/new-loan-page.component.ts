@@ -1,16 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { SelectButtonOptionClickEvent } from 'primeng/selectbutton';
-
-import { BooksService } from '../../../services/books.service';
-import { UsersService } from '../../../services/users.service';
-import { IBook } from '../../../interfaces/book.interface';
-import { IUser } from '../../../interfaces/user.interface';
-import { throwError } from 'rxjs';
-import { LoansService } from '../../../services/loans.service';
 import { MessageService } from 'primeng/api';
 import { MultiSelectChangeEvent } from 'primeng/multiselect';
+import { SelectButtonOptionClickEvent } from 'primeng/selectbutton';
+
+import { throwError } from 'rxjs';
+
+import { IBook } from '../../../interfaces/book.interface';
+import { IUser } from '../../../interfaces/user.interface';
+import { BooksService } from '../../../services/books.service';
+import { LoansService } from '../../../services/loans.service';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
 	selector: 'app-new-loan-page',

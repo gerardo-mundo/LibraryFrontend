@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import * as CustomValidators from 'src/app/shared/helpers/validators';
+import { MessageService } from 'primeng/api';
+
 import { IAccount } from 'src/app/dashboard/interfaces/user.interface';
 import { AccountsService } from 'src/app/dashboard/services/accounts.service';
-import { MessageService } from 'primeng/api';
+import * as CustomValidators from 'src/app/shared/helpers/validators';
 
 @Component({
 	selector: 'app-new-account-page',

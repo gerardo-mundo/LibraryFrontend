@@ -1,11 +1,13 @@
-import { Component, Injectable, OnInit } from '@angular/core';
-import { AuthenticationService } from '../../services/Authentication.service';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MessageService } from 'primeng/api';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { AuthenticationStatus } from '../../interfaces/login.interface';
+
+import { MessageService } from 'primeng/api';
 import { CheckboxChangeEvent } from 'primeng/checkbox';
+
+import { AuthenticationStatus } from '../../interfaces/login.interface';
+import { AuthenticationService } from '../../services/Authentication.service';
 import { decrypt, encrypt } from '../../utils/encrypt';
 
 @Component({

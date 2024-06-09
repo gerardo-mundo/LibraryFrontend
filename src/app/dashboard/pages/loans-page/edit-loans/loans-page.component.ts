@@ -1,10 +1,12 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Table } from 'primeng/table';
-import { UtilitiesService } from '../../../services/utilities.service';
-import { LoansService } from '../../../services/loans.service';
-import { ILoanWithBooks } from '../../../interfaces/loan.interface';
-import { ConfirmationService, MessageService } from 'primeng/api';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Component, OnInit, ViewChild } from '@angular/core';
+
+import { ConfirmationService, MessageService } from 'primeng/api';
+import { Table } from 'primeng/table';
+
+import { ILoanWithBooks } from '../../../interfaces/loan.interface';
+import { LoansService } from '../../../services/loans.service';
+import { UtilitiesService } from '../../../services/utilities.service';
 
 @Component({
 	selector: 'app-loans-page',

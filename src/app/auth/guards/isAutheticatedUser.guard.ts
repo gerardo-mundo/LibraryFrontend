@@ -1,5 +1,5 @@
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 
 import { AuthenticationStatus } from '../interfaces/login.interface';
 import { AuthenticationService } from '../services/Authentication.service';
