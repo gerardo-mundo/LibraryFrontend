@@ -3,7 +3,6 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MessageService } from 'primeng/api';
 
-import { IAccount } from 'src/app/dashboard/interfaces/user.interface';
 import { AccountsService } from 'src/app/dashboard/services/accounts.service';
 import * as CustomValidators from 'src/app/shared/helpers/validators';
 

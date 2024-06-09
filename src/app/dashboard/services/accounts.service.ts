@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import { Observable, catchError, of } from 'rxjs';
+import { Observable, catchError } from 'rxjs';
 
 import { IAccount, IEmployeeData } from '../interfaces/user.interface';
 
