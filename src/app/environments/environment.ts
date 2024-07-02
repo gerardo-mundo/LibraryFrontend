@@ -1,4 +1,4 @@
 export const ENVIRONMENT = {
-  BASE_URL: 'https://localhost:7176/api',
-  ENCRYPTATION_KEY: 'urhjdnbsurghdncbbsurhbjksurgrksb',
+	BASE_URL: 'http://localhost:8080/api',
+	ENCRYPTATION_KEY: 'urhjdnbsurghdncbbsurhbjksurgrksb',
 };

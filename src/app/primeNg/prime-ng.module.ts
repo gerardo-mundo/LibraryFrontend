@@ -8,12 +8,12 @@ import { ConfirmDialogModule } from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
 import { FieldsetModule } from 'primeng/fieldset';
 import { InputNumberModule } from 'primeng/inputnumber';
-import { InputTextModule } from 'primeng/inputtext';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { InputTextModule } from 'primeng/inputtext';
+import { MenuModule } from 'primeng/menu';
 import { MenubarModule } from 'primeng/menubar';
 import { MultiSelectModule } from 'primeng/multiselect';
 import { PanelModule } from 'primeng/panel';
-import { MenuModule } from 'primeng/menu';
 import { PasswordModule } from 'primeng/password';
 import { SelectButtonModule } from 'primeng/selectbutton';
 import { TableModule } from 'primeng/table';
@@ -22,28 +22,28 @@ import { ToastModule } from 'primeng/toast';
 import { ToolbarModule } from 'primeng/toolbar';
 
 @NgModule({
-  imports: [],
-  exports: [
-    AvatarModule,
-    ButtonModule,
-    CardModule,
-    ConfirmDialogModule,
-    CheckboxModule,
-    DialogModule,
-    FieldsetModule,
-    InputNumberModule,
-    InputTextModule,
-    InputSwitchModule,
-    MenubarModule,
-    MultiSelectModule,
-    PanelModule,
-    MenuModule,
-    PasswordModule,
-    SelectButtonModule,
-    TableModule,
-    TagModule,
-    ToastModule,
-    ToolbarModule,
-  ],
+	imports: [],
+	exports: [
+		AvatarModule,
+		ButtonModule,
+		CardModule,
+		ConfirmDialogModule,
+		CheckboxModule,
+		DialogModule,
+		FieldsetModule,
+		InputNumberModule,
+		InputTextModule,
+		InputSwitchModule,
+		MenubarModule,
+		MultiSelectModule,
+		PanelModule,
+		MenuModule,
+		PasswordModule,
+		SelectButtonModule,
+		TableModule,
+		TagModule,
+		ToastModule,
+		ToolbarModule,
+	],
 })
 export class PrimeNgModule {}

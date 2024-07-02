@@ -1,21 +1,22 @@
 import { Component, OnInit } from '@angular/core';
+
 import { ThemeService } from '../../services/theme.service';
 
 @Component({
-  selector: 'shared-theming-button',
-  templateUrl: './theming-button.component.html',
-  styles: [],
+	selector: 'shared-theming-button',
+	templateUrl: './theming-button.component.html',
+	styles: [],
 })
 export class ThemingButtonComponent implements OnInit {
-  public checked!: boolean;
+	public checked!: boolean;
 
-  constructor(private themeService: ThemeService) {}
+	constructor(private themeService: ThemeService) {}
 
-  ngOnInit(): void {
-  this.checked = this.themeService.themeSelection;
-  }
+	ngOnInit(): void {
+		this.checked = this.themeService.themeSelection;
+	}
 
-  changeTheme(): void {
-    this.themeService.switchTheme(this.checked);
-  }
+	changeTheme(): void {
+		this.themeService.switchTheme(this.checked);
+	}
 }

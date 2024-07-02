@@ -1,110 +1,104 @@
 <div class="card surface-section p-6">
-    <form autocomplete="off" [formGroup]="form" (ngSubmit)="onSave()">
-        <p class="font-medium text-center sm:text-left text-primary">Agrega una nueva publicación a la colección, seleccionando por tipo</p>
-        <div>
-            <p-selectButton
-            formControlName="type" 
-            [options]="publicationTypes" 
-            [multiple]="false" 
-            optionLabel="name"
-            optionValue="value"
-            >
-            </p-selectButton>
-            <small *ngIf="isValidField('type')" class="ml-2 text-red-500">{{displayError('type')}}</small>
-        </div>
-        <div class="formgrid grid">
-            <div class="field col-12 sm:col-6">
-                <div class="p-float-label mt-5">
-                    <input required formControlName="title" type="text" class="w-full" pInputText
-                        id="title" />
-                    <label htmlFor="title">Título de la publicación</label>
-                </div>
-                <small *ngIf="isValidField('title')" class="ml-2 text-red-500">{{displayError('title')}}</small>
-            </div>
-            <div class="field col-12 sm:col-6">
-                <div class="p-float-label mt-5">
-                    <input required formControlName="author" type="text" class="w-full" pInputText
-                        id="author" />
-                    <label htmlFor="author">Nombre del primer autor</label>
-                </div>
-                <small *ngIf="isValidField('author')" class="ml-2 text-red-500">{{displayError('author')}}</small>
-            </div>
-        </div>
-        <div class="formgrid grid">
-            <div class="field col-12 sm:col-6">
-                <div class="p-float-label mt-5">
-                    <input formControlName="authorTwo" type="text" class="w-full" pInputText
-                        id="authorTwo" />
-                    <label htmlFor="authorTwo">Nombre del segundo autor</label>
-                </div>
-                <small *ngIf="isValidField('authorTwo')" class="ml-2 text-red-500">{{displayError('authorTwo')}}</small>
-            </div>
-            <div class="field col-12 sm:col-6">
-                <div class="p-float-label mt-5">
-                    <input formControlName="authorThree" type="text" class="w-full" pInputText
-                        id="authorThree" />
-                    <label htmlFor="authorThree">Nombre del tercer autor</label>
-                </div>
-                <small *ngIf="isValidField('authorThree')" class="ml-2 text-red-500">{{displayError('authorThree')}}</small>
-            </div>
-        </div>
-        <div class="formgrid grid">
-            <div class="field col-12 sm:col-6">
-                <div class="p-float-label mt-5">
-                    <input formControlName="authorFour" type="text" class="w-full" pInputText
-                        id="authorFour" />
-                    <label htmlFor="authorFour">Nombre del cuarto autor</label>
-                </div>
-                <small *ngIf="isValidField('authorFour')" class="ml-2 text-red-500">{{displayError('authorFour')}}</small>
-            </div>
-            <div class="field col-12 sm:col-6">
-                <div class="p-float-label mt-5">
-                    <input formControlName="publisher" type="text" class="w-full" pInputText
-                        id="publisher" />
-                    <label htmlFor="publisher">Editorial</label>
-                </div>
-                <small *ngIf="isValidField('publisher')" class="ml-2 text-red-500">{{displayError('publisher')}}</small>
-            </div>
-        </div>
-        <div class="formgrid grid">
-            <div class="field col-12 sm:col-6">
-                <div class="p-float-label mt-5">
-                    <input formControlName="isbn" type="text" class="w-full" pInputText
-                        id="isbn" />
-                    <label htmlFor="isbn">ISBN</label>
-                </div>
-                <small *ngIf="isValidField('isbn')" class="ml-2 text-red-500">{{displayError('isbn')}}</small>
-            </div>
-            <div class="field col-12 sm:col-6">
-                <div class="p-float-label mt-5">
-                    <input formControlName="issn" type="text" class="w-full" pInputText
-                        id="issn" />
-                    <label htmlFor="issn">ISSN</label>
-                </div>
-                <small *ngIf="isValidField('issn')" class="ml-2 text-red-500">{{displayError('issn')}}</small>
-            </div>
-        </div>
-        <div class="formgrid grid">
-            <div class="field col-12 sm:col-6">
-                <div class="p-float-label mt-5">
-                    <input required formControlName="year" type="year" class="w-full" pInputText id="year" />
-                    <label htmlFor="year">Año</label>
-                </div>
-                <small *ngIf="isValidField('year')" class="ml-2 text-red-500">{{displayError('year')}}</small>
-            </div>
-            <div class="field col-12 sm:col-6">
-                <div class="p-float-label mt-5">
-                    <input required formControlName="vol" type="vol" class="w-full" pInputText id="vol" />
-                    <label htmlFor="vol">Volúmen</label>
-                </div>
-                <small *ngIf="isValidField('vol')" class="ml-2 text-red-500">{{displayError('vol')}}</small>
-            </div>
-        </div>
+	<form autocomplete="off" [formGroup]="form" (ngSubmit)="onSave()">
+		<p class="font-medium text-center sm:text-left text-primary">
+			Agrega una nueva publicación a la colección, seleccionando por tipo
+		</p>
+		<div>
+			<p-selectButton
+				formControlName="type"
+				[options]="publicationTypes"
+				[multiple]="false"
+				optionLabel="name"
+				optionValue="value"
+			>
+			</p-selectButton>
+			<small *ngIf="isValidField('type')" class="ml-2 text-red-500">{{ displayError('type') }}</small>
+		</div>
+		<div class="formgrid grid">
+			<div class="field col-12 sm:col-6">
+				<div class="p-float-label mt-5">
+					<input required formControlName="title" type="text" class="w-full" pInputText id="title" />
+					<label htmlFor="title">Título de la publicación</label>
+				</div>
+				<small *ngIf="isValidField('title')" class="ml-2 text-red-500">{{ displayError('title') }}</small>
+			</div>
+			<div class="field col-12 sm:col-6">
+				<div class="p-float-label mt-5">
+					<input required formControlName="author" type="text" class="w-full" pInputText id="author" />
+					<label htmlFor="author">Nombre del primer autor</label>
+				</div>
+				<small *ngIf="isValidField('author')" class="ml-2 text-red-500">{{ displayError('author') }}</small>
+			</div>
+		</div>
+		<div class="formgrid grid">
+			<div class="field col-12 sm:col-6">
+				<div class="p-float-label mt-5">
+					<input formControlName="authorTwo" type="text" class="w-full" pInputText id="authorTwo" />
+					<label htmlFor="authorTwo">Nombre del segundo autor</label>
+				</div>
+				<small *ngIf="isValidField('authorTwo')" class="ml-2 text-red-500">{{ displayError('authorTwo') }}</small>
+			</div>
+			<div class="field col-12 sm:col-6">
+				<div class="p-float-label mt-5">
+					<input formControlName="authorThree" type="text" class="w-full" pInputText id="authorThree" />
+					<label htmlFor="authorThree">Nombre del tercer autor</label>
+				</div>
+				<small *ngIf="isValidField('authorThree')" class="ml-2 text-red-500">{{ displayError('authorThree') }}</small>
+			</div>
+		</div>
+		<div class="formgrid grid">
+			<div class="field col-12 sm:col-6">
+				<div class="p-float-label mt-5">
+					<input formControlName="authorFour" type="text" class="w-full" pInputText id="authorFour" />
+					<label htmlFor="authorFour">Nombre del cuarto autor</label>
+				</div>
+				<small *ngIf="isValidField('authorFour')" class="ml-2 text-red-500">{{ displayError('authorFour') }}</small>
+			</div>
+			<div class="field col-12 sm:col-6">
+				<div class="p-float-label mt-5">
+					<input formControlName="publisher" type="text" class="w-full" pInputText id="publisher" />
+					<label htmlFor="publisher">Editorial</label>
+				</div>
+				<small *ngIf="isValidField('publisher')" class="ml-2 text-red-500">{{ displayError('publisher') }}</small>
+			</div>
+		</div>
+		<div class="formgrid grid">
+			<div class="field col-12 sm:col-6">
+				<div class="p-float-label mt-5">
+					<input formControlName="isbn" type="text" class="w-full" pInputText id="isbn" />
+					<label htmlFor="isbn">ISBN</label>
+				</div>
+				<small *ngIf="isValidField('isbn')" class="ml-2 text-red-500">{{ displayError('isbn') }}</small>
+			</div>
+			<div class="field col-12 sm:col-6">
+				<div class="p-float-label mt-5">
+					<input formControlName="issn" type="text" class="w-full" pInputText id="issn" />
+					<label htmlFor="issn">ISSN</label>
+				</div>
+				<small *ngIf="isValidField('issn')" class="ml-2 text-red-500">{{ displayError('issn') }}</small>
+			</div>
+		</div>
+		<div class="formgrid grid">
+			<div class="field col-12 sm:col-6">
+				<div class="p-float-label mt-5">
+					<input required formControlName="year" type="year" class="w-full" pInputText id="year" />
+					<label htmlFor="year">Año</label>
+				</div>
+				<small *ngIf="isValidField('year')" class="ml-2 text-red-500">{{ displayError('year') }}</small>
+			</div>
+			<div class="field col-12 sm:col-6">
+				<div class="p-float-label mt-5">
+					<input required formControlName="vol" type="vol" class="w-full" pInputText id="vol" />
+					<label htmlFor="vol">Volúmen</label>
+				</div>
+				<small *ngIf="isValidField('vol')" class="ml-2 text-red-500">{{ displayError('vol') }}</small>
+			</div>
+		</div>
 
-        <div class="flex w-full flex-column sm:w-6">
-            <dashboard-add-button [isLoading]="loading" [invalid]="form.invalid" />
-        </div>
+		<div class="flex w-full flex-column sm:w-6">
+			<dashboard-add-button [isLoading]="loading" [invalid]="form.invalid" />
+		</div>
 
-        <p-toast position="top-center"></p-toast>
-    </form>
+		<p-toast position="top-center"></p-toast>
+	</form>
 </div>

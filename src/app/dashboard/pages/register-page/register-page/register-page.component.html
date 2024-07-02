@@ -1,79 +1,81 @@
-<form autocomplete="off" [formGroup]="registerForm" class="surface-section py-6 px-4  justify-content-center"
-    (ngSubmit)="onSave()">
-    <p class="font-medium text-primary">Da de alta a un nuevo usuario, seleccionando por tipo:</p>
-    <div class="w-full sm:w-auto">
-        <div class="mt-5">
-            <p-selectButton
-            formControlName="type" 
-            [options]="userTypes" 
-            [multiple]="false" 
-            optionLabel="name"
-            optionValue="value"
-            (onOptionClick)="selectedOption($event)" 
-            >
-            </p-selectButton>
-        </div>
-        <small *ngIf="isValidField('type')" class="ml-2 text-red-500">{{displayError('type')}}</small>
-    </div>
-    <div class="formgrid grid justify-content-center sm:justify-content-start">
-        
-        <div class="w-full sm:w-auto">
-            <div class="p-float-label mt-5">
-                <input required formControlName="name" type="text" class="mx-2 w-full sm:w-auto" pInputText
-                    id="name" />
-                <label htmlFor="name">Nombre</label>
-            </div>
-            <small *ngIf="isValidField('name')" class="ml-2 text-red-500">{{displayError('name')}}</small>
-        </div>
-        <div class="w-full sm:w-auto">
-            <div class="p-float-label mt-5">
-                <input formControlName="secondName" type="text" class="mx-2 w-full sm:w-auto" pInputText
-                    id="secondName" />
-                <label htmlFor="secondName">Segundo nombre</label>
-            </div>
-            <small *ngIf="isValidField('secondName')" class="ml-2 text-red-500">{{displayError('secondName')}}</small>
-        </div>
-        <div class="w-full sm:w-auto">
-            <div class="p-float-label mt-5">
-                <input formControlName="lastName" type="text" class="mx-2 w-full sm:w-auto" pInputText
-                    id="lastName" />
-                <label htmlFor="lastName">Apellido</label>
-            </div>
-            <small *ngIf="isValidField('lastName')" class="ml-2 text-red-500">{{displayError('lastName')}}</small>
-        </div>
-        <div class="w-full sm:w-auto">
-            <div class="p-float-label mt-5">
-                <input formControlName="motherName" type="text" class="mx-2 w-full sm:w-auto" pInputText
-                    id="motherName" />
-                <label htmlFor="motherName">Apellido materno</label>
-            </div>
-            <small *ngIf="isValidField('motherName')" class="ml-2 text-red-500">{{displayError('motherName')}}</small>
-        </div>
-        <div *ngIf="isStudent" class="w-full sm:w-auto">
-            <div class="p-float-label mt-5">
-                <input formControlName="enrollmentNum" type="text" class="mx-2 w-full sm:w-auto" pInputText
-                    id="enrollmentNum" />
-                <label htmlFor="enrollmentNum">Matrícula</label>
-            </div>
-            <small *ngIf="isValidField('enrollmentNum')" class="ml-2 text-red-500">{{displayError('enrollmentNum')}}</small>
-        </div>
-        <div *ngIf="isEmployee" class="w-full sm:w-auto">
-            <div class="p-float-label mt-5">
-                <input formControlName="employeeKey" type="text" class="mx-2 w-full sm:w-auto" pInputText
-                    id="employeeKey" />
-                <label htmlFor="employeeKey">Número de empleado</label>
-            </div>
-            <small *ngIf="isValidField('employeeKey')" class="ml-2 text-red-500">{{displayError('employeeKey')}}</small>
-        </div>
-        <div *ngIf="isStudent" class="w-full sm:w-auto">
-            <div class="p-float-label mt-5">
-                <input formControlName="address" type="text" class="mx-2 w-full sm:w-auto" pInputText
-                    id="address" />
-                <label htmlFor="address">Dirección</label>
-            </div>
-            <small *ngIf="isValidField('address')" class="ml-2 text-red-500">{{displayError('address')}}</small>
-        </div>
-    </div>
-    <dashboard-add-button [label]="'Crear usuario'" [invalid]="registerForm.invalid" [isLoading]="loading" />
-    <p-toast position="top-center"></p-toast>
+<form
+	autocomplete="off"
+	[formGroup]="registerForm"
+	class="surface-section py-6 px-4 justify-content-center"
+	(ngSubmit)="onSave()"
+>
+	<p class="font-medium text-primary">Da de alta a un nuevo usuario, seleccionando por tipo:</p>
+	<div class="w-full sm:w-auto">
+		<div class="mt-5">
+			<p-selectButton
+				formControlName="type"
+				[options]="userTypes"
+				[multiple]="false"
+				optionLabel="name"
+				optionValue="value"
+				(onOptionClick)="selectedOption($event)"
+			>
+			</p-selectButton>
+		</div>
+		<small *ngIf="isValidField('type')" class="ml-2 text-red-500">{{ displayError('type') }}</small>
+	</div>
+	<div class="formgrid grid justify-content-center sm:justify-content-start">
+		<div class="w-full sm:w-auto">
+			<div class="p-float-label mt-5">
+				<input required formControlName="name" type="text" class="mx-2 w-full sm:w-auto" pInputText id="name" />
+				<label htmlFor="name">Nombre</label>
+			</div>
+			<small *ngIf="isValidField('name')" class="ml-2 text-red-500">{{ displayError('name') }}</small>
+		</div>
+		<div class="w-full sm:w-auto">
+			<div class="p-float-label mt-5">
+				<input formControlName="secondName" type="text" class="mx-2 w-full sm:w-auto" pInputText id="secondName" />
+				<label htmlFor="secondName">Segundo nombre</label>
+			</div>
+			<small *ngIf="isValidField('secondName')" class="ml-2 text-red-500">{{ displayError('secondName') }}</small>
+		</div>
+		<div class="w-full sm:w-auto">
+			<div class="p-float-label mt-5">
+				<input formControlName="lastName" type="text" class="mx-2 w-full sm:w-auto" pInputText id="lastName" />
+				<label htmlFor="lastName">Apellido</label>
+			</div>
+			<small *ngIf="isValidField('lastName')" class="ml-2 text-red-500">{{ displayError('lastName') }}</small>
+		</div>
+		<div class="w-full sm:w-auto">
+			<div class="p-float-label mt-5">
+				<input formControlName="motherName" type="text" class="mx-2 w-full sm:w-auto" pInputText id="motherName" />
+				<label htmlFor="motherName">Apellido materno</label>
+			</div>
+			<small *ngIf="isValidField('motherName')" class="ml-2 text-red-500">{{ displayError('motherName') }}</small>
+		</div>
+		<div *ngIf="isStudent" class="w-full sm:w-auto">
+			<div class="p-float-label mt-5">
+				<input
+					formControlName="enrollmentNum"
+					type="text"
+					class="mx-2 w-full sm:w-auto"
+					pInputText
+					id="enrollmentNum"
+				/>
+				<label htmlFor="enrollmentNum">Matrícula</label>
+			</div>
+			<small *ngIf="isValidField('enrollmentNum')" class="ml-2 text-red-500">{{ displayError('enrollmentNum') }}</small>
+		</div>
+		<div *ngIf="isEmployee" class="w-full sm:w-auto">
+			<div class="p-float-label mt-5">
+				<input formControlName="employeeKey" type="text" class="mx-2 w-full sm:w-auto" pInputText id="employeeKey" />
+				<label htmlFor="employeeKey">Número de empleado</label>
+			</div>
+			<small *ngIf="isValidField('employeeKey')" class="ml-2 text-red-500">{{ displayError('employeeKey') }}</small>
+		</div>
+		<div *ngIf="isStudent" class="w-full sm:w-auto">
+			<div class="p-float-label mt-5">
+				<input formControlName="address" type="text" class="mx-2 w-full sm:w-auto" pInputText id="address" />
+				<label htmlFor="address">Dirección</label>
+			</div>
+			<small *ngIf="isValidField('address')" class="ml-2 text-red-500">{{ displayError('address') }}</small>
+		</div>
+	</div>
+	<dashboard-add-button [label]="'Crear usuario'" [invalid]="registerForm.invalid" [isLoading]="loading" />
+	<p-toast position="top-center"></p-toast>
 </form>

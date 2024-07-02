@@ -1,15 +1,15 @@
 export enum HttpStatusCode {
-    Ok = 200,
-    Created = 201,
-    NoContent = 204,
-    BadRequest = 400,
-    Unauthorized = 401,
-    NotFound = 404,
-    InternalServerError = 500,
+	Ok = 200,
+	Created = 201,
+	NoContent = 204,
+	BadRequest = 400,
+	Unauthorized = 401,
+	NotFound = 404,
+	InternalServerError = 500,
 }
-  
+
 export interface ApiResponse<T> {
-    status: HttpStatusCode;
-    data?: T;
-    error?: string;
+	status: HttpStatusCode;
+	data?: T;
+	error?: string;
 }
