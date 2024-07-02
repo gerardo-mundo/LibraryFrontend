@@ -5,11 +5,6 @@
 	"projects": {
 		"LibraryFrontend": {
 			"projectType": "application",
-			"schematics": {
-				"@schematics/angular:component": {
-					"style": "scss"
-				}
-			},
 			"root": "",
 			"sourceRoot": "src",
 			"prefix": "app",
@@ -44,6 +39,12 @@
 					},
 					"configurations": {
 						"production": {
+							"fileReplacements": [
+								{
+									"replace": "src/environments/environment.ts",
+									"with": "src/environments/environment.prod.ts"
+								}
+							],
 							"budgets": [
 								{
 									"type": "initial",
