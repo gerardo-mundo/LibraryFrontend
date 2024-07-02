@@ -5,8 +5,8 @@ import { Observable, catchError, throwError } from 'rxjs';
 
 import { ILoan, ILoanWithBooks } from '../interfaces/loan.interface';
 
-import { ENVIRONMENT } from 'src/app/environments/environment';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
+import { ENVIRONMENT } from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root',

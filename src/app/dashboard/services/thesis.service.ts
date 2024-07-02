@@ -5,8 +5,8 @@ import { Observable, catchError } from 'rxjs';
 
 import { IThesis } from '../interfaces/thesis.interface';
 
-import { ENVIRONMENT } from 'src/app/environments/environment';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
+import { ENVIRONMENT } from 'src/environments/environment';
 
 @Injectable()
 export class ThesisService {
