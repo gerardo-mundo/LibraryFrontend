@@ -43,3 +43,6 @@ Thumbs.db
 .eslintrc.json
 .eslintignore
 .prettierrc.json
+
+# Environment variables
+.env

@@ -6,9 +6,9 @@ import { Observable, catchError } from 'rxjs';
 import { IAccount, IEmployeeData } from '../interfaces/user.interface';
 
 import { IAuthenticationResponse } from 'src/app/auth/interfaces/login.interface';
-import { ENVIRONMENT } from 'src/app/environments/environment';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
 import { ApiResponse } from 'src/app/shared/interfaces/httpResponse.interface';
+import { ENVIRONMENT } from 'src/environments/environment';
 
 interface passwordConfirmed {
 	password: string;

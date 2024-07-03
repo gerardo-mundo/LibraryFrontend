@@ -5,8 +5,8 @@ import { Observable, catchError } from 'rxjs';
 
 import { IUser } from '../interfaces/user.interface';
 
-import { ENVIRONMENT } from 'src/app/environments/environment';
 import { handleErrors } from 'src/app/shared/helpers/handlers';
+import { ENVIRONMENT } from 'src/environments/environment';
 
 @Injectable({
 	providedIn: 'root',
