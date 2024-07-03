@@ -42,6 +42,7 @@
 		"@angular-eslint/template-parser": "16.2.0",
 		"@angular/cli": "~16.1.6",
 		"@angular/compiler-cli": "^16.1.0",
+		"@ngx-env/builder": "^18.0.1",
 		"@types/crypto-js": "^4.2.2",
 		"@types/jasmine": "~4.3.0",
 		"@typescript-eslint/eslint-plugin": "5.62.0",
