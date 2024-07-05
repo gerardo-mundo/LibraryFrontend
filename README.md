@@ -136,3 +136,14 @@ In order to maintain a consistent code quality, it was defined a ruleset to foll
 
 3. To test that all rules were appliedn when you introduce a new change, you must execute the script named `npm run lint-and-format` to detect possibles errors and violations to the standar.
 4. If errors were detected, you can run `npm run fix-and-format` script to try automatic corrections of them. If this errors couldn't be repaired by the script, you should identify in the terminal and then fix them in order to pass the Eslint test.
+
+## Setting up Environment Variables
+
+This project uses `ngx-env/builder`, which provides a way to manage environment variables in both development and production stages. To correctly utilize these variables in the development environment, you need to configure a `.env` file at this path: `src/.env`. In this file, you can set up the base URL for the API connection and an encryption key required by `crypto-js`. Place the file as described above:
+
+```
+APP_BASE_URL=http://localhost:8080/api
+APP_ENCRYPTION_KEY=Your-encrypted-and-secret-key
+```
+
+Ensure that you are using the correct `localhost:8080` port, as the Docker image used to run the backend is configured on that port. Additionally, you can set the value of `APP_ENCRYPTION_KEY` as you prefer.
