@@ -2,25 +2,21 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.6.
 
-## Development server
+## Launch Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Run `npm run dev` for a development server. When you excecute this command, the application automatically will launched to your brouse or well you also can navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
 Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Build a production instance of the application
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
 ## Eslint and Prettier configuration
 
@@ -134,7 +130,7 @@ In order to maintain a consistent code quality, it was defined a ruleset to foll
 }
 ```
 
-3. To test that all rules were appliedn when you introduce a new change, you must execute the script named `npm run lint-and-format` to detect possibles errors and violations to the standar.
+3. To test that all rules were applied when you introduce a new change, you must execute the script named `npm run lint-and-format` to detect possibles errors and violations to the standar.
 4. If errors were detected, you can run `npm run fix-and-format` script to try automatic corrections of them. If this errors couldn't be repaired by the script, you should identify in the terminal and then fix them in order to pass the Eslint test.
 
 ## Setting up Environment Variables
