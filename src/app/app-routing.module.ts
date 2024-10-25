@@ -17,12 +17,16 @@ const routes: Routes = [
 		loadChildren: () => import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
 	},
 	{
+		path: 'home',
+		loadChildren: () => import('./home/home.module').then((m) => m.HomeModule),
+	},
+	{
 		path: '404',
 		component: NotFoundPageComponent,
 	},
 	{
 		path: '',
-		redirectTo: 'auth/login',
+		redirectTo: 'home',
 		pathMatch: 'full',
 	},
 	{
