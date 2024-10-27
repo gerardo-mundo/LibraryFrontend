@@ -6,6 +6,7 @@ declare interface Env {
 	readonly APP_BASE_URL: string;
 	readonly APP_ENCRYPTATION_KEY: string;
 	readonly NG_API_KEY: string;
+	readonly PEXELS_API_KEY: string;
 }
 
 // Choose how to access the environment variables.
