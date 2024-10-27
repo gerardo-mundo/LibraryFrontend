@@ -11,14 +11,21 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
 					magna aliqua.
 				</p>
-				<button pButton pRipple label="Iniciar sesión" type="button" class="mr-3 p-button-raised"></button>
+				<button
+					routerLink="/auth/login"
+					pButton
+					pRipple
+					label="Iniciar sesión"
+					type="button"
+					class="mr-3 p-button-raised"
+				></button>
 				<!-- <button pButton pRipple label="Live Demo" type="button" class="p-button-outlined"></button> -->
 			</section>
 		</div>
 		<div class="col-12 md:col-6 overflow-hidden">
 			<img
-				src="https://pixabay.com/get/g873a993986770798e1666fba5ae776b68a8e03135aeaf02efa5156ae5c4bd435bb2769b59e92efd294c41571edfcf7301c21813f2b8cd7d88225bb982141422d_1280.jpg"
-				alt="Image"
+				src="{{ heroImg?.src?.landscape }}"
+				alt="Hero Image"
 				class="md:ml-auto block md:h-full"
 				style="clip-path: polygon(8% 0, 100% 0%, 100% 100%, 0 100%)"
 			/>
@@ -31,13 +38,13 @@
 			<div class="text-700 text-2xl mb-5">
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos.
 			</div>
-			<button
+			<!-- <button
 				pButton
 				pRipple
 				label="Únete Ahora"
 				icon="pi pi-book"
 				class="font-bold px-5 py-3 p-button-raised p-button-rounded white-space-nowrap"
-			></button>
+			></button> -->
 		</div>
 	</div>
 </body>
