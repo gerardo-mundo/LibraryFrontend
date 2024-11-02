@@ -1,62 +1,73 @@
-<!-- eslint-disable @angular-eslint/template/elements-content -->
-
-<div class="surface-card p-4 shadow-6 border-round w-full flex flex-column">
-	<div class="text-center mb-5">
-		<div class="text-primary text-3xl font-medium mb-3">Iniciar sesión</div>
-		<i class="pi pi-at" style="font-size: 2.5rem; color: #6366f1"></i>
+<div class="h-screen w-full flex flex-row align-items-center bg-primary-200">
+	<div class="w-6 h-screen">
+		<div
+			class="relative bg-no-repeat bg-cover w-full h-full bg-primary-200"
+			style="background-image: url('https://images.pexels.com/photos/12064/pexels-photo-12064.jpeg')"
+		></div>
+		<div class="absolute left-0 top-0 right-0 w-6 h-full bg-primary opacity-70"></div>
 	</div>
-	<form autocomplete="off" [formGroup]="loginForm" (submit)="onLogin()">
-		<label for="email" class="block text-900 font-medium mb-2">Correo:</label>
-		<input
-			formControlName="email"
-			id="email"
-			type="text"
-			placeholder="nombre@correo.com"
-			pInputText
-			class="w-full mb-5"
-			[ngClass]="{
-				'ng-invalid ng-dirty':
-					loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
-			}"
-		/>
-
-		<label for="password" class="block text-900 font-medium mb-2">Contraseña:</label>
-		<p-password
-			formControlName="password"
-			[toggleMask]="true"
-			[style]="{ width: '100%' }"
-			styleClass="mb-3"
-			[feedback]="false"
-			[ngClass]="{
-				'ng-invalid ng-dirty':
-					loginForm.get('password')?.invalid && (loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
-			}"
-		>
-		</p-password>
-
-		<div class="flex align-items-center justify-content-between mb-6">
-			<div class="flex align-items-center">
-				<p-checkbox
-					formControlName="isChecked"
-					(onChange)="onChekBoxChange($event)"
-					id="rememberme"
-					[binary]="true"
-					styleClass="mr-2"
-				></p-checkbox>
-				<label class="text-primary" for="rememberme">Recordar mis datos</label>
+	<!-- <img class="w-6 h-screen" src="https://images.pexels.com/photos/2041540/pexels-photo-2041540.jpeg" alt="auth-img" /> -->
+	<div class="w-6 flex flex-column align-items-center">
+		<div class="surface-card p-4 shadow-6 border-round">
+			<div class="text-center mb-5">
+				<i class="pi pi-book" style="font-size: 2rem; color: #6366f1"></i>
+				<div class="text-primary-400 text-xl font-medium mt-3 mb-3">Iniciar sesión</div>
 			</div>
+			<form autocomplete="off" [formGroup]="loginForm" (submit)="onLogin()">
+				<label for="email" class="block text-900 font-medium mb-2">Correo:</label>
+				<input
+					formControlName="email"
+					id="email"
+					type="text"
+					placeholder="nombre@correo.com"
+					pInputText
+					class="w-full mb-5"
+					[ngClass]="{
+						'ng-invalid ng-dirty':
+							loginForm.get('email')?.invalid && (loginForm.get('email')?.dirty || loginForm.get('email')?.touched)
+					}"
+				/>
+
+				<label for="password" class="block text-900 font-medium mb-2">Contraseña:</label>
+				<p-password
+					formControlName="password"
+					[toggleMask]="true"
+					[style]="{ width: '100%' }"
+					class="w-full"
+					[feedback]="false"
+					[ngClass]="{
+						'ng-invalid ng-dirty':
+							loginForm.get('password')?.invalid &&
+							(loginForm.get('password')?.dirty || loginForm.get('password')?.touched)
+					}"
+				>
+				</p-password>
+
+				<div class="flex align-items-center justify-content-between mb-6">
+					<div class="flex align-items-center mt-3">
+						<p-checkbox
+							formControlName="isChecked"
+							(onChange)="onChekBoxChange($event)"
+							id="rememberme"
+							[binary]="true"
+							styleClass="mr-2"
+						></p-checkbox>
+						<label class="text-primary" for="rememberme">Recordar mis datos</label>
+					</div>
+				</div>
+				<button
+					type="submit"
+					pButton
+					pRipple
+					class="w-full justify-content-center"
+					styleClass="p-button-raised"
+					icon="pi pi-user"
+					label="Iniciar sesión"
+					[disabled]="loginForm.invalid"
+					[loading]="isLoading"
+				></button>
+			</form>
+			<p-toast position="top-center"></p-toast>
 		</div>
-		<button
-			type="submit"
-			pButton
-			pRipple
-			class="w-full justify-content-center"
-			styleClass="p-button-raised"
-			icon="pi pi-user"
-			label="Iniciar sesión"
-			[disabled]="loginForm.invalid"
-			[loading]="isLoading"
-		></button>
-	</form>
-	<p-toast position="top-center"></p-toast>
+	</div>
 </div>
