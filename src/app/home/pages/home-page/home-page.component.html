@@ -1,5 +1,23 @@
 <body>
-	<div class="grid grid-nogutter surface-section text-800">
+	<div class="card">
+		<p-menubar [model]="items">
+			<ng-template pTemplate="start">
+				<img src="assets/icons/book.svg" alt="book Icon" width="64" height="64" />
+			</ng-template>
+			<ng-template pTemplate="end">
+				<button
+					icon="pi pi-user"
+					routerLink="/auth/login"
+					pButton
+					pRipple
+					label="Inicia sesión"
+					type="button"
+					class="zoominleft animation-duration-2000 mr-3 p-button-raised"
+				></button>
+			</ng-template>
+		</p-menubar>
+	</div>
+	<div class="fadein animation-duration-1000 grid grid-nogutter bg-primary-200 text-800">
 		<div class="col-12 md:col-6 p-6 text-center md:text-left flex align-items-center">
 			<section>
 				<span class="block text-6xl font-bold mb-3">¡Toma el control en tus manos!</span>
@@ -11,15 +29,6 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
 					magna aliqua.
 				</p>
-				<button
-					routerLink="/auth/login"
-					pButton
-					pRipple
-					label="Iniciar sesión"
-					type="button"
-					class="mr-3 p-button-raised"
-				></button>
-				<!-- <button pButton pRipple label="Live Demo" type="button" class="p-button-outlined"></button> -->
 			</section>
 		</div>
 		<div class="col-12 md:col-6 overflow-hidden">
@@ -31,20 +40,82 @@
 			/>
 		</div>
 	</div>
-	<div class="surface-section px-4 py-8 md:px-6 lg:px-8">
+	<div class="bg-primary-100 px-4 py-8 h-70rem md:px-6 lg:px-8">
 		<div class="text-700 text-center">
-			<div class="text-blue-600 font-bold mb-3"><i class="pi pi-box"></i>&nbsp;POWERED BY SISGEB</div>
-			<div class="text-900 font-bold text-5xl mb-3">Únete A Nuestra Comunidad</div>
+			<div class="text-900 font-bold text-5xl mb-3">Tus datos en todo momento y lugar</div>
 			<div class="text-700 text-2xl mb-5">
 				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos.
 			</div>
-			<!-- <button
-				pButton
-				pRipple
-				label="Únete Ahora"
-				icon="pi pi-book"
-				class="font-bold px-5 py-3 p-button-raised p-button-rounded white-space-nowrap"
-			></button> -->
+			<div class="text-blue-600 font-bold mb-3">&nbsp;ACCEDE A TUS RECURSOS DESDE LA NUBE</div>
+			<div class="flex flex-column">
+				<i class="pi pi-cloud" style="font-size: 10rem; color: var(--primary-color)"></i>
+				<i
+					class="pi pi-arrow-circle-down fadeoutdown animation-duration-2000 animation-iteration-infinite"
+					style="font-size: 5rem; color: var(--primary-color)"
+				></i>
+			</div>
 		</div>
 	</div>
+	<div class="surface-section px-4 py-8 md:px-6 lg:px-8 h-auto mb-6">
+		<div class="text-700 flex align-items-center gap-3">
+			<div
+				class="shadow-6 align-self-start bg-cover border-round h-20rem w-20rem"
+				style="background-image: url('https://images.pexels.com/photos/12064/pexels-photo-12064.jpeg')"
+			></div>
+			<div class="flex flex-column">
+				<div class="text-900 font-bold text-5xl mb-3">Se parte de una experiencia única</div>
+				<div class="text-500 text-2xl mb-5">
+					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos.
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="bg-primary-100 px-4 py-8 md:px-6 lg:px-8">
+		<div class="text-700 text-center">
+			<div class="flex flex-row gap-3 align-items-center justify-content-center py-4">
+				<i class="pi pi-facebook" style="font-size: 2.5rem; color: var(--primary-color)"></i>
+				<i class="pi pi-twitter" style="font-size: 2.5rem; color: var(--primary-color)"></i>
+				<i class="pi pi-instagram" style="font-size: 2.5rem; color: var(--primary-color)"></i>
+			</div>
+
+			<div class="text-900 font-bold text-5xl mb-3">Únete a nuestra comunidad</div>
+			<div class="text-700 text-2xl mb-5">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos.
+			</div>
+			<div class="text-blue-600 font-bold mb-3"><i class="pi pi-box"></i>&nbsp;POWERED BY SISGEB</div>
+		</div>
+	</div>
+	<div class="surface-section px-4 py-8 md:px-6 lg:px-8 h-auto mb-6">
+		<div class="text-700 flex flex-column align-items-center gap-3">
+			<div class="text-900 font-bold text-5xl mb-3">Se parte de una experiencia única, conoce nuestros planes</div>
+			<div class="text-500 text-2xl mb-5">
+				Lorem ipsum dolor sit, amet consectetur adipisicing elit. Velit numquam eligendi quos.
+			</div>
+
+			<button
+				(click)="displayMessage()"
+				pButton
+				pRipple
+				label="Ver Planes"
+				icon="pi pi-book"
+				class="font-bold px-5 py-3 p-button-raised p-button-rounded white-space-nowrap"
+			></button>
+			<p-toast position="top-center" key="inf"></p-toast>
+		</div>
+	</div>
+	<footer class="h-auto bg-primary p-5 flex flex-column align-items-center">
+		<div class="flex flex-row gap-3">
+			<i class="pi pi-linkedin"></i>
+			<i class="pi pi-facebook"></i>
+			<i class="pi pi-twitter"></i>
+			<i class="pi pi-whatsapp"></i>
+		</div>
+		<div class="flex flex-column align-items-center mt-3">
+			<p>Sistema de Gestión Bibliotecario &copy;</p>
+			<p>Todos los derechos reservados</p>
+			<p class="text-sm">
+				{{ date | date: 'longDate' }}
+			</p>
+		</div>
+	</footer>
 </body>
