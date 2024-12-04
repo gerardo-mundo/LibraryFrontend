@@ -26,61 +26,13 @@
 		<span class="text-primary"> (SISGEB)</span>
 	</div>
 	<div class="grid">
-		<div class="col-12 md:col-4 mb-4 px-5">
+		<div *ngFor="let card of cardsList" class="col-12 md:col-4 mb-4 px-5">
 			<span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-				<img
-					src="https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280"
-					alt="img-icon-1"
-				/>
+				<!-- <i src="{{ card.icon }}" alt="img-icon-{{ card.title }}" /> -->
+				<i class="{{ card.icon }}" style="font-size: 2rem; color: var(--primary-color)"></i>
 			</span>
-			<div class="text-900 text-xl mb-3 font-medium">Gestiona</div>
-			<span class="text-700 line-height-3"
-				>Desde cualquier lugar, solo necesitas acceso tus credenciales y acceso a internet.</span
-			>
-		</div>
-		<div class="col-12 md:col-4 mb-4 px-5">
-			<span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-				<img
-					src="https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280"
-					alt="img-icon-2"
-				/>
-			</span>
-			<div class="text-900 text-xl mb-3 font-medium">Seguridad</div>
-			<span class="text-700 line-height-3"
-				>Con nuestro sistema de autenticación, tu información siempre estará a salvo.</span
-			>
-		</div>
-		<div class="col-12 md:col-4 mb-4 px-5">
-			<span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-				<img
-					src="https://images.pexels.com/photos/12064/pexels-photo-12064.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280"
-					alt="img-icon-3"
-				/>
-			</span>
-			<div class="text-900 text-xl mb-3 font-medium">Fácil de usar</div>
-			<span class="text-700 line-height-3"
-				>El diseño intuitivo y de facil acceso, permite crear y gestionar registros fácilmente.</span
-			>
-		</div>
-		<div class="col-12 md:col-4 mb-4 px-5">
-			<span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-				<img
-					src="https://images.pexels.com/photos/2041540/pexels-photo-2041540.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280"
-					alt="img-icon-4"
-				/>
-			</span>
-			<div class="text-900 text-xl mb-3 font-medium">Rápido y de acceso global</div>
-			<span class="text-700 line-height-3">Ten seguridad y confianza al momento de acceder a tus registros.</span>
-		</div>
-		<div class="col-12 md:col-4 md:mb-4 mb-0 px-3">
-			<span class="p-3 shadow-2 mb-3 inline-block surface-card" style="border-radius: 10px">
-				<img
-					src="https://images.pexels.com/photos/2908984/pexels-photo-2908984.jpeg?auto=compress&cs=tinysrgb&dpr=1&fit=crop&h=200&w=280"
-					alt="img-icon-5"
-				/>
-			</span>
-			<div class="text-900 text-xl mb-3 font-medium">Confiable</div>
-			<span class="text-700 line-height-3">Gestiona las cuentas e información personal de manera eficiente.</span>
+			<div class="text-900 text-xl mb-3 font-medium">{{ card.title }}</div>
+			<span class="text-700 line-height-3">{{ card.description }}</span>
 		</div>
 	</div>
 </div>
