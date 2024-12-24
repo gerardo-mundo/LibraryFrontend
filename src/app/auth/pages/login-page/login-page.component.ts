@@ -69,7 +69,7 @@ export class LoginPageComponent implements OnInit {
 				this.messageService.add({
 					severity: 'error',
 					summary: 'Ups',
-					detail: `${error}`,
+					detail: error instanceof ProgressEvent ? 'Error de conexión' : `${error}`,
 				});
 				this.authService.isAuthenticated.next(AuthenticationStatus.notAuthenticated);
 				this.isLoading = false;
